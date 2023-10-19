@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script type="json" src="data.json"></script>
+        <script type="module" src="script.js"></script>
+        <title>Darkmoon</title>
+    </head>
+    <body>
+        <header>
+            <h1>Darkmoon Calculator</h1>
+        </header>
+        <div class="container">
+            <div class="total-progress">
+                <div class="total-progress-value">0%</div>
+                <progress
+                    value="0"
+                    max="1"
+                    class="total-progress-bar"
+                ></progress>
+            </div>
+
+            <div class="images-container">
+                <div class="image-container">
+                    <img src="" id="material-img-2" class="material-img" />
+                </div>
+                <div class="image-container">
+                    <img src="" id="material-img-1" class="material-img" />
+                </div>
+                <div class="image-container">
+                    <img src="" id="material-img-0" class="material-img" />
+                </div>
+            </div>
+            <div class="inputs-container">
+                <input type="number" id="input-2" class="input" />
+                <input type="number" id="input-1" class="input" />
+                <input type="number" id="input-0" class="input" />
+            </div>
+            <div class="bars-container">
+                <progress
+                    value="0"
+                    max="9999"
+                    id="progress-bar-2"
+                    class="progress-bar"
+                ></progress>
+                <progress
+                    value="0"
+                    max="9999"
+                    id="progress-bar-1"
+                    class="progress-bar"
+                ></progress>
+                <progress
+                    value="0"
+                    max="9999"
+                    id="progress-bar-0"
+                    class="progress-bar"
+                ></progress>
+            </div>
+            <h2>剩余敌人</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>敌人</th>
+                        <th>类型</th>
+                        <th>剩余敌人</th>
+                        <th>敌人数/车</th>
+                        <th>剩余车数</th>
+                    </tr>
+                </thead>
+                <tbody class="enemy-table"></tbody>
+            </table>
+            <h2>合成</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>品阶</th>
+                        <th>配平合成</th>
+                        <th>毕业合成</th>
+                        <th>溢出</th>
+                    </tr>
+                </thead>
+                <tbody class="craft-table">
+                    <tr>
+                        <td>高阶</td>
+                        <td id="balancing-craft-high"></td>
+                        <td id="all-craft-high"></td>
+                        <td id="out-of-max-high"></td>
+                    </tr>
+                    <tr>
+                        <td>中阶</td>
+                        <td id="balancing-craft-medium"></td>
+                        <td id="all-craft-medium"></td>
+                        <td id="out-of-max-medium"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>材料一览</h2>
+            <div class="list">
+                <div class="list-row">
+                    <img src="images/31-2.png" class="list-icon" />
+                    <img src="images/31-1.png" class="list-icon" />
+                    <img src="images/31-0.png" class="list-icon" />
+                    <progress
+                        value="5000"
+                        max="9999"
+                        class="list-progress"
+                    ></progress
+                    >70%
+                    <button>Calc</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
