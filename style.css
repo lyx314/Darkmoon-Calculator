@@ -24,10 +24,25 @@ h2 {
 }
 
 table {
+    table-layout: auto;
     margin: 0 auto;
     width: 90%;
     text-align: center;
     font-size: 18px;
+}
+
+th {
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #1098ad13;
 }
 
 li {
