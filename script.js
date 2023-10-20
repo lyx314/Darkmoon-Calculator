@@ -8,6 +8,7 @@ import jsonData from "./data.json" assert { type: "json" };
 const list = document.querySelector(".list");
 const totalPorgressBar = document.querySelector(".total-progress-bar");
 const totalPorgressValue = document.querySelector(".total-progress-value");
+const enemyTable = document.querySelector(".enemy-table");
 const materialsImages = [
     document.getElementById("material-img-0"),
     document.getElementById("material-img-1"),
@@ -23,20 +24,52 @@ const progressBars = [
     document.getElementById("progress-bar-1"),
     document.getElementById("progress-bar-2"),
 ];
-const enemyTable = document.querySelector(".enemy-table");
-const craftTable = document.querySelector(".craft-table");
+const checkboxSortId = document.getElementById("sort-by-id");
+const checkboxSortProgress = document.getElementById("sort-by-progress");
+const checkboxAscending = document.getElementById("ascending");
+const checkboxDescending = document.getElementById("descending");
 
+// data
 const cachedData = JSON.parse(localStorage.getItem("darkmoonCalculator"));
 const data = cachedData ? cachedData : jsonData;
-
-console.log(localStorage);
-console.log(data);
 
 let currentId = localStorage.getItem("currentId")
     ? Number(localStorage.getItem("currentId"))
     : 1;
-
 const findMaterial = (id) => data.find((item) => item.id === id);
+
+const printListItem = function (item) {
+    const html = `
+            <div class="list-row" id="list-row-${item.id}"> 
+                <img
+                    src="images/${item.id}-2.png" 
+                    class="list-icon"
+                />${item.numbers[2]}
+                <img
+                    src="images/${item.id}-1.png" 
+                    class="list-icon"
+                />${item.numbers[1]}
+                <img
+                    src="images/${item.id}-0.png" 
+                    class="list-icon"
+                />${item.numbers[0]}
+                <progress
+                    value="${item.progress}"
+                    max="1"
+                    class="list-progress"
+                ></progress>
+                ${(item.progress * 100).toFixed(2)}%
+            </div>`;
+    list.insertAdjacentHTML("beforeend", html);
+    document
+        .getElementById(`list-row-${item.id}`)
+        .addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            currentId = item.id;
+            localStorage.setItem("currentId", currentId);
+            fillPanel();
+        });
+};
 
 const printListById = function (desc = false) {
     list.innerHTML = "";
@@ -46,39 +79,77 @@ const printListById = function (desc = false) {
             id = data.length - i;
         }
         const item = findMaterial(id);
-        const html = `
-            <div class="list-row" id="list-row-${id}"> 
-                <img
-                    src="images/${id}-2.png" 
-                    class="list-icon"
-                />${item.numbers[2]}
-                <img
-                    src="images/${id}-1.png" 
-                    class="list-icon"
-                />${item.numbers[1]}
-                <img
-                    src="images/${id}-0.png" 
-                    class="list-icon"
-                />${item.numbers[0]}
-                <progress
-                    value="${data[i].progress}"
-                    max="1"
-                    class="list-progress"
-                ></progress>
-                ${(data[i].progress * 100).toFixed(2)}%
-            </div>`;
-        list.insertAdjacentHTML("beforeend", html);
-        document
-            .getElementById(`list-row-${id}`)
-            .addEventListener("click", function () {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-                currentId = id;
-                localStorage.setItem("currentId", currentId);
-                fillPanel();
-            });
+        printListItem(item);
     }
 };
-printListById();
+
+const printListByProgress = function (desc = false) {
+    if (desc) {
+        //降序
+        data.sort((a, b) => b.progress - a.progress);
+    } else {
+        // 升序
+        data.sort((a, b) => a.progress - b.progress);
+    }
+    list.innerHTML = "";
+    for (let i = 0; i < data.length; i++) {
+        printListItem(data[i]);
+    }
+};
+
+const printList = function () {
+    if (checkboxSortId.checked) {
+        if (checkboxAscending.checked) {
+            printListById(false);
+        } else {
+            printListById(true);
+        }
+    } else {
+        if (checkboxAscending.checked) {
+            printListByProgress(false);
+        } else {
+            printListByProgress(true);
+        }
+    }
+};
+printList();
+
+checkboxSortId.addEventListener("click", function () {
+    if (this.checked) {
+        checkboxSortProgress.checked = false;
+        printList();
+    }
+    if (!this.checked) {
+        this.checked = true;
+    }
+});
+checkboxSortProgress.addEventListener("click", function () {
+    if (this.checked) {
+        checkboxSortId.checked = false;
+        printList();
+    }
+    if (!this.checked) {
+        this.checked = true;
+    }
+});
+checkboxAscending.addEventListener("click", function () {
+    if (this.checked) {
+        checkboxDescending.checked = false;
+        printList();
+    }
+    if (!this.checked) {
+        this.checked = true;
+    }
+});
+checkboxDescending.addEventListener("click", function () {
+    if (this.checked) {
+        checkboxAscending.checked = false;
+        printList();
+    }
+    if (!this.checked) {
+        this.checked = true;
+    }
+});
 
 const fillPanel = function () {
     const item = findMaterial(currentId);
@@ -176,7 +247,7 @@ const onInputChange = function () {
     item.progress = calc.progress();
     localStorage.setItem("darkmoonCalculator", JSON.stringify(data));
     fillPanel();
-    printListById();
+    printList();
 };
 
 inputs.forEach(function (input) {
