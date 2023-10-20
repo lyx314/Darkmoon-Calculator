@@ -2,6 +2,7 @@
 
 export class Calculator {
     constructor(low, medium, high) {
+        this.initNumbers = [low, medium, high];
         this.numbers = [low, medium, high];
         this.drop = [0, 0, 0];
         this.outOfMax = [0, 0, 0];
@@ -87,22 +88,32 @@ export class Calculator {
     }
 
     calculate(bonus = true) {
-        const initNumbers = [...this.numbers];
+        this.numbers = [...this.initNumbers];
         this.resetCounters();
-        this.craft(bonus);
         while (!this.completed()) {
             this.addOne();
             this.craft(bonus);
         }
-        for (let i = 0; i < 3; i++) {
-            const out = this.numbers[i] - this.max;
-            this.outOfMax[i] = out > this.drop[i] ? out.toFixed(1) : 0;
+        this.getOutOfMax();
+    }
+
+    getOutOfMax() {
+        if (this.completed()) {
+            for (let i = 0; i < 3; i++) {
+                const out = this.numbers[i] - this.max;
+                this.outOfMax[i] = out > this.drop[i] ? out.toFixed(1) : 0;
+            }
         }
-        this.numbers = initNumbers;
     }
 
     progress() {
-        const [low, medium, high] = this.numbers;
-        return (low + medium * 3 + high * 9) / (this.max * (1 + 3 + 9));
+        return (
+            this.weight(this.numbers) /
+            this.weight([this.max, this.max, this.max])
+        );
+    }
+
+    weight(arr) {
+        return arr[0] + arr[1] * 3 + arr[2] * 9;
     }
 }
