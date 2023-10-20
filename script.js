@@ -35,7 +35,7 @@ let data, currentId;
 const init = function () {
     const cachedData = JSON.parse(localStorage.getItem("darkmoonCalculator"));
     data = cachedData ? cachedData : jsonData;
-    //console.log(data);
+    console.log(data);
     currentId = localStorage.getItem("currentId")
         ? Number(localStorage.getItem("currentId"))
         : 1;
@@ -167,6 +167,7 @@ checkboxHideComplete.addEventListener("click", function () {
 
 const fillPanel = function () {
     const item = findMaterial(currentId);
+    const calc = new Calculator(item);
 
     // 图片、数量、分进度条
     for (let i = 0; i < 3; i++) {
@@ -180,10 +181,8 @@ const fillPanel = function () {
     totalPorgressBar.value = item.progress;
     totalPorgressValue.textContent = `${(item.progress * 100).toFixed(2)}%`;
 
-    const calc = new Calculator(item);
-    calc.craft();
-
     // 配平合成
+    calc.craft();
     document.getElementById("balancing-craft-medium").textContent =
         calc.craftCounters[0];
     document.getElementById("balancing-craft-high").textContent =
@@ -191,15 +190,14 @@ const fillPanel = function () {
 
     // 剩余敌人
     enemyTable.innerHTML = "";
+    item.enemies = calc.calculateEnemies();
     for (let [rowIndex, enemy] of item.enemies.entries()) {
-        calc.setEnemyDrop(...enemy.drop);
-        calc.calculate();
         let html = `
             <tr>
                 <td>${enemy.name}</td>
                 <td>${enemy.type}</td>
                 <td id="enemy-count-${rowIndex}">
-                    ${calc.enemyCounter}
+                    ${enemy.count}
                 </td>
                 <td>
                     <input

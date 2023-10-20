@@ -32,8 +32,7 @@ export class Calculator {
         for (let i = 0; i < 3; i++) {
             for (let enemy of this.enemies) {
                 if (enemy.enemiesPerRun > 0) {
-                    this.dropPerRun[i] +=
-                        enemy.enemiesPerRun * enemy.drop[i];
+                    this.dropPerRun[i] += enemy.enemiesPerRun * enemy.drop[i];
                 }
             }
         }
@@ -99,21 +98,24 @@ export class Calculator {
         }
     }
 
-    addOne() {
+    addOneEnemy(drop) {
         this.enemyCounter += 1;
         for (let i = 0; i < this.numbers.length; i++) {
-            this.numbers[i] += this.dropPerEnemy[i];
+            this.numbers[i] += drop[i];
         }
     }
 
-    calculate(bonus = true) {
-        this.numbers = [...this.initNumbers];
-        this.resetCounters();
-        while (!this.completed()) {
-            this.addOne();
-            this.craft(bonus);
+    calculateEnemies(bonus = true) {
+        for (let enemy of this.enemies) {
+            this.numbers = [...this.initNumbers];
+            this.resetCounters();
+            while (!this.completed()) {
+                this.addOneEnemy(enemy.drop);
+                this.craft(bonus);
+            }
+            enemy.count = this.enemyCounter;
         }
-        this.getOutOfMax();
+        return this.enemies;
     }
 
     getOutOfMax() {
