@@ -180,7 +180,7 @@ const fillPanel = function () {
     totalPorgressBar.value = item.progress;
     totalPorgressValue.textContent = `${(item.progress * 100).toFixed(2)}%`;
 
-    const calc = new Calculator(...item.numbers);
+    const calc = new Calculator(item);
     calc.craft();
 
     // 配平合成
@@ -192,7 +192,7 @@ const fillPanel = function () {
     // 剩余敌人
     enemyTable.innerHTML = "";
     for (let [rowIndex, enemy] of item.enemies.entries()) {
-        calc.setEnemy(...enemy.drop);
+        calc.setEnemyDrop(...enemy.drop);
         calc.calculate();
         let html = `
             <tr>
@@ -254,7 +254,7 @@ const onInputChange = function () {
         }
         item.numbers[i] = inputNumber;
     }
-    const calc = new Calculator(...item.numbers);
+    const calc = new Calculator(item);
     item.progress = calc.progress();
     localStorage.setItem("darkmoonCalculator", JSON.stringify(data));
     fillPanel();

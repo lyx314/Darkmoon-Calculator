@@ -1,10 +1,13 @@
 "use strict";
 
 export class Calculator {
-    constructor(low, medium, high) {
-        this.initNumbers = [low, medium, high];
-        this.numbers = [low, medium, high];
-        this.drop = [0, 0, 0];
+    constructor(item) {
+        this.initNumbers = item.numbers;
+        this.numbers = item.numbers;
+        this.enemies = item.enemies;
+        this.dropPerEnemy = [0, 0, 0];
+        this.dropPerRun = [0, 0, 0];
+        this.getDropPerRun();
         this.outOfMax = [0, 0, 0];
         this.max = 9999;
         this.craftCounters = [0, 0];
@@ -20,8 +23,24 @@ export class Calculator {
         this.numbers = [low, medium, high];
     }
 
-    setEnemy(low, medium, high) {
-        this.drop = [low, medium, high];
+    setEnemies(enemies) {
+        this.enemies = enemies;
+        this.getDropPerRun();
+    }
+
+    getDropPerRun() {
+        for (let i = 0; i < 3; i++) {
+            for (let enemy of this.enemies) {
+                if (enemy.enemiesPerRun > 0) {
+                    this.dropPerRun[i] +=
+                        enemy.enemiesPerRun * enemy.drop[i];
+                }
+            }
+        }
+    }
+
+    setEnemyDrop(low, medium, high) {
+        this.dropPerEnemy = [low, medium, high];
     }
 
     completed() {
@@ -83,7 +102,7 @@ export class Calculator {
     addOne() {
         this.enemyCounter += 1;
         for (let i = 0; i < this.numbers.length; i++) {
-            this.numbers[i] += this.drop[i];
+            this.numbers[i] += this.dropPerEnemy[i];
         }
     }
 
@@ -101,7 +120,8 @@ export class Calculator {
         if (this.completed()) {
             for (let i = 0; i < 3; i++) {
                 const out = this.numbers[i] - this.max;
-                this.outOfMax[i] = out > this.drop[i] ? out.toFixed(1) : 0;
+                this.outOfMax[i] =
+                    out > this.dropPerEnemy[i] ? out.toFixed(1) : 0;
             }
         }
     }
