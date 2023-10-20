@@ -55,15 +55,15 @@ const printListItem = function (item) {
                 <img
                     src="images/${item.id}-2.png" 
                     class="list-icon"
-                />${item.numbers[2]}
+                />${item.numbers[2].toFixed()}
                 <img
                     src="images/${item.id}-1.png" 
                     class="list-icon"
-                />${item.numbers[1]}
+                />${item.numbers[1].toFixed()}
                 <img
                     src="images/${item.id}-0.png" 
                     class="list-icon"
-                />${item.numbers[0]}
+                />${item.numbers[0].toFixed()}
                 <progress
                     value="${item.progress}"
                     max="1"
@@ -165,6 +165,10 @@ checkboxHideComplete.addEventListener("click", function () {
     printList();
 });
 
+const writeRuntimes = function (value) {
+    document.getElementById("run-times-0").textContent = value;
+};
+
 const fillPanel = function () {
     const item = findMaterial(currentId);
     const calc = new Calculator(item);
@@ -196,9 +200,7 @@ const fillPanel = function () {
             <tr>
                 <td>${enemy.name}</td>
                 <td>${enemy.type}</td>
-                <td id="enemy-count-${rowIndex}">
-                    ${enemy.count}
-                </td>
+                <td>${enemy.count}</td>
                 <td>
                     <input
                         type="number"
@@ -206,39 +208,35 @@ const fillPanel = function () {
                         id="table-input-${rowIndex}"
                     />
                 </td>
-                <td id="run-times-${rowIndex}"> - </td>
+                <td id="run-times-${rowIndex}"></td>
             </tr>`;
         enemyTable.insertAdjacentHTML("beforeend", html);
-        const leftEnemies = document.getElementById(`enemy-count-${rowIndex}`);
-        const leftRuntimes = document.getElementById(`run-times-${rowIndex}`);
         const tableInput = document.getElementById(`table-input-${rowIndex}`);
         if (enemy.enemiesPerRun > 0) {
             tableInput.value = enemy.enemiesPerRun.toFixed();
-            leftRuntimes.textContent = (
-                Number(leftEnemies.textContent) / enemy.enemiesPerRun
-            ).toFixed(1);
         }
         tableInput.addEventListener("change", function () {
             const inputNumber = Number(this.value);
-            if (inputNumber > 0) {
-                leftRuntimes.textContent = (
-                    Number(leftEnemies.textContent) / inputNumber
-                ).toFixed(1);
+            if (inputNumber >= 1) {
                 enemy.enemiesPerRun = inputNumber;
             } else {
                 this.value = "";
-                leftRuntimes.textContent = "-";
                 delete enemy.enemiesPerRun;
             }
+            calc.setEnemies(item.enemies);
+            writeRuntimes(calc.calculateRuntimes());
             localStorage.setItem("darkmoonCalculator", JSON.stringify(data));
         });
     }
+    writeRuntimes(calc.calculateRuntimes());
     document.getElementById("all-craft-high").textContent =
         calc.craftCounters[1];
     document.getElementById("all-craft-medium").textContent =
         calc.craftCounters[0];
-    document.getElementById("out-of-max-high").textContent = calc.outOfMax[2];
-    document.getElementById("out-of-max-medium").textContent = calc.outOfMax[1];
+    document.getElementById("out-of-max-high").textContent =
+        calc.outOfMax[2] > calc.dropPerRun[2] ? calc.outOfMax[2].toFixed(1) : 0;
+    document.getElementById("out-of-max-medium").textContent =
+        calc.outOfMax[1] > calc.dropPerRun[1] ? calc.outOfMax[1].toFixed(1) : 0;
 };
 fillPanel();
 

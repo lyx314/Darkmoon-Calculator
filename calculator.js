@@ -12,11 +12,13 @@ export class Calculator {
         this.max = 9999;
         this.craftCounters = [0, 0];
         this.enemyCounter = 0;
+        this.runCounter = 0;
     }
 
     resetCounters() {
         this.craftCounters = [0, 0];
         this.enemyCounter = 0;
+        this.runCounter = 0;
     }
 
     setNumber(low, medium, high) {
@@ -29,9 +31,10 @@ export class Calculator {
     }
 
     getDropPerRun() {
+        this.dropPerRun = [0, 0, 0];
         for (let i = 0; i < 3; i++) {
             for (let enemy of this.enemies) {
-                if (enemy.enemiesPerRun > 0) {
+                if (enemy.enemiesPerRun >= 1) {
                     this.dropPerRun[i] += enemy.enemiesPerRun * enemy.drop[i];
                 }
             }
@@ -100,8 +103,15 @@ export class Calculator {
 
     addOneEnemy(drop) {
         this.enemyCounter += 1;
-        for (let i = 0; i < this.numbers.length; i++) {
+        for (let i = 0; i < 3; i++) {
             this.numbers[i] += drop[i];
+        }
+    }
+
+    addOneRun() {
+        this.runCounter += 1;
+        for (let i = 0; i < 3; i++) {
+            this.numbers[i] += this.dropPerRun[i];
         }
     }
 
@@ -118,14 +128,21 @@ export class Calculator {
         return this.enemies;
     }
 
-    getOutOfMax() {
-        if (this.completed()) {
-            for (let i = 0; i < 3; i++) {
-                const out = this.numbers[i] - this.max;
-                this.outOfMax[i] =
-                    out > this.dropPerEnemy[i] ? out.toFixed(1) : 0;
-            }
+    calculateRuntimes(bonus = true) {
+        if (this.dropPerRun[0] === 0) {
+            return "";
         }
+        this.numbers = [...this.initNumbers];
+        this.resetCounters();
+        while (!this.completed()) {
+            this.addOneRun();
+            this.craft(bonus);
+        }
+        for (let i = 0; i < 3; i++) {
+            this.outOfMax[i] = this.numbers[i] - this.max;
+        }
+        const diff = this.weight(this.outOfMax) / this.weight(this.dropPerRun);
+        return (this.runCounter - diff).toFixed(1);
     }
 
     progress() {
