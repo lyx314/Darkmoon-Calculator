@@ -30,14 +30,21 @@ const checkboxAscending = document.getElementById("ascending");
 const checkboxDescending = document.getElementById("descending");
 const checkboxHideComplete = document.getElementById("hide-complete");
 
-// data
-const cachedData = JSON.parse(localStorage.getItem("darkmoonCalculator"));
-const data = cachedData ? cachedData : jsonData;
+// init
+let data, currentId;
+const init = function () {
+    const cachedData = JSON.parse(localStorage.getItem("darkmoonCalculator"));
+    data = cachedData ? cachedData : jsonData;
+    //console.log(data);
+    currentId = localStorage.getItem("currentId")
+        ? Number(localStorage.getItem("currentId"))
+        : 1;
+};
+init();
 
-let currentId = localStorage.getItem("currentId")
-    ? Number(localStorage.getItem("currentId"))
-    : 1;
-const findMaterial = (id) => data.find((item) => item.id === id);
+const findMaterial = function (id) {
+    return data.find((item) => item.id === id);
+};
 
 const printListItem = function (item) {
     if (checkboxHideComplete.checked && item.progress === 1) {
@@ -89,7 +96,7 @@ const printListById = function (desc = false) {
 
 const printListByProgress = function (desc = false) {
     if (desc) {
-        //降序
+        // 降序
         data.sort((a, b) => b.progress - a.progress);
     } else {
         // 升序
@@ -116,7 +123,7 @@ const printList = function () {
         }
     }
 };
-printList();
+printList(); // init call
 
 checkboxSortId.addEventListener("click", function () {
     if (this.checked) {
