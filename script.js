@@ -164,11 +164,8 @@ const fillPanel = function () {
     // 图片、数量、分进度条
     for (let i = 0; i < 3; i++) {
         materialsImages[i].src = `images/${currentId}-${i}.png`;
-        if (item.numbers[i] === 0) {
-            inputs[i].value = "";
-        } else {
-            inputs[i].value = item.numbers[i];
-        }
+        inputs[i].value =
+            item.numbers[i] === 0 ? "" : item.numbers[i].toFixed();
         progressBars[i].value = item.numbers[i];
     }
 
@@ -211,7 +208,7 @@ const fillPanel = function () {
         const leftRuntimes = document.getElementById(`run-times-${rowIndex}`);
         const tableInput = document.getElementById(`table-input-${rowIndex}`);
         if (enemy.enemiesPerRun > 0) {
-            tableInput.value = enemy.enemiesPerRun;
+            tableInput.value = enemy.enemiesPerRun.toFixed();
             leftRuntimes.textContent = (
                 Number(leftEnemies.textContent) / enemy.enemiesPerRun
             ).toFixed(1);
