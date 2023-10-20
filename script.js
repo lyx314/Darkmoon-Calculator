@@ -28,6 +28,7 @@ const checkboxSortId = document.getElementById("sort-by-id");
 const checkboxSortProgress = document.getElementById("sort-by-progress");
 const checkboxAscending = document.getElementById("ascending");
 const checkboxDescending = document.getElementById("descending");
+const checkboxHideComplete = document.getElementById("hide-complete");
 
 // data
 const cachedData = JSON.parse(localStorage.getItem("darkmoonCalculator"));
@@ -39,6 +40,9 @@ let currentId = localStorage.getItem("currentId")
 const findMaterial = (id) => data.find((item) => item.id === id);
 
 const printListItem = function (item) {
+    if (checkboxHideComplete.checked && item.progress === 1) {
+        return;
+    }
     const html = `
             <div class="list-row" id="list-row-${item.id}"> 
                 <img
@@ -149,6 +153,9 @@ checkboxDescending.addEventListener("click", function () {
     if (!this.checked) {
         this.checked = true;
     }
+});
+checkboxHideComplete.addEventListener("click", function () {
+    printList();
 });
 
 const fillPanel = function () {
