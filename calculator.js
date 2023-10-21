@@ -5,7 +5,6 @@ export class Calculator {
         this.initNumbers = item.numbers;
         this.numbers = item.numbers;
         this.enemies = item.enemies;
-        this.dropPerEnemy = [0, 0, 0];
         this.dropPerRun = [0, 0, 0];
         this.getDropPerRun();
         this.outOfMax = [0, 0, 0];
@@ -19,10 +18,6 @@ export class Calculator {
         this.craftCounters = [0, 0];
         this.enemyCounter = 0;
         this.runCounter = 0;
-    }
-
-    setNumber(low, medium, high) {
-        this.numbers = [low, medium, high];
     }
 
     setEnemies(enemies) {
@@ -39,10 +34,6 @@ export class Calculator {
                 }
             }
         }
-    }
-
-    setEnemyDrop(low, medium, high) {
-        this.dropPerEnemy = [low, medium, high];
     }
 
     completed() {
@@ -146,10 +137,7 @@ export class Calculator {
     }
 
     progress() {
-        return (
-            this.weight(this.numbers) /
-            this.weight([this.max, this.max, this.max])
-        );
+        return this.weight(this.numbers) / ((1 + 3 + 9) * this.max);
     }
 
     weight(arr) {
