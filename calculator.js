@@ -3,7 +3,8 @@
 export class Calculator {
     constructor(item) {
         this.initNumbers = item.numbers;
-        this.numbers = item.numbers;
+        this.numbers = [0, 0, 0];
+        this.resetNumbers();
         this.enemies = item.enemies;
         this.dropPerRun = [0, 0, 0];
         this.getDropPerRun();
@@ -12,6 +13,12 @@ export class Calculator {
         this.craftCounters = [0, 0];
         this.enemyCounter = 0;
         this.runCounter = 0;
+    }
+
+    resetNumbers() {
+        for (let i = 0; i < 3; i++) {
+            this.numbers[i] = Number(this.initNumbers[i]);
+        }
     }
 
     resetCounters() {
@@ -108,7 +115,7 @@ export class Calculator {
 
     calculateEnemies(bonus = true) {
         for (let enemy of this.enemies) {
-            this.numbers = [...this.initNumbers];
+            this.resetNumbers();
             this.resetCounters();
             while (!this.completed()) {
                 this.addOneEnemy(enemy.drop);
@@ -123,7 +130,7 @@ export class Calculator {
         if (this.dropPerRun[0] === 0) {
             return "";
         }
-        this.numbers = [...this.initNumbers];
+        this.resetNumbers();
         this.resetCounters();
         while (!this.completed()) {
             this.addOneRun();
@@ -137,6 +144,7 @@ export class Calculator {
     }
 
     progress() {
+        this.resetNumbers();
         return this.weight(this.numbers) / ((1 + 3 + 9) * this.max);
     }
 

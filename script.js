@@ -39,6 +39,10 @@ const findMaterial = function (id) {
     return data.find((item) => item.id === id);
 };
 
+const saveData = function () {
+    localStorage.setItem("darkmoonCalculator", JSON.stringify(data));
+};
+
 const printListItem = function (item) {
     if (checkboxHideComplete.checked && item.progress === 1) {
         return;
@@ -168,14 +172,17 @@ const fillPanel = function () {
 
     // 图片、数量、分进度条
     for (let i = 0; i < 3; i++) {
-        materialsImages[i].src = `images/${currentId}-${i}.png`;
-        inputs[i].value = item.numbers[i] === 0 ? "" : item.numbers[i];
-        progressBars[i].value = item.numbers[i];
+        materialsImages[i].src = `images/${item.id}-${i}.png`;
+        inputs[i].value = item.numbers[i] == 0 ? "" : String(item.numbers[i]);
+        progressBars[i].value = String(item.numbers[i]);
     }
 
     // 总进度
-    totalPorgressBar.value = item.progress;
-    totalPorgressValue.textContent = `${(item.progress * 100).toFixed(2)}%`;
+    const progress = calc.progress();
+    totalPorgressBar.value = progress;
+    totalPorgressValue.textContent = `${(progress * 100).toFixed(2)}%`;
+    item.progress = progress;
+    saveData();
 
     // 配平合成
     calc.craft();
@@ -195,7 +202,6 @@ const fillPanel = function () {
                 <td>${enemy.count}</td>
                 <td>
                     <input
-                        type="number"
                         class="table-input"
                         id="table-input-${rowIndex}"
                     />
@@ -209,7 +215,7 @@ const fillPanel = function () {
         }
         tableInput.addEventListener("change", function () {
             const inputNumber = Number(this.value);
-            if (inputNumber >= 1) {
+            if (inputNumber > 0) {
                 enemy.enemiesPerRun = inputNumber;
             } else {
                 this.value = "";
@@ -217,7 +223,7 @@ const fillPanel = function () {
             }
             calc.setEnemies(item.enemies);
             writeRuntimes(calc.calculateRuntimes());
-            localStorage.setItem("darkmoonCalculator", JSON.stringify(data));
+            saveData();
         });
     }
     writeRuntimes(calc.calculateRuntimes());
@@ -232,23 +238,24 @@ const fillPanel = function () {
 };
 fillPanel();
 
-const onInputChange = function () {
-    const item = findMaterial(currentId);
-    for (let i = 0; i < inputs.length; i++) {
-        const inputNumber = Number(inputs[i].value);
+inputs.forEach(function (input, i) {
+    input.addEventListener("change", function () {
+        const item = findMaterial(currentId);
+        const inputNumber = Number(input.value);
         if (inputNumber < 0 || inputNumber > 9999) {
-            inputs[i].value = "";
+            input.value = "";
             return;
         }
-        item.numbers[i] = inputNumber;
-    }
-    const calc = new Calculator(item);
-    item.progress = calc.progress();
-    localStorage.setItem("darkmoonCalculator", JSON.stringify(data));
+        item.numbers[i] = input.value;
+        saveData();
+        fillPanel();
+        printList();
+    });
+});
+
+document.querySelector(".clear-data").addEventListener("click", function () {
+    window.localStorage.clear();
+    init();
     fillPanel();
     printList();
-};
-
-inputs.forEach(function (input) {
-    input.addEventListener("change", onInputChange);
 });
