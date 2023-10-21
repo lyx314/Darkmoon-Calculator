@@ -14,16 +14,9 @@ const materialsImages = [
     document.getElementById("material-img-1"),
     document.getElementById("material-img-2"),
 ];
-const inputs = [
-    document.getElementById("input-0"),
-    document.getElementById("input-1"),
-    document.getElementById("input-2"),
-];
-const progressBars = [
-    document.getElementById("progress-bar-0"),
-    document.getElementById("progress-bar-1"),
-    document.getElementById("progress-bar-2"),
-];
+const inputs = [...document.querySelectorAll(".input")].reverse();
+const progressBars = [...document.querySelectorAll(".progress-bar")].reverse();
+
 const checkboxSortId = document.getElementById("sort-by-id");
 const checkboxSortProgress = document.getElementById("sort-by-progress");
 const checkboxAscending = document.getElementById("ascending");
@@ -55,15 +48,15 @@ const printListItem = function (item) {
                 <img
                     src="images/${item.id}-2.png" 
                     class="list-icon"
-                />${item.numbers[2].toFixed()}
+                />${item.numbers[2]}
                 <img
                     src="images/${item.id}-1.png" 
                     class="list-icon"
-                />${item.numbers[1].toFixed()}
+                />${item.numbers[1]}
                 <img
                     src="images/${item.id}-0.png" 
                     class="list-icon"
-                />${item.numbers[0].toFixed()}
+                />${item.numbers[0]}
                 <progress
                     value="${item.progress}"
                     max="1"
@@ -176,8 +169,7 @@ const fillPanel = function () {
     // 图片、数量、分进度条
     for (let i = 0; i < 3; i++) {
         materialsImages[i].src = `images/${currentId}-${i}.png`;
-        inputs[i].value =
-            item.numbers[i] === 0 ? "" : item.numbers[i].toFixed();
+        inputs[i].value = item.numbers[i] === 0 ? "" : item.numbers[i];
         progressBars[i].value = item.numbers[i];
     }
 
@@ -213,7 +205,7 @@ const fillPanel = function () {
         enemyTable.insertAdjacentHTML("beforeend", html);
         const tableInput = document.getElementById(`table-input-${rowIndex}`);
         if (enemy.enemiesPerRun > 0) {
-            tableInput.value = enemy.enemiesPerRun.toFixed();
+            tableInput.value = enemy.enemiesPerRun;
         }
         tableInput.addEventListener("change", function () {
             const inputNumber = Number(this.value);
