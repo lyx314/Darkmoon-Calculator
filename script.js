@@ -22,6 +22,8 @@ const checkboxSortProgress = document.getElementById("sort-by-progress");
 const checkboxAscending = document.getElementById("ascending");
 const checkboxDescending = document.getElementById("descending");
 const checkboxHideComplete = document.getElementById("hide-complete");
+const buttonLast = document.getElementById("button-last");
+const buttonNext = document.getElementById("button-next");
 
 // init
 let data, currentId;
@@ -253,4 +255,20 @@ document.querySelector(".clear-data").addEventListener("click", function () {
     init();
     fillPanel();
     printList();
+});
+
+buttonLast.addEventListener("click", function () {
+    if (currentId > 1) {
+        currentId -= 1;
+        localStorage.setItem("currentId", currentId);
+        fillPanel();
+    }
+});
+
+buttonNext.addEventListener("click", function () {
+    if (currentId < data.length) {
+        currentId += 1;
+        localStorage.setItem("currentId", currentId);
+        fillPanel();
+    }
 });
