@@ -179,15 +179,8 @@ nav {
     text-align: right;
 }
 
-.last-next {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 20px;
-}
-
 .button-last-next {
     font-size: 18px;
     border: none;
+    margin: 0 15px;
 }
