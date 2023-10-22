@@ -53,48 +53,57 @@ export class Calculator {
     }
 
     // 低阶合成中阶
-    craft01(bonus = true) {
+    craftMedium(sucroseBonus = false, doriBonus = false) {
         this.craftCounters[0] += 1;
         this.numbers[0] -= 3;
         this.numbers[1] += 1;
-        if (bonus) {
+        if (sucroseBonus) {
             this.numbers[1] += 0.1;
+        }
+        if (doriBonus) {
+            this.numbers[0] += 0.25;
         }
     }
 
     // 中阶合成高阶
-    craft12(bonus = true) {
+    craftHight(sucroseBonus = false, doriBonus = false) {
         this.craftCounters[1] += 1;
         this.numbers[1] -= 3;
         this.numbers[2] += 1;
-        if (bonus) {
+        if (sucroseBonus) {
             this.numbers[2] += 0.1;
+        }
+        if (doriBonus) {
+            this.numbers[1] += 0.25;
         }
     }
 
-    craft(bonus = true) {
+    craft(sucroseBonus = false, doriBonus = false) {
+        if (sucroseBonus === true && doriBonus === true) {
+            throw new Error();
+        }
         while (
             this.numbers[0] > this.numbers[1] &&
             this.numbers[1] < this.max
         ) {
-            this.craft01(bonus);
+            this.craftMedium(sucroseBonus, doriBonus);
             while (
                 this.numbers[1] > this.numbers[2] &&
                 this.numbers[2] < this.max
             ) {
-                this.craft12(bonus);
+                this.craftHight(sucroseBonus, doriBonus);
             }
         }
         while (
             this.numbers[1] > this.numbers[2] &&
             this.numbers[2] < this.max
         ) {
-            this.craft12(bonus);
+            this.craftHight(sucroseBonus, doriBonus);
             while (
                 this.numbers[0] > this.numbers[1] &&
                 this.numbers[1] < this.max
             ) {
-                this.craft01(bonus);
+                this.craftMedium(sucroseBonus, doriBonus);
             }
         }
     }
@@ -113,13 +122,13 @@ export class Calculator {
         }
     }
 
-    calculateEnemies(bonus = true) {
+    calculateEnemies(sucroseBonus = false, doriBonus = false) {
         for (let enemy of this.enemies) {
             this.resetNumbers();
             this.resetCounters();
             while (!this.completed()) {
                 this.addOneEnemy(enemy.drop);
-                this.craft(bonus);
+                this.craft(sucroseBonus, doriBonus);
             }
             enemy.count = this.enemyCounter;
         }
@@ -129,7 +138,7 @@ export class Calculator {
         return this.enemies;
     }
 
-    calculateRuntimes(bonus = true) {
+    calculateRuntimes(sucroseBonus = false, doriBonus = false) {
         if (this.dropPerRun[0] === 0) {
             return "";
         }
@@ -137,7 +146,7 @@ export class Calculator {
         this.resetCounters();
         while (!this.completed()) {
             this.addOneRun();
-            this.craft(bonus);
+            this.craft(sucroseBonus, doriBonus);
         }
         const diff = this.weight(this.outOfMax) / this.weight(this.dropPerRun);
         return (this.runCounter - diff).toFixed(1);

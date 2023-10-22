@@ -9,21 +9,23 @@ const list = document.querySelector(".list");
 const totalPorgressBar = document.querySelector(".total-progress-bar");
 const totalPorgressValue = document.querySelector(".total-progress-value");
 const enemyTable = document.querySelector(".enemy-table");
-const materialsImages = [
-    document.getElementById("material-img-0"),
-    document.getElementById("material-img-1"),
-    document.getElementById("material-img-2"),
-];
+const materialImages = [
+    ...document.querySelectorAll(".material-img"),
+].reverse();
 const inputs = [...document.querySelectorAll(".input")].reverse();
 const progressBars = [...document.querySelectorAll(".progress-bar")].reverse();
-
 const checkboxSortId = document.getElementById("sort-by-id");
 const checkboxSortProgress = document.getElementById("sort-by-progress");
 const checkboxAscending = document.getElementById("ascending");
 const checkboxDescending = document.getElementById("descending");
 const checkboxHideComplete = document.getElementById("hide-complete");
+const checkboxSucrose = document.getElementById("sucrose-bonus");
+const checkboxDori = document.getElementById("dori-bonus");
 const buttonLast = document.getElementById("button-last");
 const buttonNext = document.getElementById("button-next");
+const buttonCraftHigh = document.getElementById("button-craft-high");
+const buttonCraftMedium = document.getElementById("button-craft-medium");
+const modal = document.querySelector(".modal");
 
 // init
 let data, currentId;
@@ -169,7 +171,7 @@ const fillPanel = function () {
 
     // 图片、数量、分进度条
     for (let i = 0; i < 3; i++) {
-        materialsImages[i].src = `images/${item.id}-${i}.png`;
+        materialImages[i].src = `images/${item.id}-${i}.png`;
         inputs[i].value = item.numbers[i] == 0 ? "" : String(item.numbers[i]);
         progressBars[i].value = String(item.numbers[i]);
     }
@@ -182,7 +184,7 @@ const fillPanel = function () {
     saveData();
 
     // 配平合成
-    calc.craft();
+    calc.craft(checkboxSucrose.checked, checkboxDori.checked);
     document.getElementById("balancing-craft-medium").textContent =
         calc.craftCounters[0];
     document.getElementById("balancing-craft-high").textContent =
@@ -190,7 +192,10 @@ const fillPanel = function () {
 
     // 剩余敌人
     enemyTable.innerHTML = "";
-    item.enemies = calc.calculateEnemies();
+    item.enemies = calc.calculateEnemies(
+        checkboxSucrose.checked,
+        checkboxDori.checked
+    );
     for (let [rowIndex, enemy] of item.enemies.entries()) {
         let html = `
             <tr>
@@ -219,11 +224,18 @@ const fillPanel = function () {
                 delete enemy.enemiesPerRun;
             }
             calc.setEnemies(item.enemies);
-            writeRuntimes(calc.calculateRuntimes());
+            writeRuntimes(
+                calc.calculateRuntimes(
+                    checkboxSucrose.checked,
+                    checkboxDori.checked
+                )
+            );
             saveData();
         });
     }
-    writeRuntimes(calc.calculateRuntimes());
+    writeRuntimes(
+        calc.calculateRuntimes(checkboxSucrose.checked, checkboxDori.checked)
+    );
     document.getElementById("all-craft-high").textContent =
         calc.craftCounters[1];
     document.getElementById("all-craft-medium").textContent =
@@ -271,4 +283,72 @@ buttonNext.addEventListener("click", function () {
         localStorage.setItem("currentId", currentId);
         fillPanel();
     }
+});
+
+checkboxSucrose.addEventListener("click", function () {
+    if (this.checked) {
+        checkboxDori.checked = false;
+    }
+    fillPanel();
+});
+
+checkboxDori.addEventListener("click", function () {
+    if (this.checked) {
+        checkboxSucrose.checked = false;
+    }
+    fillPanel();
+});
+
+buttonCraftHigh.addEventListener("click", function () {
+    let input = prompt(
+        "请输入合成的数量。\n如果有额外的合成，请用空格分隔。\n例如：1000 100"
+    );
+    input = input.trim().split(/\s+/);
+    const item = findMaterial(currentId);
+    let high = Number(item.numbers[2]) + Number(input[0]);
+    let medium = Number(item.numbers[1]) - 3 * Number(input[0]);
+    if (input.length > 1) {
+        if (checkboxSucrose.checked) {
+            high += Number(input[1]);
+        }
+        if (checkboxDori.checked) {
+            medium += Number(input[1]);
+        }
+    }
+    if (high > 9999 || medium < 0) {
+        alert("Invalid input");
+        return;
+    }
+    item.numbers[2] = String(high);
+    item.numbers[1] = String(medium);
+    saveData();
+    fillPanel();
+    printList();
+});
+
+buttonCraftMedium.addEventListener("click", function () {
+    let input = prompt(
+        "请输入合成的数量。\n如果有额外的合成，请用空格分隔。\n例如：1000 100"
+    );
+    input = input.trim().split(/\s+/);
+    const item = findMaterial(currentId);
+    let medium = Number(item.numbers[1]) + Number(input[0]);
+    let low = Number(item.numbers[0]) - 3 * Number(input[0]);
+    if (input.length > 1) {
+        if (checkboxSucrose.checked) {
+            medium += Number(input[1]);
+        }
+        if (checkboxDori.checked) {
+            low += Number(input[1]);
+        }
+    }
+    if (medium > 9999 || low < 0) {
+        alert("Invalid input");
+        return;
+    }
+    item.numbers[1] = String(medium);
+    item.numbers[0] = String(low);
+    saveData();
+    fillPanel();
+    printList();
 });

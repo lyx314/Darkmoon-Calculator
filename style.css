@@ -165,7 +165,7 @@ li {
     transform: scale(1.1);
 }
 
-.list-checkboxs-container {
+.checkboxs-container {
     text-align: right;
     font-size: 15px;
 }
@@ -184,3 +184,4 @@ nav {
     border: none;
     margin: 0 15px;
 }
+

@@ -77,14 +77,25 @@
                 <tbody class="enemy-table"></tbody>
             </table>
             <h2>合成</h2>
-
+            <div class="checkboxs-container">
+                <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="sucrose-bonus"
+                    checked
+                />
+                砂糖
+                <input type="checkbox" class="checkbox" id="dori-bonus" />
+                多莉
+            </div>
             <table>
                 <thead>
                     <tr>
                         <th>品阶</th>
-                        <th>配平合成</th>
-                        <th>毕业合成</th>
+                        <th>配平</th>
+                        <th>毕业</th>
                         <th>溢出</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody class="craft-table">
@@ -93,17 +104,19 @@
                         <td id="balancing-craft-high"></td>
                         <td id="all-craft-high"></td>
                         <td id="out-of-max-high"></td>
+                        <td><button id="button-craft-high">合成</button></td>
                     </tr>
                     <tr>
                         <td>中阶</td>
                         <td id="balancing-craft-medium"></td>
                         <td id="all-craft-medium"></td>
                         <td id="out-of-max-medium"></td>
+                        <td><button id="button-craft-medium">合成</button></td>
                     </tr>
                 </tbody>
             </table>
             <h2>材料一览</h2>
-            <div class="list-checkboxs-container">
+            <div class="checkboxs-container">
                 <input
                     type="checkbox"
                     class="checkbox"
