@@ -232,9 +232,9 @@ const fillPanel = function () {
     document.getElementById("all-craft-medium").textContent =
         calc.craftCounters[0];
     document.getElementById("out-of-max-high").textContent =
-        calc.outOfMax[2] > calc.dropPerRun[2] ? calc.outOfMax[2].toFixed(1) : 0;
+        calc.outOfMax[2] > calc.dropPerRun[2] ? calc.outOfMax[2] : 0;
     document.getElementById("out-of-max-medium").textContent =
-        calc.outOfMax[1] > calc.dropPerRun[1] ? calc.outOfMax[1].toFixed(1) : 0;
+        calc.outOfMax[1] > calc.dropPerRun[1] ? calc.outOfMax[1] : 0;
 };
 fillPanel();
 
