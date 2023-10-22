@@ -32,6 +32,7 @@ const init = function () {
     currentId = localStorage.getItem("currentId")
         ? Number(localStorage.getItem("currentId"))
         : 1;
+    console.log("CurrentId: " + currentId);
 };
 init();
 
@@ -74,6 +75,7 @@ const printListItem = function (item) {
         .addEventListener("click", function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
             currentId = item.id;
+            console.log("CurrentId: " + currentId);
             localStorage.setItem("currentId", currentId);
             fillPanel();
         });
@@ -100,24 +102,17 @@ const printListByProgress = function (desc = false) {
         data.sort((a, b) => a.progress - b.progress);
     }
     list.innerHTML = "";
-    for (let i = 0; i < data.length; i++) {
-        printListItem(data[i]);
-    }
+    data.forEach(function (item) {
+        printListItem(item);
+    });
 };
 
 const printList = function () {
     if (checkboxSortId.checked) {
-        if (checkboxAscending.checked) {
-            printListById(false);
-        } else {
-            printListById(true);
-        }
-    } else {
-        if (checkboxAscending.checked) {
-            printListByProgress(false);
-        } else {
-            printListByProgress(true);
-        }
+        printListById(checkboxDescending.checked);
+    }
+    if (checkboxSortProgress.checked) {
+        printListByProgress(checkboxDescending.checked);
     }
 };
 printList(); // init call
