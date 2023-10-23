@@ -255,7 +255,7 @@ inputs.forEach(function (input, i) {
             input.value = "";
             return;
         }
-        item.numbers[i] = input.value;
+        item.numbers[i] = input.value === "" ? "0" : input.value;
         saveData();
         fillPanel();
         printList();
