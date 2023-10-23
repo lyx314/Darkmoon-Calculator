@@ -6,8 +6,8 @@ export class Calculator {
         this.numbers = [0, 0, 0];
         this.resetNumbers();
         this.enemies = item.enemies;
-        this.dropPerRun = [0, 0, 0];
-        this.setDropPerRun();
+        this.materialsPerRun = [0, 0, 0];
+        this.setMaterialsPerRun();
         this.outOfMax = [0, 0, 0];
         this.max = 9999;
         this.craftCounters = [0, 0];
@@ -29,26 +29,27 @@ export class Calculator {
 
     setEnemies(enemies) {
         this.enemies = enemies;
-        this.setDropPerRun();
+        this.setMaterialsPerRun();
     }
 
-    setDropPerRun() {
-        this.dropPerRun = [0, 0, 0];
+    setMaterialsPerRun() {
+        this.materialsPerRun = [0, 0, 0];
         for (let i = 0; i < 3; i++) {
             for (let enemy of this.enemies) {
                 if (enemy.enemiesPerRun >= 1) {
-                    this.dropPerRun[i] += enemy.enemiesPerRun * enemy.drop[i];
+                    this.materialsPerRun[i] +=
+                        enemy.enemiesPerRun * enemy.drop[i];
                 }
             }
         }
     }
 
-    getDropPerRun(fix) {
+    getMaterialsPerRun(fix) {
         return `
         每车材料：
-        高阶 (${this.dropPerRun[2].toFixed(fix)}) +
-        中阶 (${this.dropPerRun[1].toFixed(fix)}) +
-        低阶 (${this.dropPerRun[0].toFixed(fix)})`;
+        高阶 (${this.materialsPerRun[2].toFixed(fix)}) +
+        中阶 (${this.materialsPerRun[1].toFixed(fix)}) +
+        低阶 (${this.materialsPerRun[0].toFixed(fix)})`;
     }
 
     completed() {
@@ -126,7 +127,7 @@ export class Calculator {
     addOneRun() {
         this.runCounter += 1;
         for (let i = 0; i < 3; i++) {
-            this.numbers[i] += this.dropPerRun[i];
+            this.numbers[i] += this.materialsPerRun[i];
         }
     }
 
@@ -144,8 +145,8 @@ export class Calculator {
         return this.enemies;
     }
 
-    calculateRuntimes(sucroseBonus = false, doriBonus = false) {
-        if (this.dropPerRun[0] === 0) {
+    calculateRun(sucroseBonus = false, doriBonus = false) {
+        if (this.materialsPerRun[0] === 0) {
             return "";
         }
         this.resetNumbers();
@@ -155,7 +156,8 @@ export class Calculator {
             this.craft(sucroseBonus, doriBonus);
         }
         this.setOutOfMax();
-        const diff = this.weight(this.outOfMax) / this.weight(this.dropPerRun);
+        const diff =
+            this.weight(this.outOfMax) / this.weight(this.materialsPerRun);
         return (this.runCounter - diff).toFixed(1);
     }
 

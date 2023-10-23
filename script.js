@@ -126,8 +126,7 @@ checkboxSortId.addEventListener("click", function () {
     if (this.checked) {
         checkboxSortProgress.checked = false;
         printList();
-    }
-    if (!this.checked) {
+    } else {
         this.checked = true;
     }
 });
@@ -135,8 +134,7 @@ checkboxSortProgress.addEventListener("click", function () {
     if (this.checked) {
         checkboxSortId.checked = false;
         printList();
-    }
-    if (!this.checked) {
+    } else {
         this.checked = true;
     }
 });
@@ -144,8 +142,7 @@ checkboxAscending.addEventListener("click", function () {
     if (this.checked) {
         checkboxDescending.checked = false;
         printList();
-    }
-    if (!this.checked) {
+    } else {
         this.checked = true;
     }
 });
@@ -153,18 +150,11 @@ checkboxDescending.addEventListener("click", function () {
     if (this.checked) {
         checkboxAscending.checked = false;
         printList();
-    }
-    if (!this.checked) {
+    } else {
         this.checked = true;
     }
 });
-checkboxHideComplete.addEventListener("click", function () {
-    printList();
-});
-
-const writeRuntimes = function (value) {
-    document.getElementById("run-times-0").textContent = value;
-};
+checkboxHideComplete.addEventListener("click", printList);
 
 const fillPanel = function () {
     const item = findMaterial(currentId);
@@ -224,28 +214,28 @@ const fillPanel = function () {
                 delete enemy.enemiesPerRun;
             }
             calc.setEnemies(item.enemies);
-            materialsPerRun.textContent = calc.getDropPerRun(1);
+            materialsPerRun.textContent = calc.getMaterialsPerRun(1);
             leftRuntimes.textContent =
                 "剩余车数：" +
-                calc.calculateRuntimes(
+                calc.calculateRun(
                     checkboxSucrose.checked,
                     checkboxDori.checked
                 );
             saveData();
         });
     }
-    materialsPerRun.textContent = calc.getDropPerRun(1);
+    materialsPerRun.textContent = calc.getMaterialsPerRun(1);
     leftRuntimes.textContent =
         "剩余车数：" +
-        calc.calculateRuntimes(checkboxSucrose.checked, checkboxDori.checked);
+        calc.calculateRun(checkboxSucrose.checked, checkboxDori.checked);
     document.getElementById("all-craft-high").textContent =
         calc.craftCounters[1];
     document.getElementById("all-craft-medium").textContent =
         calc.craftCounters[0];
     document.getElementById("out-of-max-high").textContent =
-        calc.outOfMax[2] > calc.dropPerRun[2] ? calc.outOfMax[2] : 0;
+        calc.outOfMax[2] > calc.materialsPerRun[2] ? calc.outOfMax[2] : 0;
     document.getElementById("out-of-max-medium").textContent =
-        calc.outOfMax[1] > calc.dropPerRun[1] ? calc.outOfMax[1] : 0;
+        calc.outOfMax[1] > calc.materialsPerRun[1] ? calc.outOfMax[1] : 0;
 };
 fillPanel();
 
