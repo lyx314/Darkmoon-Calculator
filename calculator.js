@@ -7,7 +7,7 @@ export class Calculator {
         this.resetNumbers();
         this.enemies = item.enemies;
         this.dropPerRun = [0, 0, 0];
-        this.getDropPerRun();
+        this.setDropPerRun();
         this.outOfMax = [0, 0, 0];
         this.max = 9999;
         this.craftCounters = [0, 0];
@@ -29,10 +29,10 @@ export class Calculator {
 
     setEnemies(enemies) {
         this.enemies = enemies;
-        this.getDropPerRun();
+        this.setDropPerRun();
     }
 
-    getDropPerRun() {
+    setDropPerRun() {
         this.dropPerRun = [0, 0, 0];
         for (let i = 0; i < 3; i++) {
             for (let enemy of this.enemies) {
@@ -41,6 +41,14 @@ export class Calculator {
                 }
             }
         }
+    }
+
+    getDropPerRun(fix) {
+        return `
+        每车材料：
+        高阶 (${this.dropPerRun[2].toFixed(fix)}) +
+        中阶 (${this.dropPerRun[1].toFixed(fix)}) +
+        低阶 (${this.dropPerRun[0].toFixed(fix)})`;
     }
 
     completed() {
@@ -147,6 +155,9 @@ export class Calculator {
         while (!this.completed()) {
             this.addOneRun();
             this.craft(sucroseBonus, doriBonus);
+        }
+        for (let i = 0; i < 3; i++) {
+            this.outOfMax[i] = this.numbers[i] - this.max;
         }
         const diff = this.weight(this.outOfMax) / this.weight(this.dropPerRun);
         return (this.runCounter - diff).toFixed(1);

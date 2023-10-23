@@ -25,7 +25,8 @@ const buttonLast = document.getElementById("button-last");
 const buttonNext = document.getElementById("button-next");
 const buttonCraftHigh = document.getElementById("button-craft-high");
 const buttonCraftMedium = document.getElementById("button-craft-medium");
-const modal = document.querySelector(".modal");
+const leftRuntimes = document.querySelector(".left-runtimes");
+const materialsPerRun = document.querySelector(".materials-per-run");
 
 // init
 let data, currentId;
@@ -208,7 +209,6 @@ const fillPanel = function () {
                         id="table-input-${rowIndex}"
                     />
                 </td>
-                <td id="run-times-${rowIndex}"></td>
             </tr>`;
         enemyTable.insertAdjacentHTML("beforeend", html);
         const tableInput = document.getElementById(`table-input-${rowIndex}`);
@@ -224,18 +224,20 @@ const fillPanel = function () {
                 delete enemy.enemiesPerRun;
             }
             calc.setEnemies(item.enemies);
-            writeRuntimes(
+            materialsPerRun.textContent = calc.getDropPerRun(1);
+            leftRuntimes.textContent =
+                "剩余车数：" +
                 calc.calculateRuntimes(
                     checkboxSucrose.checked,
                     checkboxDori.checked
-                )
-            );
+                );
             saveData();
         });
     }
-    writeRuntimes(
-        calc.calculateRuntimes(checkboxSucrose.checked, checkboxDori.checked)
-    );
+    materialsPerRun.textContent = calc.getDropPerRun(1);
+    leftRuntimes.textContent =
+        "剩余车数：" +
+        calc.calculateRuntimes(checkboxSucrose.checked, checkboxDori.checked);
     document.getElementById("all-craft-high").textContent =
         calc.craftCounters[1];
     document.getElementById("all-craft-medium").textContent =

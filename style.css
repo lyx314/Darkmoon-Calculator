@@ -45,8 +45,12 @@ tr:hover {
     background-color: #1098ad13;
 }
 
-li {
-    list-style: none;
+ul{
+    margin-bottom: 20px;
+}
+
+li{
+    margin: 10px;
 }
 
 .container {
