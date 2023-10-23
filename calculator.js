@@ -165,6 +165,7 @@ export class Calculator {
         }
         for (let i = 0; i < 3; i++) {
             this.outOfMax[i] = this.numbers[i] - this.max;
+            this.outOfMax[i] = Number(this.outOfMax[i].toFixed(1));
         }
     }
 
