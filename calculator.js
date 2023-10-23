@@ -140,9 +140,7 @@ export class Calculator {
             }
             enemy.count = this.enemyCounter;
         }
-        for (let i = 0; i < 3; i++) {
-            this.outOfMax[i] = (this.numbers[i] - this.max).toFixed();
-        }
+        this.setOutOfMax();
         return this.enemies;
     }
 
@@ -156,11 +154,18 @@ export class Calculator {
             this.addOneRun();
             this.craft(sucroseBonus, doriBonus);
         }
+        this.setOutOfMax();
+        const diff = this.weight(this.outOfMax) / this.weight(this.dropPerRun);
+        return (this.runCounter - diff).toFixed(1);
+    }
+
+    setOutOfMax() {
+        if (!this.completed()) {
+            this.outOfMax = [0, 0, 0];
+        }
         for (let i = 0; i < 3; i++) {
             this.outOfMax[i] = this.numbers[i] - this.max;
         }
-        const diff = this.weight(this.outOfMax) / this.weight(this.dropPerRun);
-        return (this.runCounter - diff).toFixed(1);
     }
 
     progress() {
