@@ -300,9 +300,10 @@ checkboxDori.addEventListener("click", function () {
 });
 
 buttonCraftHigh.addEventListener("click", function () {
-    let input = prompt(
-        "请输入合成的数量。\n如果有额外的合成，请用空格分隔。\n例如：1000 100"
-    );
+    let input = prompt(`
+    请输入合成高阶的数量。
+    如果有额外的合成，请用空格分隔。
+    例如：1000 100`);
     input = input.trim().split(/\s+/);
     const item = findMaterial(currentId);
     let high = Number(item.numbers[2]) + Number(input[0]);
@@ -327,9 +328,10 @@ buttonCraftHigh.addEventListener("click", function () {
 });
 
 buttonCraftMedium.addEventListener("click", function () {
-    let input = prompt(
-        "请输入合成的数量。\n如果有额外的合成，请用空格分隔。\n例如：1000 100"
-    );
+    let input = prompt(`
+    请输入合成中阶的数量。
+    如果有额外的合成，请用空格分隔。
+    例如：1000 100`);
     input = input.trim().split(/\s+/);
     const item = findMaterial(currentId);
     let medium = Number(item.numbers[1]) + Number(input[0]);
