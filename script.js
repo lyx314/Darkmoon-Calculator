@@ -214,20 +214,19 @@ const fillPanel = function () {
                 delete enemy.enemiesPerRun;
             }
             calc.setEnemies(item.enemies);
-            materialsPerRun.textContent = calc.getMaterialsPerRun(1);
-            leftRuntimes.textContent =
-                "剩余车数：" +
-                calc.calculateRun(
-                    checkboxSucrose.checked,
-                    checkboxDori.checked
-                );
+            materialsPerRun.textContent = calc.printMaterialsPerRun(1);
+            leftRuntimes.innerHTML = `剩余车数： <strong>${calc.calculateRun(
+                checkboxSucrose.checked,
+                checkboxDori.checked
+            )}</strong>`;
             saveData();
         });
     }
-    materialsPerRun.textContent = calc.getMaterialsPerRun(1);
-    leftRuntimes.textContent =
-        "剩余车数：" +
-        calc.calculateRun(checkboxSucrose.checked, checkboxDori.checked);
+    materialsPerRun.textContent = calc.printMaterialsPerRun(1);
+    leftRuntimes.innerHTML = `剩余车数： <strong>${calc.calculateRun(
+        checkboxSucrose.checked,
+        checkboxDori.checked
+    )}</strong>`;
     document.getElementById("all-craft-high").textContent =
         calc.craftCounters[1];
     document.getElementById("all-craft-medium").textContent =
