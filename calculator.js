@@ -47,9 +47,11 @@ export class Calculator {
     printMaterialsPerRun(fix) {
         return `
         每车材料：
-        高阶 (${this.materialsPerRun[2].toFixed(fix)}) +
-        中阶 (${this.materialsPerRun[1].toFixed(fix)}) +
-        低阶 (${this.materialsPerRun[0].toFixed(fix)})`;
+        <ul>
+            <li>高阶 (${this.materialsPerRun[2].toFixed(fix)})</li>
+            <li>中阶 (${this.materialsPerRun[1].toFixed(fix)})</li>
+            <li>低阶 (${this.materialsPerRun[0].toFixed(fix)})</li>
+        </ul>`;
     }
 
     completed() {

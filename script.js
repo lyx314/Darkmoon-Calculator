@@ -156,6 +156,22 @@ checkboxDescending.addEventListener("click", function () {
 });
 checkboxHideComplete.addEventListener("click", printList);
 
+const printRunInfo = function (id, run, arr) {
+    if (run > 0) {
+        leftRuntimes.innerHTML = `剩余车数： <strong>${run}</strong>`;
+        materialsPerRun.innerHTML = `每车材料：
+            <img src="images/${id}-2.png" class="small-icon" />
+            ${arr[2].toFixed(1)}
+            <img src="images/${id}-1.png" class="small-icon" />
+            ${arr[1].toFixed(1)}
+            <img src="images/${id}-0.png" class="small-icon" />
+            ${arr[0].toFixed(1)}`;
+    } else {
+        leftRuntimes.innerHTML = "";
+        materialsPerRun.innerHTML = "";
+    }
+};
+
 const fillPanel = function () {
     const item = findMaterial(currentId);
     const calc = new Calculator(item);
@@ -205,6 +221,11 @@ const fillPanel = function () {
         if (enemy.enemiesPerRun > 0) {
             tableInput.value = enemy.enemiesPerRun;
         }
+        const run = calc.calculateRun(
+            checkboxSucrose.checked,
+            checkboxDori.checked
+        );
+        printRunInfo(item.id, run, calc.materialsPerRun);
         tableInput.addEventListener("change", function () {
             const inputNumber = Number(this.value);
             if (inputNumber > 0) {
@@ -214,19 +235,14 @@ const fillPanel = function () {
                 delete enemy.enemiesPerRun;
             }
             calc.setEnemies(item.enemies);
-            materialsPerRun.textContent = calc.printMaterialsPerRun(1);
-            leftRuntimes.innerHTML = `剩余车数： <strong>${calc.calculateRun(
+            const run = calc.calculateRun(
                 checkboxSucrose.checked,
                 checkboxDori.checked
-            )}</strong>`;
+            );
+            printRunInfo(item.id, run, calc.materialsPerRun);
             saveData();
         });
     }
-    materialsPerRun.textContent = calc.printMaterialsPerRun(1);
-    leftRuntimes.innerHTML = `剩余车数： <strong>${calc.calculateRun(
-        checkboxSucrose.checked,
-        checkboxDori.checked
-    )}</strong>`;
     document.getElementById("all-craft-high").textContent =
         calc.craftCounters[1];
     document.getElementById("all-craft-medium").textContent =
