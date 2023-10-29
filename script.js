@@ -279,17 +279,21 @@ document.querySelector(".clear-data").addEventListener("click", function () {
 buttonLast.addEventListener("click", function () {
     if (currentId > 1) {
         currentId -= 1;
-        localStorage.setItem("currentId", currentId);
-        fillPanel();
+    } else {
+        currentId = data.length;
     }
+    localStorage.setItem("currentId", currentId);
+    fillPanel();
 });
 
 buttonNext.addEventListener("click", function () {
     if (currentId < data.length) {
         currentId += 1;
-        localStorage.setItem("currentId", currentId);
-        fillPanel();
+    } else {
+        currentId = 1;
     }
+    localStorage.setItem("currentId", currentId);
+    fillPanel();
 });
 
 checkboxSucrose.addEventListener("click", function () {
