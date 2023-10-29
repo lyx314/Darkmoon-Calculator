@@ -45,11 +45,11 @@ tr:hover {
     background-color: #1098ad13;
 }
 
-ul{
+ul {
     margin-bottom: 20px;
 }
 
-li{
+li {
     margin: 10px;
     font-size: 20px;
 }
@@ -190,13 +190,23 @@ nav {
     margin: 0 15px;
 }
 
-.small-icon{
+.small-icon {
     width: 40px;
     vertical-align: middle;
 }
 
-p{
+p {
     font-size: 18px;
     margin-bottom: 10px;
 }
 
+.button {
+    padding: 7px 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(0, 153, 255);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
