@@ -9,9 +9,10 @@ body {
 }
 
 h1 {
-    font-size: 25px;
+    font-size: 28px;
     color: #1098ad;
     background-color: #f7f7f7;
+    padding: 10px 0;
 }
 
 h2 {
@@ -204,7 +205,7 @@ p {
     padding: 7px 14px;
     border: none;
     border-radius: 8px;
-    background-color: rgb(0, 153, 255);
+    background-color: #1098ada8;
     color: white;
     font-weight: bold;
     font-size: 0.9rem;

@@ -10,13 +10,13 @@
         <title>Darkmoon</title>
     </head>
     <body>
-        <header>
-            <h1>Darkmoon Calculator</h1>
-            <nav>
-                <button class="button clear-data">Debug: clear data</button>
-            </nav>
-        </header>
+        <nav>
+            <button class="button clear-data">Debug: clear data</button>
+        </nav>
         <div class="container">
+            <header>
+                <h1>Darkmoon Calculator</h1>
+            </header>
             <div class="total-progress">
                 <div class="total-progress-value">0%</div>
                 <button class="button-last-next" id="button-last">◀️</button>
@@ -91,14 +91,22 @@
                         <td id="balancing-craft-high"></td>
                         <td id="all-craft-high"></td>
                         <td id="out-of-max-high"></td>
-                        <td><button class="button" id="button-craft-high">合成</button></td>
+                        <td>
+                            <button class="button" id="button-craft-high">
+                                合成
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <td>中阶</td>
                         <td id="balancing-craft-medium"></td>
                         <td id="all-craft-medium"></td>
                         <td id="out-of-max-medium"></td>
-                        <td><button class="button" id="button-craft-medium">合成</button></td>
+                        <td>
+                            <button class="button" id="button-craft-medium">
+                                合成
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
