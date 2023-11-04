@@ -1,144 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="images/blades-of-the-darkmoon.png" />
-        <link rel="stylesheet" href="style.css" />
-        <script type="json" src="data.json"></script>
-        <script type="module" src="script.js"></script>
-        <title>Darkmoon</title>
+        <title>Darkmoon Calculator</title>
+        <link href="css/general.css" rel="stylesheet"/>
     </head>
     <body>
-        <nav>
-            <button class="button clear-data">Debug: clear data</button>
-        </nav>
-        <div class="container">
-            <header>
-                <h1>Darkmoon Calculator</h1>
-            </header>
-            <div class="total-progress">
-                <div class="total-progress-value">0%</div>
-                <button class="button-last-next" id="button-last">◀️</button>
-                <progress
-                    value="0"
-                    max="1"
-                    class="total-progress-bar"
-                ></progress>
-                <button class="button-last-next" id="button-next">▶️</button>
-            </div>
-
-            <div class="images-container">
-                <div class="image-container">
-                    <img src="" class="material-img" />
-                </div>
-                <div class="image-container">
-                    <img src="" class="material-img" />
-                </div>
-                <div class="image-container">
-                    <img src="" class="material-img" />
-                </div>
-            </div>
-            <div class="inputs-container">
-                <input class="input" />
-                <input class="input" />
-                <input class="input" />
-            </div>
-            <div class="bars-container">
-                <progress value="0" max="9999" class="progress-bar"></progress>
-                <progress value="0" max="9999" class="progress-bar"></progress>
-                <progress value="0" max="9999" class="progress-bar"></progress>
-            </div>
-            <h2></h2>
-            <p class="left-runtimes"></p>
-            <p class="materials-per-run"></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>敌人</th>
-                        <th>类型</th>
-                        <th>剩余敌人</th>
-                        <th>每车怪量</th>
-                    </tr>
-                </thead>
-                <tbody class="enemy-table"></tbody>
-            </table>
-            <h2>合成</h2>
-            <div class="checkboxs-container">
-                <input
-                    type="checkbox"
-                    class="checkbox"
-                    id="sucrose-bonus"
-                    checked
-                />
-                砂糖
-                <input type="checkbox" class="checkbox" id="dori-bonus" />
-                多莉
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>品阶</th>
-                        <th>配平合成</th>
-                        <th>毕业合成</th>
-                        <th>溢出</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody class="craft-table">
-                    <tr>
-                        <td>高阶</td>
-                        <td id="balancing-craft-high"></td>
-                        <td id="all-craft-high"></td>
-                        <td id="out-of-max-high"></td>
-                        <td>
-                            <button class="button" id="button-craft-high">
-                                合成
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>中阶</td>
-                        <td id="balancing-craft-medium"></td>
-                        <td id="all-craft-medium"></td>
-                        <td id="out-of-max-medium"></td>
-                        <td>
-                            <button class="button" id="button-craft-medium">
-                                合成
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>材料一览</h2>
-            <div class="checkboxs-container">
-                <input
-                    type="checkbox"
-                    class="checkbox"
-                    id="sort-by-progress"
-                    checked
-                />
-                进度排序
-                <input type="checkbox" class="checkbox" id="sort-by-id" />
-                背包顺序
-                <input type="checkbox" class="checkbox" id="ascending" />
-                升序
-                <input
-                    type="checkbox"
-                    class="checkbox"
-                    id="descending"
-                    checked
-                />
-                降序
-                <input
-                    type="checkbox"
-                    class="checkbox"
-                    id="hide-complete"
-                    checked
-                />
-                隐藏毕业
-            </div>
-            <div class="list"></div>
+        <div class="app">
+            
         </div>
     </body>
 </html>
