@@ -8,12 +8,35 @@
         <!-- CSS -->
         <link href="css/general.css" rel="stylesheet" />
         <link href="css/progress-bar.css" rel="stylesheet" />
+        <link href="css/list.css" rel="stylesheet" />
 
         <!-- JavaScript -->
         <script defer src="js/progress.js"></script>
+        <script defer src="js/list.js"></script>
     </head>
     <body>
-        <!-- circular progress -->
+        <!-- Materials List -->
+        <nav class="list-container">
+            <div class="list-row">
+                <div class="list-row-item">
+                    <img src="img/1-2.png" alt="" class="list-img" />
+                    <span class="list-number">9999</span>
+                </div>
+                <div class="list-row-item">
+                    <img src="img/1-1.png" alt="" class="list-img" />
+                    <span class="list-number">9999</span>
+                </div>
+                <div class="list-row-item">
+                    <img src="img/1-0.png" alt="" class="list-img" />
+                    <span class="list-number">9999</span>
+                </div>
+                <div class="list-row-progress-bar">
+                    <div class="list-row-progress" style="--i: 80%"></div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Circular Progress -->
         <div class="circular-progress-container">
             <div class="circular-progress-outer center">
                 <div class="circular-progress-inner center">

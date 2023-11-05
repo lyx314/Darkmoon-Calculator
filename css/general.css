@@ -12,6 +12,10 @@ html {
 body {
     height: 100vh;
     background: #e6fcf5; 
+
+    display: grid;
+    grid-template-columns: 35rem 1fr;
+    grid-template-rows: 1fr;
 }
 
 .center {
