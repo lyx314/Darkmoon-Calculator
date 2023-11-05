@@ -2,17 +2,20 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
 }
 
 html {
     font-size: 62.5%;
+    font-family: sans-serif;
 }
 
-body{
+body {
+    height: 100vh;
+    background: #e6fcf5; 
+}
+
+.center {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background: #e6fcf5;
 }

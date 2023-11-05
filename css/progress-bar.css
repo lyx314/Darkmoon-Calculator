@@ -1,39 +1,32 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* .circular-progress-container {
+    display: inline-block;
+    border: 2px solid;
+} */
 
-    width: 42rem;
-    padding: 5rem 0;
-    border-radius: 0.8rem;
-    background: #e6fcf5;
-    row-gap: 3rem;
+.circular-progress-outer {
+    height: 24rem;
+    width: 24rem;
+    border-radius: 50%;
+
+    background: conic-gradient(#20c997 180deg, #c3fae8 0deg);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
 }
 
-.circular-progress {
-    height: 25rem;
-    width: 25rem;
+.circular-progress-inner {
+    height: 22rem;
+    width: 22rem;
     border-radius: 50%;
-    background: conic-gradient(#20c997 270deg, #c3fae8 0deg);
 
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.circular-progress::before {
-    content: "";
-    position: absolute;
-    height: 21rem;
-    width: 21rem;
-    border-radius: 50%;
     background-color: #e6fcf5;
+    box-shadow: 0 0 2rem inset rgba(0, 0, 0, 0.1);
 }
 
-.progress-value {
-    position: relative;
-    font-size: 4.5rem;
+.circular-progress-text {
+    font-size: 4.768rem;
     font-weight: 500;
     color: #087f5b;
+}
+
+.circular-progress-percent {
+    font-size: 2.441rem;
 }

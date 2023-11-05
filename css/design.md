@@ -4,7 +4,7 @@
 
 color theme: Teal
 
-#e6fcf5
+#e6fcf5 -- background color
 #c3fae8
 #96f2d7
 #63e6be
