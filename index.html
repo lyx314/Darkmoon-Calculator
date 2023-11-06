@@ -5,47 +5,121 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Darkmoon Calculator</title>
 
+        <!-- ionicons -->
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+            nomodule
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        ></script>
+
         <!-- CSS -->
         <link href="css/general.css" rel="stylesheet" />
-        <link href="css/progress-bar.css" rel="stylesheet" />
+        <link href="css/panel.css" rel="stylesheet" />
         <link href="css/list.css" rel="stylesheet" />
 
         <!-- JavaScript -->
-        <script defer src="js/progress.js"></script>
-        <script defer src="js/list.js"></script>
+        <script src="js/dataManager.js" type="module" defer></script>
+        <script src="js/calculator.js" type="module" defer></script>
+        <script src="js/main.js" type="module" defer></script>
     </head>
     <body>
-        <!-- Materials List -->
-        <nav class="list-container">
-            <div class="list-row">
-                <div class="list-row-item">
-                    <img src="img/1-2.png" alt="" class="list-img" />
-                    <span class="list-number">9999</span>
-                </div>
-                <div class="list-row-item">
-                    <img src="img/1-1.png" alt="" class="list-img" />
-                    <span class="list-number">9999</span>
-                </div>
-                <div class="list-row-item">
-                    <img src="img/1-0.png" alt="" class="list-img" />
-                    <span class="list-number">9999</span>
-                </div>
-                <div class="list-row-progress-bar">
-                    <div class="list-row-progress" style="--i: 80%"></div>
-                </div>
-            </div>
-        </nav>
-
         <!-- Circular Progress -->
-        <div class="circular-progress-container">
+        <div class="circular-progress-container center">
             <div class="circular-progress-outer center">
                 <div class="circular-progress-inner center">
                     <div class="circular-progress-text">
-                        <span class="circular-progress-value">0</span
+                        <span class="circular-progress-value">50</span
                         ><span class="circular-progress-percent">%</span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="material-panel">
+            <div class="material">
+                <img src="img/1-2.png" alt="" class="material-img" />
+                <label class="material-name" for="material-input-2"
+                    >史莱姆原浆</label
+                >
+                <div class="material-input">
+                    <button class="btn-material-input">
+                        <ion-icon
+                            class="material-input-icon"
+                            name="remove-circle-outline"
+                        ></ion-icon>
+                    </button>
+                    <input
+                        id="material-input-2"
+                        class="material-input-text"
+                        type="text"
+                        placeholder="0"
+                    />
+                    <button class="btn-material-input">
+                        <ion-icon
+                            class="material-input-icon"
+                            name="add-circle-outline"
+                        ></ion-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="material">
+                <img src="img/1-1.png" alt="" class="material-img" />
+                <label class="material-name" for="material-input-1"
+                    >史莱姆清</label
+                >
+                <div class="material-input">
+                    <button class="btn-material-input">
+                        <ion-icon
+                            class="material-input-icon"
+                            name="remove-circle-outline"
+                        ></ion-icon>
+                    </button>
+                    <input
+                        type="text"
+                        class="material-input-text"
+                        id="material-input-1"
+                        placeholder="0"
+                    />
+                    <button class="btn-material-input">
+                        <ion-icon
+                            class="material-input-icon"
+                            name="add-circle-outline"
+                        ></ion-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="material">
+                <img src="img/1-0.png" alt="" class="material-img" />
+                <label class="material-name" for="material-input-0"
+                    >史莱姆凝液</label
+                >
+                <div class="material-input">
+                    <button class="btn-material-input">
+                        <ion-icon
+                            class="material-input-icon"
+                            name="remove-circle-outline"
+                        ></ion-icon>
+                    </button>
+                    <input
+                        type="text"
+                        class="material-input-text"
+                        id="material-input-0"
+                        placeholder="0"
+                    />
+                    <button class="btn-material-input">
+                        <ion-icon
+                            class="material-input-icon"
+                            name="add-circle-outline"
+                        ></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materials List -->
+        <section class="list-container"></section>
     </body>
 </html>

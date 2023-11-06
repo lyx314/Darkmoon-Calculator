@@ -1,0 +1,95 @@
+.circular-progress-container {
+    /* border: 2px solid; */
+    padding: 2rem;
+}
+
+.circular-progress-outer {
+    height: 24rem;
+    width: 24rem;
+    border-radius: 50%;
+
+    background: conic-gradient(#20c997 180deg, #c3fae8 0deg);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+}
+
+.circular-progress-inner {
+    height: 22rem;
+    width: 22rem;
+    border-radius: 50%;
+
+    background-color: #e6fcf5;
+    box-shadow: 0 0 2rem inset rgba(0, 0, 0, 0.1);
+}
+
+.circular-progress-text {
+    font-size: 4.768rem;
+    font-weight: 600;
+    color: #087f5b;
+}
+
+.circular-progress-percent {
+    font-size: 2.441rem;
+    margin-left: 0.5rem;
+}
+
+.material-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.material {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #96f2d7;
+}
+
+.material-name {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.material-img {
+    width: 15rem;
+    border-radius: 50%;
+    box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.1);
+    background-color: #e6fcf5;
+}
+
+.material-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.material-input-text {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    width: 12rem;
+    /* background-color: #e6fcf5; */
+}
+
+
+
+.btn-material-input {
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.material-input-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    color: #087f5b;
+}

@@ -11,15 +11,20 @@ html {
 
 body {
     height: 100vh;
-    background: #e6fcf5; 
+    background: #e6fcf5;
 
     display: grid;
-    grid-template-columns: 35rem 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 30rem 1fr 35rem;
+    grid-template-rows: 30rem 1fr;
 }
 
 .center {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.6rem rgba(12, 167, 121, 0.219);
 }
