@@ -1,16 +1,12 @@
-#Design
+Cyan
 
-## Color
-
-color theme: Teal
-
-#e6fcf5 -- background color
-#c3fae8
-#96f2d7
-#63e6be
-#38d9a9
-#20c997
-#12b886
-#0ca678
-#099268
-#087f5b
+#e3fafc
+#c5f6fa
+#99e9f2
+#66d9e8
+#3bc9db
+#22b8cf
+#15aabf
+#1098ad
+#0c8599
+#0b7285

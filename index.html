@@ -17,182 +17,52 @@
 
         <!-- CSS -->
         <link href="css/general.css" rel="stylesheet" />
-        <link href="css/panel.css" rel="stylesheet" />
         <link href="css/list.css" rel="stylesheet" />
-        <link href="css/craft.css" rel="stylesheet" />
+        <link href="css/panel.css" rel="stylesheet" />
 
-        <!-- JavaScript -->
+        <!-- JS -->
         <script src="js/main.js" type="module" defer></script>
     </head>
     <body>
-        <!-- Circular Progress -->
-        <div class="circular-progress-container center">
-            <div class="circular-progress-outer center">
-                <div class="circular-progress-inner center">
-                    <div class="circular-progress-text">
-                        <span class="circular-progress-value">50</span
-                        ><span class="circular-progress-percent">%</span>
+        <div class="app">
+            <!-- PANEL -->
+            <div class="panel-container"></div>
+
+            <!-- LIST -->
+            <div class="list-container">
+                <div class="list-options">
+                    <input type="checkbox" id="sort--id" checked />
+                    <label for="sort--id">背包顺序</label>
+
+                    <input type="checkbox" id="sort--ascending" checked />
+                    <label for="sort--ascending">升序</label>
+
+                    <input type="checkbox" id="sort--progress" />
+                    <label for="sort--progress">进度排序</label>
+
+                    <input type="checkbox" id="sort--descending" />
+                    <label for="sort--descending">降序</label>
+
+                    <input type="checkbox" id="sort--hide-completed" />
+                    <label for="sort--hide-completed">隐藏毕业</label>
+                </div>
+                <div class="list">
+                    <ion-icon name="arrow-back-circle-outline"></ion-icon>
+
+                    <img src="img/1-2.png" />
+                    <span>9999</span>
+
+                    <img src="img/1-1.png" />
+                    <span>9999</span>
+
+                    <img src="img/1-0.png" />
+                    <span>9999</span>
+
+                    <div class="list-progress-container">
+                        <div class="list-progress-bar" style="--len: 70%"></div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="material-panel">
-            <div class="material">
-                <div class="material-img-container center">
-                    <img
-                        src="img/1-2.png"
-                        alt=""
-                        class="material-img"
-                        id="material-img-2"
-                    />
-                </div>
-                <label
-                    class="material-name"
-                    id="material-name-2"
-                    for="material-input-2"
-                    >史莱姆原浆</label
-                >
-                <div class="material-input">
-                    <button
-                        class="btn-material-input"
-                        id="btn-material-input--remove-2"
-                    >
-                        <ion-icon
-                            class="material-input-icon"
-                            name="remove-circle-outline"
-                        ></ion-icon>
-                    </button>
-                    <input
-                        id="material-input-2"
-                        class="material-input-text"
-                        type="text"
-                        placeholder="0"
-                    />
-                    <button
-                        class="btn-material-input"
-                        id="btn-material-input--add-2"
-                    >
-                        <ion-icon
-                            class="material-input-icon"
-                            name="add-circle-outline"
-                        ></ion-icon>
-                    </button>
-                </div>
-            </div>
-            <div class="material">
-                <div class="material-img-container center">
-                    <img
-                        src="img/1-1.png"
-                        alt=""
-                        class="material-img"
-                        id="material-img-1"
-                    />
-                </div>
-                <label
-                    class="material-name"
-                    id="material-name-1"
-                    for="material-input-1"
-                    >史莱姆清</label
-                >
-                <div class="material-input">
-                    <button
-                        class="btn-material-input"
-                        id="btn-material-input--remove-1"
-                    >
-                        <ion-icon
-                            class="material-input-icon"
-                            name="remove-circle-outline"
-                        ></ion-icon>
-                    </button>
-                    <input
-                        type="text"
-                        class="material-input-text"
-                        id="material-input-1"
-                        placeholder="0"
-                    />
-                    <button
-                        class="btn-material-input"
-                        id="btn-material-input--add-1"
-                    >
-                        <ion-icon
-                            class="material-input-icon"
-                            name="add-circle-outline"
-                        ></ion-icon>
-                    </button>
-                </div>
-            </div>
-            <div class="material">
-                <div class="material-img-container center">
-                    <img
-                        src="img/1-0.png"
-                        alt=""
-                        class="material-img"
-                        id="material-img-0"
-                    />
-                </div>
-                <label
-                    class="material-name"
-                    id="material-name-0"
-                    for="material-input-0"
-                    >史莱姆凝液</label
-                >
-                <div class="material-input">
-                    <button
-                        class="btn-material-input"
-                        id="btn-material-input--remove-0"
-                    >
-                        <ion-icon
-                            class="material-input-icon"
-                            name="remove-circle-outline"
-                        ></ion-icon>
-                    </button>
-                    <input
-                        type="text"
-                        class="material-input-text"
-                        id="material-input-0"
-                        placeholder="0"
-                    />
-                    <button
-                        class="btn-material-input"
-                        id="btn-material-input--add-0"
-                    >
-                        <ion-icon
-                            class="material-input-icon"
-                            name="add-circle-outline"
-                        ></ion-icon>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Materials List -->
-        <section class="list-container"></section>
-
-        <section class="craft">
-            <h3>合成高阶</h3>
-            <div class="craft-statistics">
-                <label>毕业合成</label>
-                <span>9999</span>
-                <label>配平合成</label>
-                <span>9999</span>
-                <label>溢出</label>
-                <span>9999</span>
-            </div>
-            <button class="btn-craft">合成</button>
-        </section>
-
-         <section class="craft">
-            <h3>合成中阶</h3>
-            <div class="craft-statistics">
-                <label>毕业合成</label>
-                <span>9999</span>
-                <label>配平合成</label>
-                <span>9999</span>
-                <label>溢出</label>
-                <span>9999</span>
-            </div>
-            <button class="btn-craft">合成</button>
-        </section>
     </body>
 </html>

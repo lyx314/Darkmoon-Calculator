@@ -2,7 +2,7 @@
 
 import json from "./data.json" assert { type: "json" };
 
- class DataManager {
+export class DataManager {
     data = [];
     currentId = 1;
     options = {};
@@ -10,38 +10,42 @@ import json from "./data.json" assert { type: "json" };
     constructor() {
         const cachedData = localStorage.getItem("data");
         if (!cachedData) {
-            this.initData();
+            this.#initData();
         } else {
             this.data = JSON.parse(cachedData);
         }
 
         const cachedId = localStorage.getItem("currentId");
-        this.currentId = cachedId ? Number(cachedId) : 1;
+        this.currentId = cachedId ? +cachedId : 1;
 
         this.saveData();
         this.saveId();
     }
 
-    initData() {
-        json.forEach((item) => {
+    #initData() {
+        json.forEach(item => {
             item.numbers = [0, 0, 0];
             item.percent = 0;
             this.data.push(item);
         });
     }
 
-    get currentMaterial() {
-        return this.getMaterial(this.currentId);
-    }
-
-    getMaterial(id) {
-        return this.data.find((item) => item.id === id);
-    }
+    getMaterial = (id = this.currentId) => {
+        const material = this.data.find(item => item.id === id);
+        console.log(material);
+        return material;
+    };
 
     switchTo(id) {
+        if (id === this.currentId) {
+            return;
+        }
+
         this.currentId = id;
         this.saveId();
-        console.log("Current id: " + this.currentId);
+
+        console.log("Switch to id: " + this.currentId);
+        this.getMaterial();
     }
 
     sort(key, desc = false) {
@@ -65,5 +69,3 @@ import json from "./data.json" assert { type: "json" };
         localStorage.removeItem("currentId");
     }
 }
-
-export const dataManager = new DataManager();
