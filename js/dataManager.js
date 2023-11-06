@@ -2,7 +2,7 @@
 
 import json from "./data.json" assert { type: "json" };
 
-class DataManager {
+ class DataManager {
     data = [];
     currentId = 1;
     options = {};
@@ -20,9 +20,6 @@ class DataManager {
 
         this.saveData();
         this.saveId();
-
-        console.log(this.data);
-        console.log("Current id: " + this.currentId);
     }
 
     initData() {

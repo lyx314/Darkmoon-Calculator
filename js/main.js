@@ -50,7 +50,7 @@ function fillList() {
         }
         html += `<div class="list-row-progress-bar">
             <div class="list-row-progress" style="--i: ${material.percent}%"></div></div></div>`;
-        
+
         list.insertAdjacentHTML("beforeend", html);
 
         document
@@ -67,19 +67,25 @@ fillList();
 
 function fillProgress(speed = 10) {
     const progressValue = dataManager.currentMaterial.percent;
-    let step = 0;
-    const progress = setInterval(() => {
-        step += 1;
-        if (step >= progressValue) {
-            step = progressValue;
-            clearInterval(progress);
-        }
-        circularProgressValue.textContent = step;
+    if (speed > 0) {
+        let step = 0;
+        const progress = setInterval(() => {
+            step += 1;
+            if (step >= progressValue) {
+                step = progressValue;
+                clearInterval(progress);
+            }
+            circularProgressValue.textContent = step;
+            circularProgressOuter.style.background = `
+                conic-gradient(#20c997 ${step * 3.6}deg, #eee 0deg)`;
+        }, speed);
+    } else {
+        circularProgressValue.textContent = progressValue;
         circularProgressOuter.style.background = `
-            conic-gradient(#20c997 ${step * 3.6}deg, #c3fae8 0deg)`;
-    }, speed);
+                conic-gradient(#20c997 ${progressValue * 3.6}deg, #eee 0deg)`;
+    }
 }
-fillProgress();
+fillProgress(10);
 
 function fillMaterialPanel() {
     const material = dataManager.currentMaterial;
@@ -88,20 +94,17 @@ function fillMaterialPanel() {
         materialImgs[i].alt = material.names[i];
         materialNames[i].textContent = material.names[i];
         let number = material.numbers[i];
-        materialInputs[i].value = number > 0 && number < 9999 ? number : "";
+        materialInputs[i].value = number > 0 && number <= 9999 ? number : "";
     }
 }
 fillMaterialPanel();
 
 materialInputs.forEach((input, index) => {
-    const material = dataManager.currentMaterial;
     input.addEventListener("change", () => {
+        const material = dataManager.currentMaterial;
         const inputNumber = Number(input.value);
         if (inputNumber < 0 || inputNumber > 9999) {
             alert("Invalid number!");
-            input.value = "";
-            material.numbers[index] = 0;
-        } else if (inputNumber === 0) {
             input.value = "";
             material.numbers[index] = 0;
         } else {
@@ -111,13 +114,13 @@ materialInputs.forEach((input, index) => {
         material.percent = calc.percent;
         dataManager.saveData();
         fillList();
-        fillProgress();
+        fillProgress(0);
     });
 });
 
 btnAdd.forEach((btn, index) => {
-    const material = dataManager.currentMaterial;
     btn.addEventListener("click", () => {
+        const material = dataManager.currentMaterial;
         if (material.numbers[index] < 9999) {
             material.numbers[index] += 1;
             materialInputs[index].value = material.numbers[index];
@@ -125,14 +128,14 @@ btnAdd.forEach((btn, index) => {
             material.percent = calc.percent;
             dataManager.saveData();
             fillList();
-            fillProgress();
+            fillProgress(0);
         }
     });
 });
 
 btnRemove.forEach((btn, index) => {
-    const material = dataManager.currentMaterial;
     btn.addEventListener("click", () => {
+        const material = dataManager.currentMaterial;
         if (material.numbers[index] > 0) {
             material.numbers[index] -= 1;
             materialInputs[index].value = material.numbers[index];
@@ -140,7 +143,7 @@ btnRemove.forEach((btn, index) => {
             material.percent = calc.percent;
             dataManager.saveData();
             fillList();
-            fillProgress();
+            fillProgress(0);
         }
     });
 });

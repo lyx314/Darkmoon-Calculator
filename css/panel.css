@@ -7,9 +7,8 @@
     height: 24rem;
     width: 24rem;
     border-radius: 50%;
-
-    background: conic-gradient(#20c997 180deg, #c3fae8 0deg);
-    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+    background: conic-gradient(#20c997 180deg, #eee 0deg);
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
 }
 
 .circular-progress-inner {
@@ -18,7 +17,7 @@
     border-radius: 50%;
 
     background-color: #e6fcf5;
-    box-shadow: 0 0 2rem inset rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2rem 0 inset rgba(0, 0, 0, 0.1);
 }
 
 .circular-progress-text {
@@ -54,12 +53,22 @@
     font-weight: 500;
 }
 
+.material-img-container {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
 .material-img {
     width: 13rem;
-    border-radius: 50%;
-    padding: 0.8rem;
-    box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    box-shadow: inset 0 0 2rem 0 rgba(0, 0, 0, 0.1);
     background-color: #e6fcf5;
+
+    transition: all 0.3s;
+}
+
+.material-img:hover {
+    transform: scale(1.1);
 }
 
 .material-input {
