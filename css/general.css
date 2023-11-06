@@ -10,12 +10,14 @@ html {
 }
 
 body {
+    max-width: 140rem;
     height: 100vh;
     background: #e6fcf5;
+    margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 30rem 1fr 35rem;
-    grid-template-rows: 30rem 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 30rem 50rem;
 }
 
 .center {

@@ -1,0 +1,58 @@
+.craft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 1.8rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+
+    overflow: hidden;
+}
+
+.craft h3 {
+    font-size: 1.8rem;
+    background-color: #0ca6789a;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+
+.btn-craft {
+    padding: 1rem 2rem;
+    width: 80%;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: #0ca678;
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.btn-craft:active {
+    transform: scaleY(0.97);
+}
+
+.craft-statistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.craft-statistics span {
+    background-color: #fff;
+    margin-bottom: 1.5rem;
+    margin-top: 0.8rem;
+    padding: 0.8rem;
+    width: 20rem;
+    border-radius: 1rem;
+}
