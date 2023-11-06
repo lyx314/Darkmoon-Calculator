@@ -55,8 +55,9 @@
 }
 
 .material-img {
-    width: 15rem;
+    width: 13rem;
     border-radius: 50%;
+    padding: 0.8rem;
     box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.1);
     background-color: #e6fcf5;
 }
@@ -76,10 +77,8 @@
     font-weight: 600;
     text-align: center;
     width: 12rem;
-    /* background-color: #e6fcf5; */
+    background-color: #e6fcf5;
 }
-
-
 
 .btn-material-input {
     border: none;

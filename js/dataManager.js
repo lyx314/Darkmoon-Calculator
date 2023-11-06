@@ -14,7 +14,9 @@ class DataManager {
         } else {
             this.data = JSON.parse(cachedData);
         }
-        this.currentId = localStorage.getItem("currentId") ?? 1;
+
+        const cachedId = localStorage.getItem("currentId");
+        this.currentId = cachedId ? Number(cachedId) : 1;
 
         this.saveData();
         this.saveId();
@@ -32,7 +34,11 @@ class DataManager {
     }
 
     get currentMaterial() {
-        return this.data.find((item) => item.id === this.currentId);
+        return this.getMaterial(this.currentId);
+    }
+
+    getMaterial(id) {
+        return this.data.find((item) => item.id === id);
     }
 
     switchTo(id) {

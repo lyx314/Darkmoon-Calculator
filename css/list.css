@@ -13,7 +13,7 @@
 }
 
 .list-row {
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     padding: 0.5rem 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -49,4 +49,8 @@
     text-align: right;
     background-color: #12b886;
     color: #fff;
+}
+
+.list-selected {
+    background-color: #c3fae8;
 }

@@ -24,7 +24,11 @@ body {
     justify-content: center;
 }
 
-input:focus {
+*:focus {
     outline: none;
+}
+
+input:focus {
     box-shadow: 0 0 0 0.6rem rgba(12, 167, 121, 0.219);
+    background-color: #fff;
 }
