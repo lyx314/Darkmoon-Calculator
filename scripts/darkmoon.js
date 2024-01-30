@@ -154,6 +154,7 @@ export class Darkmoon {
             input.addEventListener("change", () => {
                 this.dm.craftOptions = this.craftOptions;
                 this.displayCraft();
+                this.displayStatistics();
             });
         });
 
