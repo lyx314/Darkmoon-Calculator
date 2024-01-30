@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Darkmoon Calculator</title>
+        <link rel="icon" href="img/kirara3.png" />
 
         <!-- ionicons -->
         <script
@@ -16,53 +17,253 @@
         ></script>
 
         <!-- CSS -->
-        <link href="css/general.css" rel="stylesheet" />
-        <link href="css/list.css" rel="stylesheet" />
-        <link href="css/panel.css" rel="stylesheet" />
-
-        <!-- JS -->
-        <script src="js/main.js" type="module" defer></script>
+        <link rel="stylesheet" href="css/general.css" />
+        <link rel="stylesheet" href="css/media.css" />
     </head>
     <body>
-        <div class="app">
-            <!-- PANEL -->
-            <div class="panel-container"></div>
-
-            <!-- LIST -->
-            <div class="list-container">
-                <div class="list-options">
-                    <input type="checkbox" id="sort--id" checked />
-                    <label for="sort--id">背包顺序</label>
-
-                    <input type="checkbox" id="sort--ascending" checked />
-                    <label for="sort--ascending">升序</label>
-
-                    <input type="checkbox" id="sort--progress" />
-                    <label for="sort--progress">进度排序</label>
-
-                    <input type="checkbox" id="sort--descending" />
-                    <label for="sort--descending">降序</label>
-
-                    <input type="checkbox" id="sort--hide-completed" />
-                    <label for="sort--hide-completed">隐藏毕业</label>
+        <nav>
+            <button class="clear-data btn">清除数据</button>
+        </nav>
+        <main class="app">
+            <div class="title">
+                <h1>DARKMOON CALCULATOR</h1>
+                <img
+                    src="img/kirara1.png"
+                    alt="绮良良超级可爱表情包"
+                    class="kirara"
+                />
+            </div>
+            <section class="section-panel">
+                <div class="progress-value-container">
+                    <ion-icon
+                        name="arrow-back-circle-outline"
+                        class="last-material btn"
+                    ></ion-icon>
+                    <span class="progress-value">80.00%</span>
+                    <ion-icon
+                        name="arrow-forward-circle-outline"
+                        class="next-material btn"
+                    ></ion-icon>
                 </div>
-                <div class="list">
-                    <ion-icon name="arrow-back-circle-outline"></ion-icon>
-
-                    <img src="img/1-2.png" />
-                    <span>9999</span>
-
-                    <img src="img/1-1.png" />
-                    <span>9999</span>
-
-                    <img src="img/1-0.png" />
-                    <span>9999</span>
-
-                    <div class="list-progress-container">
-                        <div class="list-progress-bar" style="--len: 70%"></div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="--progress: 80%"></div>
+                </div>
+                <div class="material-panels">
+                    <div class="material-panel">
+                        <div class="img-container">
+                            <img
+                                src="img/1-2.png"
+                                alt=""
+                                class="material-img"
+                            />
+                        </div>
+                        <span class="material-name">史莱姆原浆</span>
+                        <input
+                            type="text"
+                            placeholder="0"
+                            class="material-input"
+                        />
+                        <div class="add-remove-btns">
+                            <ion-icon
+                                name="remove-circle-outline"
+                                class="minus-btn btn"
+                            ></ion-icon>
+                            <ion-icon
+                                name="add-circle-outline"
+                                class="add-btn btn"
+                            ></ion-icon>
+                        </div>
+                    </div>
+                    <div class="material-panel">
+                        <div class="img-container">
+                            <img
+                                src="img/1-1.png"
+                                alt=""
+                                class="material-img"
+                            />
+                        </div>
+                        <span class="material-name">史莱姆清</span>
+                        <input
+                            type="text"
+                            placeholder="0"
+                            class="material-input"
+                        />
+                        <div class="add-remove-btns">
+                            <ion-icon
+                                name="remove-circle-outline"
+                                class="minus-btn btn"
+                            ></ion-icon>
+                            <ion-icon
+                                name="add-circle-outline"
+                                class="add-btn btn"
+                            ></ion-icon>
+                        </div>
+                    </div>
+                    <div class="material-panel">
+                        <div class="img-container">
+                            <img
+                                src="img/1-0.png"
+                                alt=""
+                                class="material-img"
+                            />
+                        </div>
+                        <span class="material-name">史莱姆凝液</span>
+                        <input
+                            type="text"
+                            placeholder="0"
+                            class="material-input"
+                        />
+                        <div class="add-remove-btns">
+                            <ion-icon
+                                name="remove-circle-outline"
+                                class="minus-btn btn"
+                            ></ion-icon>
+                            <ion-icon
+                                name="add-circle-outline"
+                                class="add-btn btn"
+                            ></ion-icon>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+
+            <section class="enemy-section">
+                <div class="statistics">
+                    <div>剩余车数<span class="left-run-times"></span></div>
+                    <div>每车进度<span class="progress-per-run"></span></div>
+                    <div class="materials-per-run">
+                        每车材料 <img src="img/1-2.png" /> 9999
+                        <img src="img/1-1.png" /> 9999
+                        <img src="img/1-0.png" /> 9999
+                    </div>
+                </div>
+                <div class="enemy-headers grid-4">
+                    <div></div>
+                    <div>敌 人</div>
+                    <div>等 级</div>
+                    <div>数 量</div>
+                    <div></div>
+                </div>
+                <div class="enemies grid-4">
+                    <input type="checkbox" class="activate-enemy" />
+                    <select class="enemy-row-item"></select>
+                    <select class="enemy-row-item"></select>
+                    <input type="text" class="enemy-row-item" />
+                    <ion-icon
+                        name="close-circle-outline"
+                        class="delete-row btn"
+                    ></ion-icon>
+                </div>
+                <div class="add-enemy">
+                    <ion-icon
+                        name="add-circle-outline"
+                        class="add-enemy-btn btn"
+                    ></ion-icon>
+                </div>
+            </section>
+
+            <section class="craft-section">
+                <div class="craft-options">
+                    <input type="radio" id="sucrose-bonus" name="craft-bonus" />
+                    <label for="sucrose-bonus">砂糖</label>
+                    <input type="radio" id="dori-bonus" name="craft-bonus" />
+                    <label for="dori-bonus">多莉</label>
+                    <input
+                        type="radio"
+                        id="none-bonus"
+                        name="craft-bonus"
+                        checked
+                    />
+                    <label for="none-bonus">无</label>
+                </div>
+                <div class="craft-subsection">
+                    <div class="subsection-title">合 成 中 阶</div>
+                    <div class="craft-items">
+                        毕 业<span class="craft-medium-complete">999</span> 配
+                        平<span class="craft-medium-even">99</span> 溢 出<span
+                            class="craft-medium-overflow"
+                            >9</span
+                        >
+                    </div>
+                    <button class="craft-btn craft-medium-btn">
+                        <ion-icon name="sync-circle-outline"></ion-icon> 合 成
+                    </button>
+                </div>
+                <div class="craft-subsection">
+                    <div class="subsection-title">合 成 高 阶</div>
+                    <div class="craft-items">
+                        毕 业<span class="craft-high-complete">999</span> 配
+                        平<span class="craft-high-even">99</span> 溢 出<span
+                            class="craft-high-overflow"
+                            >9</span
+                        >
+                    </div>
+                    <button class="craft-btn craft-high-btn">
+                        <ion-icon name="sync-circle-outline"></ion-icon>合 成
+                    </button>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <h2 class="list-title">
+                    材料一览<img src="img/kirara2.png" class="kirara" />
+                </h2>
+                <div class="list-options">
+                    <input
+                        type="radio"
+                        id="list-sort-id"
+                        name="list-sort"
+                        value="id"
+                        checked
+                    />
+                    <label for="list-sort-id">背包顺序</label>
+                    <input
+                        type="radio"
+                        id="list-sort-progress"
+                        name="list-sort"
+                        value="progress"
+                    />
+                    <label for="list-sort-progress">进度排序</label>
+
+                    <input
+                        type="radio"
+                        id="list-order-asecnding"
+                        name="list-order"
+                        value="asecnding"
+                        checked
+                    />
+                    <label for="list-order-asecnding">升序</label>
+                    <input
+                        type="radio"
+                        id="list-order-desecnding"
+                        name="list-order"
+                        value="desecnding"
+                    />
+                    <label for="list-order-desecnding">降序</label>
+                    <input type="checkbox" id="hide-completed" />
+                    <label for="hide-completed">隐藏毕业</label>
+                </div>
+                <div class="list">
+                    <div class="list-row">
+                        <img src="img/1-2.png" />
+                        <span>9999</span>
+                        <img src="img/1-1.png" />
+                        <span>9999</span>
+                        <img src="img/1-0.png" />
+                        <span>9999</span>
+                        <div class="list-progress-container">
+                            <div
+                                class="list-progress-bar"
+                                style="--progress: 80%"
+                            ></div>
+                        </div>
+                        <span class="list-progress-value">80.00%</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- JavaScript -->
+        <script src="scripts/main.js" type="module"></script>
     </body>
 </html>
