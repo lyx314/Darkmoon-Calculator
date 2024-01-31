@@ -475,7 +475,7 @@
         "enemies": [
             {
                 "name": "玄文兽",
-                "materialsPerEnemy": [0, 0, 0],
+                "materialsPerEnemy": [3.9394, 1.0505, 0.2626],
                 "type": "精英"
             }
         ],
