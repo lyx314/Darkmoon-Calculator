@@ -71,8 +71,8 @@ export class Darkmoon {
     update() {
         this.displayMaterial();
         this.diaplayEnemies();
-        this.displayStatistics();
         this.displayCraft();
+        this.displayStatistics();
         this.displayList();
     }
 
