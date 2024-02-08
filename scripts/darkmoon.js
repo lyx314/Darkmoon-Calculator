@@ -49,6 +49,8 @@ export class Darkmoon {
         this.craftMediumBtn = document.querySelector(".craft-medium-btn");
         this.craftHighBtn = document.querySelector(".craft-high-btn");
 
+        this.craftAttention = document.querySelector(".overflow-attention");
+
         // list
         this.list = document.querySelector(".list");
         this.listSortProgress = document.getElementById("list-sort-progress");
@@ -437,6 +439,16 @@ export class Darkmoon {
         this.craftHighOverflow.textContent = overflow[2];
         this.craftMediumComplete.textContent = calculator.craftCount[0];
         this.craftHighComplete.textContent = calculator.craftCount[1];
+
+        const numbers = this.dm.getNumbers();
+        if (
+            Math.trunc(numbers[0] / 3) > calculator.craftCount[0] ||
+            Math.trunc(numbers[1] / 3) > calculator.craftCount[1]
+        ) {
+            this.craftAttention.classList.remove("hidden");
+        } else {
+            this.craftAttention.classList.add("hidden");
+        }
     }
 
     get listOptions() {

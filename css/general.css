@@ -342,6 +342,12 @@ body {
     height: 1.2rem;
 }
 
+.overflow-attention {
+    font-size: 0.8rem;
+    grid-column: 1/-1;
+    text-align: center;
+}
+
 /* list */
 
 .list-section {
