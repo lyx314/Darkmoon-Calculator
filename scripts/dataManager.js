@@ -134,4 +134,19 @@ export class DataManager {
     clearData() {
         localStorage.clear();
     }
+
+    importData(data) {
+        this.data.materialsNumbers = [];
+        this.materials.forEach((item) => {
+            this.data.materialsNumbers.push({
+                id: item.id,
+                numbers: [
+                    data[item.keys[0]] ?? 0,
+                    data[item.keys[1]] ?? 0,
+                    data[item.keys[2]] ?? 0,
+                ],
+            });
+        });
+        this.saveData();
+    }
 }

@@ -13,7 +13,8 @@
                 "type": "普通"
             }
         ],
-        "names": ["史莱姆凝液", "史莱姆清", "史莱姆原浆"]
+        "names": ["史莱姆凝液", "史莱姆清", "史莱姆原浆"],
+        "keys": ["SlimeCondensate", "SlimeSecretions", "SlimeConcentrate"]
     },
     {
         "id": 2,
@@ -49,7 +50,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["破损的面具", "污秽的面具", "不祥的面具"]
+        "names": ["破损的面具", "污秽的面具", "不祥的面具"],
+        "keys": ["DamagedMask", "StainedMask", "OminousMask"]
     },
     {
         "id": 3,
@@ -60,7 +62,8 @@
                 "type": "普通"
             }
         ],
-        "names": ["导能绘卷", "封魔绘卷", "禁咒绘卷"]
+        "names": ["导能绘卷", "封魔绘卷", "禁咒绘卷"],
+        "keys": ["DiviningScroll", "SealedScroll", "ForbiddenCurseScroll"]
     },
     {
         "id": 4,
@@ -71,7 +74,8 @@
                 "type": "普通"
             }
         ],
-        "names": ["牢固的箭簇", "锐利的箭簇", "历战的箭簇"]
+        "names": ["牢固的箭簇", "锐利的箭簇", "历战的箭簇"],
+        "keys": ["FirmArrowhead", "SharpArrowhead", "WeatheredArrowhead"]
     },
     {
         "id": 5,
@@ -87,7 +91,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["沉重号角", "黑铜号角", "黑晶号角"]
+        "names": ["沉重号角", "黑铜号角", "黑晶号角"],
+        "keys": ["HeavyHorn", "BlackBronzeHorn", "BlackCrystalHorn"]
     },
     {
         "id": 6,
@@ -103,7 +108,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["地脉的旧枝", "地脉的枯叶", "地脉的新芽"]
+        "names": ["地脉的旧枝", "地脉的枯叶", "地脉的新芽"],
+        "keys": ["DeadLeyLineBranch", "DeadLeyLineLeaves", "LeyLineSprout"]
     },
     {
         "id": 7,
@@ -119,7 +125,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["混沌装置", "混沌回路", "混沌炉心"]
+        "names": ["混沌装置", "混沌回路", "混沌炉心"],
+        "keys": ["ChaosDevice", "ChaosCircuit", "ChaosCore"]
     },
     {
         "id": 8,
@@ -130,7 +137,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["雾虚花粉", "雾虚草囊", "雾虚灯芯"]
+        "names": ["雾虚花粉", "雾虚草囊", "雾虚灯芯"],
+        "keys": ["MistGrassPollen", "MistGrass", "MistGrassWick"]
     },
     {
         "id": 9,
@@ -141,7 +149,12 @@
                 "type": "精英"
             }
         ],
-        "names": ["猎兵祭刀", "特工祭刀", "督察长祭刀"]
+        "names": ["猎兵祭刀", "特工祭刀", "督察长祭刀"],
+        "keys": [
+            "HuntersSacrificialKnife",
+            "AgentsSacrificialKnife",
+            "InspectorsSacrificialKnife"
+        ]
     },
     {
         "id": 10,
@@ -167,7 +180,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["新兵的徽记", "士官的徽记", "尉官的徽记"]
+        "names": ["新兵的徽记", "士官的徽记", "尉官的徽记"],
+        "keys": ["RecruitsInsignia", "SergeantsInsignia", "LieutenantsInsignia"]
     },
     {
         "id": 11,
@@ -183,7 +197,12 @@
                 "type": "普通"
             }
         ],
-        "names": ["寻宝鸦印", "藏银鸦印", "攫金鸦印"]
+        "names": ["寻宝鸦印", "藏银鸦印", "攫金鸦印"],
+        "keys": [
+            "TreasureHoarderInsignia",
+            "SilverRavenInsignia",
+            "GoldenRavenInsignia"
+        ]
     },
     {
         "id": 12,
@@ -194,7 +213,8 @@
                 "type": "普通"
             }
         ],
-        "names": ["骗骗花蜜", "微光花蜜", "原素花蜜"]
+        "names": ["骗骗花蜜", "微光花蜜", "原素花蜜"],
+        "keys": ["WhopperflowerNectar", "ShimmeringNectar", "EnergyNectar"]
     },
     {
         "id": 13,
@@ -205,7 +225,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["脆弱的骨片", "结实的骨片", "石化的骨片"]
+        "names": ["脆弱的骨片", "结实的骨片", "石化的骨片"],
+        "keys": ["FragileBoneShard", "SturdyBoneShard", "FossilizedBoneShard"]
     },
     {
         "id": 14,
@@ -221,7 +242,8 @@
                 "type": "普通"
             }
         ],
-        "names": ["破旧的刀镡", "影打刀镡", "名刀镡"]
+        "names": ["破旧的刀镡", "影打刀镡", "名刀镡"],
+        "keys": ["OldHandguard", "KageuchiHandguard", "FamedHandguard"]
     },
     {
         "id": 15,
@@ -232,7 +254,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["混沌机关", "混沌枢纽", "混沌真眼"]
+        "names": ["混沌机关", "混沌枢纽", "混沌真眼"],
+        "keys": ["ChaosGear", "ChaosAxis", "ChaosOculus"]
     },
     {
         "id": 16,
@@ -243,7 +266,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["黯淡棱镜", "水晶棱镜", "偏光棱镜"]
+        "names": ["黯淡棱镜", "水晶棱镜", "偏光棱镜"],
+        "keys": ["DismalPrism", "CrystalPrism", "PolarizingPrism"]
     },
     {
         "id": 17,
@@ -254,7 +278,8 @@
                 "type": "普通"
             }
         ],
-        "names": ["浮游干核", "浮游幽核", "浮游晶化核"]
+        "names": ["浮游干核", "浮游幽核", "浮游晶化核"],
+        "keys": ["SpectralHusk", "SpectralHeart", "SpectralNucleus"]
     },
     {
         "id": 18,
@@ -270,7 +295,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["隐兽指爪", "隐兽利爪", "隐兽鬼爪"]
+        "names": ["隐兽指爪", "隐兽利爪", "隐兽鬼爪"],
+        "keys": ["ConcealedClaw", "ConcealedUnguis", "ConcealedTalon"]
     },
     {
         "id": 19,
@@ -286,7 +312,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["晦暗刻像", "夤夜刻像", "幽邃刻像"]
+        "names": ["晦暗刻像", "夤夜刻像", "幽邃刻像"],
+        "keys": ["GloomyStatuette", "DarkStatuette", "DeathlyStatuette"]
     },
     {
         "id": 20,
@@ -312,7 +339,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["蕈兽孢子", "荧光孢粉", "孢囊晶尘"]
+        "names": ["蕈兽孢子", "荧光孢粉", "孢囊晶尘"],
+        "keys": ["FungalSpores", "LuminescentPollen", "CrystallineCystDust"]
     },
     {
         "id": 21,
@@ -328,7 +356,12 @@
                 "type": "精英"
             }
         ],
-        "names": ["失活菌核", "休眠菌核", "茁壮菌核"]
+        "names": ["失活菌核", "休眠菌核", "茁壮菌核"],
+        "keys": [
+            "InactivatedFungalNucleus",
+            "DormantFungalNucleus",
+            "RobustFungalNucleus"
+        ]
     },
     {
         "id": 22,
@@ -354,7 +387,8 @@
                 "type": "普通"
             }
         ],
-        "names": ["褪色红绸", "镶边红绸", "织金红绸"]
+        "names": ["褪色红绸", "镶边红绸", "织金红绸"],
+        "keys": ["FadedRedSatin", "TrimmedRedSilk", "RichRedBrocade"]
     },
     {
         "id": 23,
@@ -365,7 +399,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["混沌容器", "混沌模块", "混沌锚栓"]
+        "names": ["混沌容器", "混沌模块", "混沌锚栓"],
+        "keys": ["ChaosStorage", "ChaosModule", "ChaosBolt"]
     },
     {
         "id": 24,
@@ -376,7 +411,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["破缺棱晶", "混浊棱晶", "辉光棱晶"]
+        "names": ["破缺棱晶", "混浊棱晶", "辉光棱晶"],
+        "keys": ["DamagedPrism", "TurbidPrism", "RadiantPrism"]
     },
     {
         "id": 25,
@@ -387,7 +423,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["残毁的横脊", "密固的横脊", "锲纹的横脊"]
+        "names": ["残毁的横脊", "密固的横脊", "锲纹的横脊"],
+        "keys": ["DesiccatedShell", "SturdyShell", "MarkedShell"]
     },
     {
         "id": 26,
@@ -398,7 +435,12 @@
                 "type": "精英"
             }
         ],
-        "names": ["来自何处的待放之花", "何人所珍藏之花", "漫游者的盛放之花"]
+        "names": ["来自何处的待放之花", "何人所珍藏之花", "漫游者的盛放之花"],
+        "keys": [
+            "AFlowerYetToBloom",
+            "TreasuredFlower",
+            "WanderersBloomingFlower"
+        ]
     },
     {
         "id": 27,
@@ -414,7 +456,12 @@
                 "type": "普通"
             }
         ],
-        "names": ["异海凝珠", "异海之块", "异色结晶石"]
+        "names": ["异海凝珠", "异海之块", "异色结晶石"],
+        "keys": [
+            "TransoceanicPearl",
+            "TransoceanicChunk",
+            "XenochromaticCrystal"
+        ]
     },
     {
         "id": 28,
@@ -430,7 +477,8 @@
                 "type": "普通"
             }
         ],
-        "names": ["啮合齿轮", "机关正齿轮", "奇械机芯齿轮"]
+        "names": ["啮合齿轮", "机关正齿轮", "奇械机芯齿轮"],
+        "keys": ["MeshingGear", "MechanicalSpurGear", "ArtificedDynamicGear"]
     },
     {
         "id": 29,
@@ -441,7 +489,12 @@
                 "type": "精英"
             }
         ],
-        "names": ["浊水的一滴", "浊水的一掬", "初生的浊水幻灵"]
+        "names": ["浊水的一滴", "浊水的一掬", "初生的浊水幻灵"],
+        "keys": [
+            "DropOfTaintedWater",
+            "ScoopOfTaintedWater",
+            "NewbornTaintedHydroPhantasm"
+        ]
     },
     {
         "id": 30,
@@ -457,7 +510,8 @@
                 "type": "精英"
             }
         ],
-        "names": ["隙间之核", "外世突触", "异界生命核"]
+        "names": ["隙间之核", "外世突触", "异界生命核"],
+        "keys": ["RiftCore", "ForeignSynapse", "AlienLifeCore"]
     },
     {
         "id": 31,
@@ -468,7 +522,12 @@
                 "type": "精英"
             }
         ],
-        "names": ["老旧的役人怀表", "役人的制式怀表", "役人的时时刻刻"]
+        "names": ["老旧的役人怀表", "役人的制式怀表", "役人的时时刻刻"],
+        "keys": [
+            "OldOperativesPocketWatch",
+            "OperativesStandardPocketWatch",
+            "OperativesConstancy"
+        ]
     },
     {
         "id": 32,
@@ -479,6 +538,7 @@
                 "type": "精英"
             }
         ],
-        "names": ["羽状鳍翅", "月色鳍翅", "渊光鳍翅"]
+        "names": ["羽状鳍翅", "月色鳍翅", "渊光鳍翅"],
+        "keys": ["FeatheryFin", "LunarFin", "ChasmlightFin"]
     }
 ]

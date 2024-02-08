@@ -8,6 +8,7 @@ export class Darkmoon {
         this.dm = new DataManager();
 
         this.clearData = document.querySelector(".clear-data");
+        this.importData = document.querySelector(".import-data");
 
         this.materialNumbers = [
             ...document.querySelectorAll(".material-input"),
@@ -85,6 +86,25 @@ export class Darkmoon {
                 this.dm.clearData();
                 window.location.reload();
             }
+        });
+
+        this.importData.addEventListener("click", () => {
+            const input = document.createElement("input");
+            input.type = "file";
+            input.accept = ".json";
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.readAsText(file, "UTF-8");
+                reader.onload = (readerEvent) => {
+                    const data = JSON.parse(readerEvent.target.result);
+                    if (data.format === "GOOD") {
+                        this.dm.importData(data.materials);
+                        this.update();
+                    }
+                };
+            };
+            input.click();
         });
 
         this.materialNumbers.forEach((input) =>

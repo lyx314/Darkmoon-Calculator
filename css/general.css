@@ -12,6 +12,7 @@ body {
     line-height: 1;
 }
 
+.import-data,
 .clear-data {
     background-color: #0b7285;
     color: #fff;
