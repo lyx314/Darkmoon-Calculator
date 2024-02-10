@@ -68,10 +68,10 @@ export class Darkmoon {
     start() {
         console.log("Start Darkmoon.");
         this.init();
-        this.update();
+        this.updateAll();
     }
 
-    update() {
+    updateAll() {
         this.displayMaterial();
         this.diaplayEnemies();
         this.displayCraft();
@@ -100,7 +100,7 @@ export class Darkmoon {
                     const data = JSON.parse(readerEvent.target.result);
                     if (data.format === "GOOD") {
                         this.dm.importData(data.materials);
-                        this.update();
+                        this.updateAll();
                     }
                 };
             };
@@ -139,13 +139,13 @@ export class Darkmoon {
         this.lastBtn.addEventListener("click", () => {
             const id = this.dm.currentID;
             this.dm.currentID = id > 1 ? id - 1 : this.dm.materials.length;
-            this.update();
+            this.updateAll();
         });
 
         this.nextBtn.addEventListener("click", () => {
             const id = this.dm.currentID;
             this.dm.currentID = id < this.dm.materials.length ? id + 1 : 1;
-            this.update();
+            this.updateAll();
         });
 
         this.addEnemyBtn.addEventListener("click", () => {
@@ -241,7 +241,10 @@ export class Darkmoon {
         const numbers = this.materialNumbers.map((input) => +input.value);
         this.dm.setNumbers(numbers);
         this.setProgress(numbers);
-        this.update();
+
+        this.displayCraft();
+        this.displayStatistics();
+        this.displayList();
     }
 
     setProgress(numbers) {
@@ -532,15 +535,11 @@ export class Darkmoon {
         }
         row.addEventListener("click", () => {
             this.dm.currentID = material.id;
-            this.update();
-            this.scrollToTop();
-        });
-    }
-
-    scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
+            this.updateAll();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
         });
     }
 }

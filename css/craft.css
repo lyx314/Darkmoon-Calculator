@@ -31,7 +31,6 @@
     padding-bottom: 0.5rem;
     background-color: #e3fafc;
     border-radius: 1rem;
-    /* width: 100%; */
     box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
     overflow: hidden;
 
@@ -47,7 +46,7 @@
     font-weight: 600;
     padding: 0.8rem;
     width: 100%;
-    background-color: #0c8599;
+    background-color: #15aabf;
     color: #fff;
 }
 
@@ -64,7 +63,7 @@
     padding: 0.4rem 1rem;
     border-radius: 100rem;
     cursor: pointer;
-    background-color: #0c8599;
+    background-color: #15aabf;
     color: #fff;
     font-weight: 600;
     font-size: 1rem;
