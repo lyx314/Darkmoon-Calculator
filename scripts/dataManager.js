@@ -121,10 +121,7 @@ export class DataManager {
     }
 
     get enemies() {
-        const material = this.materials.find(
-            (item) => item.id === this.data.currentID
-        );
-        return material.enemies;
+        return this.currentMaterial.enemies;
     }
 
     saveData() {
@@ -132,20 +129,17 @@ export class DataManager {
     }
 
     clearData() {
-        localStorage.clear();
+        localStorage.removeItem("data");
     }
 
     importData(data) {
         this.data.materialsNumbers = [];
         this.materials.forEach((item) => {
-            this.data.materialsNumbers.push({
+            const record = {
                 id: item.id,
-                numbers: [
-                    data[item.keys[0]] ?? 0,
-                    data[item.keys[1]] ?? 0,
-                    data[item.keys[2]] ?? 0,
-                ],
-            });
+                numbers: item.keys.map((key) => data[key] ?? 0),
+            };
+            this.data.materialsNumbers.push(record);
         });
         this.saveData();
     }
