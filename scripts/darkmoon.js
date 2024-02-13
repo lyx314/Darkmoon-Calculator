@@ -7,9 +7,6 @@ export class Darkmoon {
     constructor() {
         this.dm = new DataManager();
 
-        this.clearData = document.querySelector(".clear-data");
-        this.importData = document.querySelector(".import-data");
-
         this.materialNumbers = [
             ...document.querySelectorAll(".material-input"),
         ].reverse();
@@ -65,13 +62,18 @@ export class Darkmoon {
         this.listHideCompleted = document.getElementById("hide-completed");
     }
 
+    /**
+     * Start Darkmoon.
+     */
     start() {
-        console.log("Start Darkmoon.");
         this.init();
-        this.updateAll();
+        this.update();
     }
 
-    updateAll() {
+    /**
+     * Update the whole page.
+     */
+    update() {
         this.displayMaterial();
         this.diaplayEnemies();
         this.displayCraft();
@@ -79,85 +81,98 @@ export class Darkmoon {
         this.displayList();
     }
 
+    /**
+     * Initialize the app.
+     */
     init() {
-        this.clearData.addEventListener("click", () => {
-            const input = confirm("确定要清除所有数据吗？");
-            if (input) {
+        // button: clear data in local storage
+        document.querySelector(".clear-data").onclick = () => {
+            const confirmed = confirm("确定要清除所有数据吗？");
+            if (confirmed) {
                 this.dm.clearData();
                 window.location.reload();
             }
-        });
+        };
 
-        this.importData.addEventListener("click", () => {
-            const input = document.createElement("input");
-            input.type = "file";
-            input.accept = ".json";
-            input.onchange = (e) => {
-                const file = e.target.files[0];
+        // button: import data from local file
+        document.querySelector(".import-data").onclick = () => {
+            const inputFile = document.createElement("input");
+            inputFile.type = "file";
+            inputFile.accept = ".json";
+            inputFile.onchange = (inputEvent) => {
+                const file = inputEvent.target.files[0];
                 const reader = new FileReader();
                 reader.readAsText(file, "UTF-8");
                 reader.onload = (readerEvent) => {
-                    const data = JSON.parse(readerEvent.target.result);
-                    if (data.format === "GOOD") {
-                        this.dm.importData(data.materials);
-                        this.updateAll();
+                    const importData = JSON.parse(readerEvent.target.result);
+                    if (importData.format === "GOOD") {
+                        this.dm.import(importData.materials);
+                        this.update();
                     }
                 };
             };
-            input.click();
-        });
+            inputFile.click();
+        };
 
-        this.materialNumbers.forEach((input) =>
-            input.addEventListener("change", () => {
+        // input material numbers
+        this.materialNumbers.forEach((input) => {
+            input.onchange = () => {
                 if (!Calculator.isValidNumber(+input.value)) {
+                    alert("请输入 0 ~ 9999 的整数。");
                     input.value = "";
                 }
                 this.inputNumbers();
-            })
-        );
+            };
+        });
 
-        this.addBtns.forEach((btn, index) =>
-            btn.addEventListener("click", () => {
-                const num = +this.materialNumbers[index].value + 1;
-                if (Calculator.isValidNumber(num)) {
-                    this.materialNumbers[index].value = num;
+        // buttons to increase material number
+        this.addBtns.forEach((btn, index) => {
+            btn.onclick = () => {
+                const num = +this.materialNumbers[index].value;
+                if (Calculator.isValidNumber(num + 1)) {
+                    this.materialNumbers[index].value = num + 1;
                     this.inputNumbers();
                 }
-            })
-        );
+            };
+        });
 
-        this.minusBtns.forEach((btn, index) =>
-            btn.addEventListener("click", () => {
-                const num = +this.materialNumbers[index].value - 1;
-                if (Calculator.isValidNumber(num)) {
-                    this.materialNumbers[index].value = num;
+        // buttons to decrease material number
+        this.minusBtns.forEach((btn, index) => {
+            btn.onclick = () => {
+                const num = +this.materialNumbers[index].value;
+                if (Calculator.isValidNumber(num - 1)) {
+                    this.materialNumbers[index].value = num - 1;
                     this.inputNumbers();
                 }
-            })
-        );
+            };
+        });
 
-        this.lastBtn.addEventListener("click", () => {
+        // button: switch to the last material
+        this.lastBtn.onclick = () => {
             const id = this.dm.currentID;
             this.dm.currentID = id > 1 ? id - 1 : this.dm.materials.length;
-            this.updateAll();
-        });
+            this.update();
+        };
 
-        this.nextBtn.addEventListener("click", () => {
+        // button: switch to the next material
+        this.nextBtn.onclick = () => {
             const id = this.dm.currentID;
             this.dm.currentID = id < this.dm.materials.length ? id + 1 : 1;
-            this.updateAll();
-        });
+            this.update();
+        };
 
-        this.addEnemyBtn.addEventListener("click", () => {
-            this.addEnemy({
+        // button: add new enemy row
+        document.querySelector(".add-enemy-btn").onclick = () => {
+            const enemy = {
                 name: "",
                 level: 18,
                 number: 0,
                 activated: true,
-            });
+            };
+            this.addEnemy(enemy);
             this.inputEnemiesConfig();
             this.diaplayEnemies();
-        });
+        };
 
         [
             this.listSortID,
@@ -165,22 +180,22 @@ export class Darkmoon {
             this.listOrderAscending,
             this.listOrderDescending,
             this.listHideCompleted,
-        ].forEach((input) =>
-            input.addEventListener("change", () => {
+        ].forEach((input) => {
+            input.onchange = () => {
                 this.dm.listOptions = this.listOptions;
                 this.displayList();
-            })
-        );
+            };
+        });
 
         [this.sucroseBonus, this.doriBonus, this.noneBonus].forEach((input) => {
-            input.addEventListener("change", () => {
+            input.onchange = () => {
                 this.dm.craftOptions = this.craftOptions;
                 this.displayCraft();
                 this.displayStatistics();
-            });
+            };
         });
 
-        this.craftMediumBtn.addEventListener("click", () => {
+        this.craftMediumBtn.onclick = () => {
             let input = prompt(
                 "请输入合成中阶的数量。如果使用砂糖或多莉合成产生了额外的材料，请用空格分隔。例如：1000 100"
             );
@@ -206,9 +221,9 @@ export class Darkmoon {
             this.materialNumbers[1].value = medium;
             this.materialNumbers[0].value = low;
             this.inputNumbers();
-        });
+        };
 
-        this.craftHighBtn.addEventListener("click", () => {
+        this.craftHighBtn.onclick = () => {
             let input = prompt(
                 "请输入合成高阶的数量。如果使用砂糖或多莉合成产生了额外的材料，请用空格分隔。例如：1000 100"
             );
@@ -234,14 +249,13 @@ export class Darkmoon {
             this.materialNumbers[2].value = high;
             this.materialNumbers[1].value = medium;
             this.inputNumbers();
-        });
+        };
     }
 
     inputNumbers() {
         const numbers = this.materialNumbers.map((input) => +input.value);
         this.dm.setNumbers(numbers);
         this.setProgress(numbers);
-
         this.displayCraft();
         this.displayStatistics();
         this.displayList();
@@ -280,22 +294,26 @@ export class Darkmoon {
             });
             this.inputEnemiesConfig();
         }
-        document.querySelectorAll(".enemy-row-item").forEach((item) =>
-            item.addEventListener("change", () => {
+
+        document.querySelectorAll(".enemy-row-item").forEach((item) => {
+            item.onchange = () => {
                 this.inputEnemiesConfig();
-                this.displayStatistics();
                 this.displayCraft();
-            })
-        );
-        document.querySelectorAll(".activate-enemy").forEach((item) =>
-            item.addEventListener("change", () => {
+            };
+        });
+
+        document.querySelectorAll(".activate-enemy").forEach((item) => {
+            item.onchange = () => {
                 this.inputEnemiesConfig();
-                this.displayStatistics();
                 this.displayCraft();
-            })
-        );
+            };
+        });
     }
 
+    /**
+     * Add an enemy row in config panel.
+     * @param {object} enemy
+     */
     addEnemy(enemy) {
         this.enemyCount += 1;
 
@@ -357,18 +375,20 @@ export class Darkmoon {
             deleteEnemyHTML;
         this.enemies.insertAdjacentHTML("beforeend", html);
 
-        this.removeEnemyRow(this.enemyCount);
+        // remove enemy row
+        const rowItems = document.querySelectorAll(
+            `.enemy-row-${this.enemyCount}`
+        );
+        document.getElementById(`delete-enemy-row-${this.enemyCount}`).onclick =
+            () => {
+                rowItems.forEach((item) => item.remove());
+                this.inputEnemiesConfig();
+            };
     }
 
-    removeEnemyRow(r) {
-        const rowItems = document.querySelectorAll(`.enemy-row-${r}`);
-        const btn = document.getElementById(`delete-enemy-row-${r}`);
-        btn.addEventListener("click", () => {
-            rowItems.forEach((item) => item.remove());
-            this.inputEnemiesConfig();
-        });
-    }
-
+    /**
+     * Collect all enemies configurations and save.
+     */
     inputEnemiesConfig() {
         let config = [];
         const acts = [...document.querySelectorAll(".activate-enemy")].map(
@@ -390,13 +410,15 @@ export class Darkmoon {
                 number: numbers[i],
                 activated: acts[i],
             };
-            // console.log(enemy);
             config.push(enemy);
         }
         this.dm.enemiesConfig = config;
         this.displayStatistics();
     }
 
+    /**
+     * Display statistics of enemy section.
+     */
     displayStatistics() {
         const calculator = new Calculator(this.dm.getNumbers());
         calculator.setEnemies(
@@ -441,6 +463,9 @@ export class Darkmoon {
         this.noneBonus.checked = options.noneBonus;
     }
 
+    /**
+     * Display data in craft section.
+     */
     displayCraft() {
         this.craftOptions = this.dm.craftOptions;
 
@@ -492,6 +517,9 @@ export class Darkmoon {
         this.listHideCompleted.checked = options.hideCompleted;
     }
 
+    /**
+     * Display materials list.
+     */
     displayList() {
         this.list.innerHTML = "";
         this.listOptions = this.dm.listOptions;
@@ -506,6 +534,10 @@ export class Darkmoon {
             .classList.add("list-row-selected");
     }
 
+    /**
+     * Insert a material row in the list.
+     * @param {object} material
+     */
     insertListRow(material) {
         const numbers = this.dm.getNumbers(material.id);
         const progress = Calculator.progress(...numbers, 2);
@@ -533,13 +565,13 @@ export class Darkmoon {
         if (this.listOptions.hideCompleted && progress === 100) {
             row.classList.add("hidden");
         }
-        row.addEventListener("click", () => {
+        row.onclick = () => {
             this.dm.currentID = material.id;
-            this.updateAll();
+            this.update();
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
             });
-        });
+        };
     }
 }

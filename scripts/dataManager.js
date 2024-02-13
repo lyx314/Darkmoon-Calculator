@@ -30,29 +30,43 @@ export class DataManager {
         const index = this.data.materialsNumbers.findIndex(
             (item) => item.id === id
         );
-        return index === -1
-            ? [0, 0, 0]
-            : this.data.materialsNumbers[index].numbers;
+        if (index === -1) {
+            return [0, 0, 0];
+        } else {
+            return this.data.materialsNumbers[index].numbers;
+        }
     }
 
+    /**
+     * Add or update numbers of current material.
+     * @param {Number[]} numbers
+     */
     setNumbers(numbers) {
-        const record = {
-            id: this.currentID,
-            numbers: numbers,
-        };
         const index = this.data.materialsNumbers.findIndex(
             (item) => item.id === this.currentID
         );
         if (index === -1) {
+            // no record, create new one
+            const record = {
+                id: this.currentID,
+                numbers: numbers,
+            };
             this.data.materialsNumbers.push(record);
         } else {
-            this.data.materialsNumbers[index] = record;
+            // record exists, update numbers
+            this.data.materialsNumbers[index].numbers = numbers;
         }
         this.saveData();
     }
 
+    /**
+     * Get materials' names by ID.
+     * @param {Number} id material's ID. Take current ID as default.
+     * @returns {String[]}
+     */
     getNames(id = this.currentID) {
-        return this.materials.find((item) => item.id === id).names;
+        const material = this.materials.find((item) => item.id === id);
+        return material.names;
     }
 
     get enemiesConfig() {
@@ -101,16 +115,16 @@ export class DataManager {
     }
 
     /**
-     * 将材料按ID排序。
-     * @param {boolean} desc
+     * Sort materials by id.
+     * @param {boolean} desc if true, sort in descending order; if false, sort in ascending order
      */
     sortMaterialsByID(desc) {
         this.materials.sort((a, b) => (desc ? b.id - a.id : a.id - b.id));
     }
 
     /**
-     * 将材料按进度排序。
-     * @param {boolean} desc
+     * Sort materials by progress.
+     * @param {boolean} desc if true, sort in descending order; if false, sort in ascending order
      */
     sortMaterialsByProgress(desc) {
         this.materials.sort((a, b) => {
@@ -124,15 +138,25 @@ export class DataManager {
         return this.currentMaterial.enemies;
     }
 
+    /**
+     * Save data.
+     */
     saveData() {
         localStorage.setItem("data", JSON.stringify(this.data));
     }
 
+    /**
+     * Clear data.
+     */
     clearData() {
         localStorage.removeItem("data");
     }
 
-    importData(data) {
+    /**
+     * Import data in GOOD format.
+     * @param {*} data
+     */
+    import(data) {
         this.data.materialsNumbers = [];
         this.materials.forEach((item) => {
             const record = {
