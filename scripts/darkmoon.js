@@ -85,8 +85,9 @@ export class Darkmoon {
      * Initialize the app.
      */
     init() {
-        document.documentElement.dataset.theme = this.dm.colorTheme;
         const selectColorTheme = document.getElementById("color-theme");
+        selectColorTheme.value = this.dm.colorTheme;
+        document.documentElement.dataset.theme = this.dm.colorTheme;
         selectColorTheme.onchange = () => {
             this.dm.colorTheme = selectColorTheme.value;
             document.documentElement.dataset.theme = this.dm.colorTheme;
