@@ -85,6 +85,13 @@ export class Darkmoon {
      * Initialize the app.
      */
     init() {
+        document.documentElement.dataset.theme = this.dm.colorTheme;
+        const selectColorTheme = document.getElementById("color-theme");
+        selectColorTheme.onchange = () => {
+            this.dm.colorTheme = selectColorTheme.value;
+            document.documentElement.dataset.theme = this.dm.colorTheme;
+        };
+
         // button: clear data in local storage
         document.querySelector(".clear-data").onclick = () => {
             const confirmed = confirm("确定要清除所有数据吗？");

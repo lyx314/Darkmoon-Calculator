@@ -20,7 +20,7 @@
 .section-panel {
     /* width: fit-content; */
     margin: 0 auto;
-    background-color: #c5f6fa;
+    background-color: var(--color-1);
     padding: 1rem 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
@@ -42,6 +42,7 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
+    color: var(--color-8);
 }
 
 .progress-container {
@@ -49,14 +50,14 @@
     background-color: #fff;
     margin: 0.5rem auto 2rem;
     border-radius: 100rem;
-    border: 0.1rem solid #1098ad;
+    border: 0.1rem solid var(--color-6);
     box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.4);
 }
 
 .progress-bar {
     width: var(--progress);
     height: 0.5rem;
-    background-color: #1098ad;
+    background-color: var(--color-6);
     border-radius: 100rem;
 }
 
@@ -71,7 +72,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 
 .img-container {
@@ -102,13 +103,13 @@
     border-radius: 100rem;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #0b7285;
+    color: var(--color-9);
     border: none;
 }
 
 .material-input:focus {
     outline: none;
-    box-shadow: 0 0 0.2rem #0b7285;
+    box-shadow: 0 0 0.2rem var(--color-9);
 }
 
 .add-remove-btns {
@@ -121,6 +122,6 @@
 .add-remove-btns ion-icon {
     width: 2rem;
     height: 2rem;
-    color: #0b7285;
+    color: var(--color-9);
     border-radius: 50%;
 }

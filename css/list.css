@@ -1,7 +1,6 @@
 /* LIST */
 
 .list-section {
-    /* width: fit-content; */
     margin: 2rem auto;
 }
 
@@ -11,7 +10,7 @@
     display: flex;
     align-items: end;
     justify-content: space-between;
-    border-bottom: 0.2rem solid #0b7285;
+    border-bottom: 0.2rem solid var(--color-9);
 }
 
 .list-title img {
@@ -32,7 +31,7 @@
 
 .list-options input {
     margin-left: 0.8rem;
-    accent-color: #0b7285;
+    accent-color: var(--color-9);
 }
 
 .list-options label {
@@ -55,13 +54,13 @@
 }
 
 .list-row:hover {
-    background-color: #e3fafc;
+    background-color: var(--color-0);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
     /* transform: scale(1.05); */
 }
 
 .list-row-selected {
-    background-color: #e3fafc;
+    background-color: var(--color-0);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
@@ -76,14 +75,15 @@
 
 .list-progress-container {
     width: 8rem;
-    border: 0.1rem solid #1098ad;
+    border: 0.1rem solid var(--color-6);
     border-radius: 100rem;
     margin-right: 1rem;
+    margin-left: 2rem;
 }
 
 .list-progress-bar {
     width: var(--progress);
-    background-color: #1098ad;
+    background-color: var(--color-6);
     height: 0.3rem;
     border-radius: 100rem;
 }

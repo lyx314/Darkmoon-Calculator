@@ -13,5 +13,6 @@
         "sucroseBonus": false,
         "doriBonus": false,
         "noneBonus": true
-    }
+    },
+    "colorTheme": "cyan"
 }

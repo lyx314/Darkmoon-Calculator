@@ -1,7 +1,7 @@
 /* CRAFT */
 
 .craft-section {
-    background-color: #c5f6fa;
+    background-color: var(--color-1);
     margin: 1rem 0;
     border-radius: 1rem;
     padding: 1rem;
@@ -24,12 +24,12 @@
 .craft-options input {
     margin-left: 0.8rem;
     margin-right: 0.2rem;
-    accent-color: #0b7285;
+    accent-color: var(--color-9);
 }
 
 .craft-subsection {
     padding-bottom: 0.5rem;
-    background-color: #e3fafc;
+    background-color: var(--color-0);
     border-radius: 1rem;
     box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -46,7 +46,7 @@
     font-weight: 600;
     padding: 0.8rem;
     width: 100%;
-    background-color: #15aabf;
+    background-color: var(--color-6);
     color: #fff;
 }
 
@@ -63,7 +63,7 @@
     padding: 0.4rem 1rem;
     border-radius: 100rem;
     cursor: pointer;
-    background-color: #15aabf;
+    background-color: var(--color-6);
     color: #fff;
     font-weight: 600;
     font-size: 1rem;

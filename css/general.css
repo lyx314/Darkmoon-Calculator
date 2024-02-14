@@ -7,7 +7,7 @@
 body {
     font-family: sans-serif;
     font-size: 62.5%;
-    color: #0b7285;
+    color: var(--color-9);
     font-weight: 400;
     line-height: 1;
 }
@@ -30,9 +30,10 @@ body {
     transform: scale(1.1);
 }
 
+#color-theme,
 .import-data,
 .clear-data {
-    background-color: #0c8599;
+    background-color: var(--color-8);
     color: #fff;
     font-weight: 600;
     font-size: 1rem;

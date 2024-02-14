@@ -26,6 +26,15 @@ export class DataManager {
         return this.materials.find((item) => item.id === this.data.currentID);
     }
 
+    get colorTheme() {
+        return this.data.colorTheme ?? "cyan";
+    }
+
+    set colorTheme(theme) {
+        this.data.colorTheme = theme;
+        this.saveData();
+    }
+
     getNumbers(id = this.currentID) {
         const index = this.data.materialsNumbers.findIndex(
             (item) => item.id === id
