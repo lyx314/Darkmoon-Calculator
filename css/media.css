@@ -1,10 +1,14 @@
 @media (max-width: 37.5em) {
     html {
-        font-size: 60%;
+        font-size: 65%;
     }
 
     .app {
         max-width: 100%;
         margin: 1rem;
+    }
+
+    .enemy-row-item {
+        width: 8rem;
     }
 }
