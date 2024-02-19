@@ -1,9 +1,9 @@
 "use strict";
 
 import { Calculator } from "./calculator.js";
-import userDefault from "./data/userDefault.json" assert { type: "json" };
-import materials from "./data/materials.json" assert { type: "json" };
-import enemyLevelRanges from "./data/enemyLevelRanges.json" assert { type: "json" };
+import { userDefault } from "./data/userDefault.js";
+import { materials } from "./data/materials.js";
+import { enemyLevelRanges } from "./data/enemyLevelRanges.js";
 
 export class DataManager {
     constructor() {
