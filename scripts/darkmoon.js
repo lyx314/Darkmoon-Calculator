@@ -7,9 +7,6 @@ export class Darkmoon {
     constructor() {
         this.dm = new DataManager();
 
-        this.materialNumbers = [
-            ...document.querySelectorAll(".material-input"),
-        ].reverse();
         this.materialNames = [
             ...document.querySelectorAll(".material-name"),
         ].reverse();
@@ -123,7 +120,10 @@ export class Darkmoon {
         };
 
         // input material numbers
-        this.materialNumbers.forEach((input) => {
+        this.materialNumberInputs = [
+            ...document.querySelectorAll(".material-input"),
+        ].reverse();
+        this.materialNumberInputs.forEach((input) => {
             input.onchange = () => {
                 if (!Calculator.isValidNumber(+input.value)) {
                     alert("请输入 0 ~ 9999 的整数。");
@@ -136,9 +136,9 @@ export class Darkmoon {
         // buttons to increase material number
         this.addBtns.forEach((btn, index) => {
             btn.onclick = () => {
-                const num = +this.materialNumbers[index].value;
+                const num = +this.materialNumberInputs[index].value;
                 if (Calculator.isValidNumber(num + 1)) {
-                    this.materialNumbers[index].value = num + 1;
+                    this.materialNumberInputs[index].value = num + 1;
                     this.inputNumbers();
                 }
             };
@@ -147,9 +147,9 @@ export class Darkmoon {
         // buttons to decrease material number
         this.minusBtns.forEach((btn, index) => {
             btn.onclick = () => {
-                const num = +this.materialNumbers[index].value;
+                const num = +this.materialNumberInputs[index].value;
                 if (Calculator.isValidNumber(num - 1)) {
-                    this.materialNumbers[index].value = num - 1;
+                    this.materialNumberInputs[index].value = num - 1;
                     this.inputNumbers();
                 }
             };
@@ -226,8 +226,8 @@ export class Darkmoon {
                 alert("Invalid input!");
                 return;
             }
-            this.materialNumbers[1].value = medium;
-            this.materialNumbers[0].value = low;
+            this.materialNumberInputs[1].value = medium;
+            this.materialNumberInputs[0].value = low;
             this.inputNumbers();
         };
 
@@ -254,14 +254,14 @@ export class Darkmoon {
                 alert("Invalid input!");
                 return;
             }
-            this.materialNumbers[2].value = high;
-            this.materialNumbers[1].value = medium;
+            this.materialNumberInputs[2].value = high;
+            this.materialNumberInputs[1].value = medium;
             this.inputNumbers();
         };
     }
 
     inputNumbers() {
-        const numbers = this.materialNumbers.map((input) => +input.value);
+        const numbers = this.materialNumberInputs.map((input) => +input.value);
         this.dm.setNumbers(numbers);
         this.setProgress(numbers);
         this.displayCraft();
@@ -281,7 +281,8 @@ export class Darkmoon {
         const numbers = this.dm.getNumbers();
         const names = this.dm.getNames();
         for (let i = 0; i < 3; i++) {
-            this.materialNumbers[i].value = numbers[i] === 0 ? "" : numbers[i];
+            this.materialNumberInputs[i].value =
+                numbers[i] === 0 ? "" : numbers[i];
             this.materialNames[i].textContent = names[i];
             this.materialImages[i].src = `img/${this.dm.currentID}-${i}.png`;
             this.materialImages[i].alt = names[i];
