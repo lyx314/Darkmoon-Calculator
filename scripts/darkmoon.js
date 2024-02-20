@@ -93,10 +93,10 @@ export class Darkmoon {
             document.documentElement.dataset.theme = this.dm.colorTheme;
         };
 
-        // button: clear data in local storage
+        // Button: clear data in local storage.
         document.querySelector(".clear-data").onclick = () => {
-            const confirmed = confirm("确定要清除所有数据吗？");
-            if (confirmed) {
+            const userConfirmed = confirm("确定要清除所有数据吗？");
+            if (userConfirmed) {
                 this.dm.clearData();
                 window.location.reload();
             }
