@@ -115,7 +115,7 @@ export class Darkmoon {
             input.click();
         };
 
-        // input material numbers
+        // Inputs: material numbers
         this.materialNumberInputs = [
             ...document.querySelectorAll(".material-input"),
         ].reverse();
@@ -129,7 +129,7 @@ export class Darkmoon {
             };
         });
 
-        // buttons to increase material number
+        // Buttons: increase material number
         const addBtns = [...document.querySelectorAll(".add-btn")].reverse();
         addBtns.forEach((btn, index) => {
             btn.onclick = () => {
@@ -141,7 +141,7 @@ export class Darkmoon {
             };
         });
 
-        // buttons to decrease material number
+        // Buttons: decrease material number
         const minusBtns = [
             ...document.querySelectorAll(".minus-btn"),
         ].reverse();
@@ -169,7 +169,7 @@ export class Darkmoon {
             this.update();
         };
 
-        // button: add new enemy row
+        // Button: add new enemy row
         document.querySelector(".add-enemy-btn").onclick = () => {
             const enemy = {
                 name: "",
