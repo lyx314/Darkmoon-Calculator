@@ -13,10 +13,6 @@ export class Darkmoon {
         this.materialImages = [
             ...document.querySelectorAll(".material-img"),
         ].reverse();
-        this.addBtns = [...document.querySelectorAll(".add-btn")].reverse();
-        this.minusBtns = [...document.querySelectorAll(".minus-btn")].reverse();
-        this.lastBtn = document.querySelector(".last-material");
-        this.nextBtn = document.querySelector(".next-material");
 
         this.enemies = document.querySelector(".enemies");
         this.addEnemyBtn = document.querySelector(".add-enemy-btn");
@@ -134,36 +130,40 @@ export class Darkmoon {
         });
 
         // buttons to increase material number
-        this.addBtns.forEach((btn, index) => {
+        const addBtns = [...document.querySelectorAll(".add-btn")].reverse();
+        addBtns.forEach((btn, index) => {
             btn.onclick = () => {
-                const num = +this.materialNumberInputs[index].value;
-                if (Calculator.isValidNumber(num + 1)) {
-                    this.materialNumberInputs[index].value = num + 1;
+                const newNum = +this.materialNumberInputs[index].value + 1;
+                if (Calculator.isValidNumber(newNum)) {
+                    this.materialNumberInputs[index].value = newNum;
                     this.inputNumbers();
                 }
             };
         });
 
         // buttons to decrease material number
-        this.minusBtns.forEach((btn, index) => {
+        const minusBtns = [
+            ...document.querySelectorAll(".minus-btn"),
+        ].reverse();
+        minusBtns.forEach((btn, index) => {
             btn.onclick = () => {
-                const num = +this.materialNumberInputs[index].value;
-                if (Calculator.isValidNumber(num - 1)) {
-                    this.materialNumberInputs[index].value = num - 1;
+                const newNum = +this.materialNumberInputs[index].value - 1;
+                if (Calculator.isValidNumber(newNum)) {
+                    this.materialNumberInputs[index].value = newNum;
                     this.inputNumbers();
                 }
             };
         });
 
-        // button: switch to the last material
-        this.lastBtn.onclick = () => {
+        // Button: switch to the last material.
+        document.querySelector(".last-material").onclick = () => {
             const id = this.dm.currentID;
             this.dm.currentID = id > 1 ? id - 1 : this.dm.materials.length;
             this.update();
         };
 
-        // button: switch to the next material
-        this.nextBtn.onclick = () => {
+        // Button: switch to the next material
+        document.querySelector(".next-material").onclick = () => {
             const id = this.dm.currentID;
             this.dm.currentID = id < this.dm.materials.length ? id + 1 : 1;
             this.update();
