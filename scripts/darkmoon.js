@@ -102,12 +102,12 @@ export class Darkmoon {
             }
         };
 
-        // button: import data from local file
+        // Button: import data from local file.
         document.querySelector(".import-data").onclick = () => {
-            const inputFile = document.createElement("input");
-            inputFile.type = "file";
-            inputFile.accept = ".json";
-            inputFile.onchange = (inputEvent) => {
+            const input = document.createElement("input");
+            input.type = "file";
+            input.accept = ".json";
+            input.onchange = (inputEvent) => {
                 const file = inputEvent.target.files[0];
                 const reader = new FileReader();
                 reader.readAsText(file, "UTF-8");
@@ -119,7 +119,7 @@ export class Darkmoon {
                     }
                 };
             };
-            inputFile.click();
+            input.click();
         };
 
         // input material numbers
