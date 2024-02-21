@@ -182,6 +182,12 @@ export class Darkmoon {
             this.diaplayEnemies();
         };
 
+        document.querySelector(".save-list-to-img").onclick = () => {
+            domtoimage.toBlob(this.list).then((blob) => {
+                saveAs(blob, "list.png");
+            });
+        };
+
         [
             this.listSortID,
             this.listSortProgress,
@@ -538,9 +544,6 @@ export class Darkmoon {
             this.dm.sortMaterialsByID(this.listOptions.orderDescending);
         }
         this.dm.materials.forEach((item) => this.insertListRow(item));
-        document
-            .getElementById(`list-material-${this.dm.currentID}`)
-            .classList.add("list-row-selected");
     }
 
     /**
@@ -576,7 +579,10 @@ export class Darkmoon {
         }
         row.onclick = () => {
             this.dm.currentID = material.id;
-            this.update();
+            this.displayMaterial();
+            this.diaplayEnemies();
+            this.displayCraft();
+            this.displayStatistics();
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",

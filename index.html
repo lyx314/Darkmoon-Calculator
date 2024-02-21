@@ -232,6 +232,7 @@
                     材料一览<img src="img/kirara2.png" class="kirara" />
                 </h2>
                 <div class="list-options">
+                   
                     <input
                         type="radio"
                         id="list-sort-id"
@@ -265,12 +266,18 @@
                     <label for="list-order-desecnding">降序</label>
                     <input type="checkbox" id="hide-completed" />
                     <label for="hide-completed">隐藏毕业</label>
+                     <ion-icon
+                        class="save-list-to-img"
+                        name="image-outline"
+                    ></ion-icon>
                 </div>
                 <div class="list"></div>
             </section>
         </main>
 
         <!-- JavaScript -->
-        <script src="scripts/main.js" type="module"></script>
+        <script src="./node_modules/dom-to-image/src/dom-to-image.js"></script>
+        <script src="./node_modules/file-saver/src/FileSaver.js"></script>
+        <script src="./scripts/main.js" type="module"></script>
     </body>
 </html>

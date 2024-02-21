@@ -39,9 +39,17 @@
     font-size: 1rem;
 }
 
+.save-list-to-img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
 .list {
     display: flex;
     flex-direction: column;
+    background-color: #fff;
 }
 
 .list-row {
@@ -54,12 +62,6 @@
 }
 
 .list-row:hover {
-    background-color: var(--color-0);
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-    /* transform: scale(1.05); */
-}
-
-.list-row-selected {
     background-color: var(--color-0);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
