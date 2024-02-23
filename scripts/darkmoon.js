@@ -59,6 +59,7 @@ export class Darkmoon {
      * Start Darkmoon.
      */
     start() {
+        console.log("Start Darkmoon");
         this.init();
         this.update();
     }
@@ -78,12 +79,19 @@ export class Darkmoon {
      * Initialize the app.
      */
     init() {
+        console.log("Initializing...");
+
+        // Select: color theme
         const selectColorTheme = document.getElementById("color-theme");
-        selectColorTheme.value = this.dm.colorTheme;
-        document.documentElement.dataset.theme = this.dm.colorTheme;
-        selectColorTheme.onchange = () => {
-            this.dm.colorTheme = selectColorTheme.value;
-            document.documentElement.dataset.theme = this.dm.colorTheme;
+        const colorTheme = this.dm.colorTheme;
+        console.log("Set color theme:", colorTheme);
+        selectColorTheme.value = colorTheme;
+        document.documentElement.dataset.theme = colorTheme;
+        selectColorTheme.onchange = (e) => {
+            const newColorTheme = e.target.value;
+            console.log("Switch color theme to", newColorTheme);
+            this.dm.colorTheme = newColorTheme;
+            document.documentElement.dataset.theme = newColorTheme;
         };
 
         // Button: clear data in local storage.
