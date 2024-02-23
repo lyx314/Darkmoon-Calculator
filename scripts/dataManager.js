@@ -152,6 +152,7 @@ export class DataManager {
      */
     saveData() {
         localStorage.setItem("data", JSON.stringify(this.data));
+        console.log("Data saved.");
     }
 
     /**
@@ -159,6 +160,7 @@ export class DataManager {
      */
     clearData() {
         localStorage.removeItem("data");
+        console.log("Data cleared.");
     }
 
     /**

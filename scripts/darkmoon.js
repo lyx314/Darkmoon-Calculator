@@ -82,20 +82,21 @@ export class Darkmoon {
         console.log("Initializing...");
 
         // Select: color theme
-        const selectColorTheme = document.getElementById("color-theme");
+        const colorThemeSelect = document.getElementById("color-theme");
         const colorTheme = this.dm.colorTheme;
-        console.log("Set color theme:", colorTheme);
-        selectColorTheme.value = colorTheme;
+        colorThemeSelect.value = colorTheme;
         document.documentElement.dataset.theme = colorTheme;
-        selectColorTheme.onchange = (e) => {
+        console.log(`Set color theme: ${colorTheme}.`);
+        colorThemeSelect.onchange = (e) => {
             const newColorTheme = e.target.value;
-            console.log("Switch color theme to", newColorTheme);
             this.dm.colorTheme = newColorTheme;
             document.documentElement.dataset.theme = newColorTheme;
+            console.log(`Switch color theme to ${newColorTheme}.`);
         };
 
         // Button: clear data in local storage.
-        document.querySelector(".clear-data").onclick = () => {
+        const clearDataButton = document.querySelector(".clear-data");
+        clearDataButton.onclick = () => {
             const userConfirmed = confirm("确定要清除所有数据吗？");
             if (userConfirmed) {
                 this.dm.clearData();
