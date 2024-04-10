@@ -65,23 +65,12 @@ export class Darkmoon {
     }
 
     /**
-     * Update the whole page.
-     */
-    update() {
-        this.displayMaterial();
-        this.diaplayEnemies();
-        this.displayCraft();
-        this.displayStatistics();
-        this.displayList();
-    }
-
-    /**
      * Initialize the app.
      */
     init() {
         console.log("Initializing...");
 
-        // Select: color theme
+        // Select color theme.
         const colorThemeSelect = document.getElementById("color-theme");
         const colorTheme = this.dm.colorTheme;
         colorThemeSelect.value = colorTheme;
@@ -94,17 +83,16 @@ export class Darkmoon {
             console.log(`Switch color theme to ${newColorTheme}.`);
         };
 
-        // Button: clear data in local storage.
-        const clearDataButton = document.querySelector(".clear-data");
-        clearDataButton.onclick = () => {
-            const userConfirmed = confirm("确定要清除所有数据吗？");
-            if (userConfirmed) {
+        // Clear data in local storage.
+        document.querySelector(".clear-data").onclick = () => {
+            const confirmed = confirm("确定要清除所有数据吗？");
+            if (confirmed) {
                 this.dm.clearData();
                 window.location.reload();
             }
         };
 
-        // Button: import data from local file.
+        // Import data from local file.
         document.querySelector(".import-data").onclick = () => {
             const input = document.createElement("input");
             input.type = "file";
@@ -124,13 +112,13 @@ export class Darkmoon {
             input.click();
         };
 
-        // Inputs: material numbers
+        // Input material numbers.
         this.materialNumberInputs = [
             ...document.querySelectorAll(".material-input"),
         ].reverse();
         this.materialNumberInputs.forEach((input) => {
-            input.onchange = () => {
-                if (!Calculator.isValidNumber(+input.value)) {
+            input.onchange = (e) => {
+                if (!Calculator.isValidNumber(+e.target.value)) {
                     alert("请输入 0 ~ 9999 的整数。");
                     input.value = "";
                 }
@@ -273,6 +261,17 @@ export class Darkmoon {
             this.materialNumberInputs[1].value = medium;
             this.inputNumbers();
         };
+    }
+
+    /**
+     * Update the whole page.
+     */
+    update() {
+        this.displayMaterial();
+        this.diaplayEnemies();
+        this.displayCraft();
+        this.displayStatistics();
+        this.displayList();
     }
 
     inputNumbers() {

@@ -111,17 +111,16 @@ export class Calculator {
      * @param {number} low 低阶材料数量
      * @param {number} medium 中阶材料数量
      * @param {number} high 高阶材料数量
-     * @param {number} fix 小数位数
+     * @param {number} d 小数位数
      * @returns
      */
-    static progress(low, medium, high, fix = 2) {
+    static progress(low, medium, high, d = 2) {
         const weight = low + medium * 3 + high * 9;
         const total = 9999 * (1 + 3 + 9);
-        const p = BigNumber(weight).dividedBy(total).multipliedBy(100);
-        return +p.toFixed(fix);
+        return +BigNumber(weight).dividedBy(total).multipliedBy(100).toFixed(d);
     }
 
-    static isValidNumber(n) {
-        return Number.isInteger(n) && n >= 0 && n <= 9999;
+    static isValidNumber(x) {
+        return Number.isInteger(x) && x >= 0 && x <= 9999;
     }
 }
