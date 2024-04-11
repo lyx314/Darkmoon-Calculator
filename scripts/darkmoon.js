@@ -169,13 +169,25 @@ export class Darkmoon {
         // Button: lock
         const lock = document.querySelector(".lock-init-numbers");
         const unlock = document.querySelector(".unlock-init-numbers");
-        lock.onclick = () => {
-            lock.classList.toggle("hidden");
-            unlock.classList.toggle("hidden");
-        };
+        const initNumbers = [
+            ...document.querySelectorAll(".init-number"),
+        ].reverse();
         unlock.onclick = () => {
+            console.log("lock");
             lock.classList.toggle("hidden");
             unlock.classList.toggle("hidden");
+            const numbers = this.dm.getNumbers();
+            initNumbers.forEach((item, index) => {
+                item.textContent = numbers[index];
+            });
+        };
+        lock.onclick = () => {
+            console.log("unlock");
+            lock.classList.toggle("hidden");
+            unlock.classList.toggle("hidden");
+            initNumbers.forEach((item) => {
+                item.textContent = "";
+            });
         };
 
         // Button: add new enemy row
