@@ -24,6 +24,7 @@
     padding: 1rem 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .progress-value-container {
@@ -123,4 +124,30 @@
     height: 2rem;
     color: var(--color-9);
     border-radius: 50%;
+}
+
+.last-material,
+.next-material {
+    width: 2.4rem;
+    height: 2.4rem;
+    position: absolute;
+    top: 45%;
+    /* transform: translateY(-50%); */
+}
+
+.last-material {
+    left: 0rem;
+}
+
+.next-material {
+    right: 0rem;
+}
+
+.unlock-init-numbers,
+.lock-init-numbers {
+    width: 1.8rem;
+    height: 1.8rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 }

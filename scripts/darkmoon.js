@@ -166,6 +166,18 @@ export class Darkmoon {
             this.update();
         };
 
+        // Button: lock
+        const lock = document.querySelector(".lock-init-numbers");
+        const unlock = document.querySelector(".unlock-init-numbers");
+        lock.onclick = () => {
+            lock.classList.toggle("hidden");
+            unlock.classList.toggle("hidden");
+        };
+        unlock.onclick = () => {
+            lock.classList.toggle("hidden");
+            unlock.classList.toggle("hidden");
+        };
+
         // Button: add new enemy row
         document.querySelector(".add-enemy-btn").onclick = () => {
             const enemy = {
