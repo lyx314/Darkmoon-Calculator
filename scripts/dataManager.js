@@ -46,10 +46,6 @@ export class DataManager {
         }
     }
 
-    /**
-     * Add or update numbers of current material.
-     * @param {Number[]} numbers
-     */
     setNumbers(numbers) {
         const index = this.data.materialsNumbers.findIndex(
             (item) => item.id === this.currentID
@@ -59,12 +55,51 @@ export class DataManager {
             const record = {
                 id: this.currentID,
                 numbers: numbers,
+                lock: null,
             };
             this.data.materialsNumbers.push(record);
         } else {
             // record exists, update numbers
             this.data.materialsNumbers[index].numbers = numbers;
         }
+        this.saveData();
+    }
+
+    getLockNumbers() {
+        const index = this.data.materialsNumbers.findIndex(
+            (item) => item.id === this.currentID
+        );
+        if (index === -1) {
+            return null;
+        } else {
+            return this.data.materialsNumbers[index].lock;
+        }
+    }
+
+    lockNumbers() {
+        const index = this.data.materialsNumbers.findIndex(
+            (item) => item.id === this.currentID
+        );
+        if (index === -1) {
+            const record = {
+                id: this.currentID,
+                numbers: [0, 0, 0],
+                lock: [0, 0, 0],
+            };
+            this.data.materialsNumbers.push(record);
+        } else {
+            this.data.materialsNumbers[index].lock = [
+                ...this.data.materialsNumbers[index].numbers,
+            ];
+        }
+        this.saveData();
+    }
+
+    unlockNumbers() {
+        const index = this.data.materialsNumbers.findIndex(
+            (item) => item.id === this.currentID
+        );
+        this.data.materialsNumbers[index].lock = null;
         this.saveData();
     }
 

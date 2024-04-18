@@ -166,26 +166,28 @@ export class Darkmoon {
             this.update();
         };
 
-        // Button: lock
-        const lock = document.querySelector(".lock-init-numbers");
-        const unlock = document.querySelector(".unlock-init-numbers");
-        const initNumbers = [
+        // Button: lock & unlock numbers
+        this.lockBtn = document.querySelector(".lock-init-numbers");
+        this.unlockBtn = document.querySelector(".unlock-init-numbers");
+        this.initNumbers = [
             ...document.querySelectorAll(".init-number"),
         ].reverse();
-        unlock.onclick = () => {
+        this.unlockBtn.onclick = () => {
             console.log("lock");
-            lock.classList.toggle("hidden");
-            unlock.classList.toggle("hidden");
-            const numbers = this.dm.getNumbers();
-            initNumbers.forEach((item, index) => {
+            this.lockBtn.classList.remove("hidden");
+            this.unlockBtn.classList.add("hidden");
+            this.dm.lockNumbers();
+            const numbers = this.dm.getLockNumbers();
+            this.initNumbers.forEach((item, index) => {
                 item.textContent = numbers[index];
             });
         };
-        lock.onclick = () => {
+        this.lockBtn.onclick = () => {
             console.log("unlock");
-            lock.classList.toggle("hidden");
-            unlock.classList.toggle("hidden");
-            initNumbers.forEach((item) => {
+            this.lockBtn.classList.add("hidden");
+            this.unlockBtn.classList.remove("hidden");
+            this.dm.unlockNumbers();
+            this.initNumbers.forEach((item) => {
                 item.textContent = "";
             });
         };
@@ -326,6 +328,20 @@ export class Darkmoon {
             this.materialImages[i].alt = names[i];
         }
         this.setProgress(numbers);
+        const lockedNumbers = this.dm.getLockNumbers();
+        if (lockedNumbers) {
+            this.lockBtn.classList.remove("hidden");
+            this.unlockBtn.classList.add("hidden");
+            this.initNumbers.forEach((item, index) => {
+                item.textContent = lockedNumbers[index];
+            });
+        } else {
+            this.lockBtn.classList.add("hidden");
+            this.unlockBtn.classList.remove("hidden");
+            this.initNumbers.forEach((item) => {
+                item.textContent = "";
+            });
+        }
     }
 
     diaplayEnemies() {
