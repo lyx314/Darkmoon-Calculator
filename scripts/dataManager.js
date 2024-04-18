@@ -18,6 +18,10 @@ export class DataManager {
     }
 
     set currentID(id) {
+        if (this.data.currentID === id) {
+            return;
+        }
+        console.log("Switch current ID to", id);
         this.data.currentID = id;
         this.saveData();
     }
