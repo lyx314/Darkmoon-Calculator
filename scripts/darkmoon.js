@@ -498,11 +498,11 @@ export class Darkmoon {
             <div class="materials-per-run">
                 每车材料
                 <img src="img/${this.dm.currentID}-2.png" />
-                ${calculator.materialsPerRun[2].toFixed(4)}
+                ${calculator.materialsPerRun[2]}
                 <img src="img/${this.dm.currentID}-1.png" />
-                ${calculator.materialsPerRun[1].toFixed(4)}
+                ${calculator.materialsPerRun[1]}
                 <img src="img/${this.dm.currentID}-0.png" />
-                ${calculator.materialsPerRun[0].toFixed(4)}
+                ${calculator.materialsPerRun[0]}
             </div>`;
 
         calculator.calculateRun(

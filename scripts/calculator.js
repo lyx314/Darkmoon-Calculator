@@ -4,12 +4,12 @@ import { BigNumber } from "./bignumber.mjs";
 
 export class Calculator {
     constructor(numbers) {
-        this.numbersCopy = numbers;
+        this.numbersHold = [...numbers];
         this.reset();
     }
 
     reset() {
-        this.numbers = this.numbersCopy.map((num) => BigNumber(num));
+        this.numbers = this.numbersHold.map((num) => BigNumber(num));
         this.leftRunTimes = 0;
         this.craftCount = [0, 0];
     }
@@ -33,6 +33,9 @@ export class Calculator {
                 );
             }
         });
+        this.materialsPerRun = this.materialsPerRun.map(
+            (num) => +num.toFixed(4)
+        );
     }
 
     static enemyLevelCoeff = (level) => (level + 12) / 30;
