@@ -38,6 +38,26 @@ export class Calculator {
         );
     }
 
+    setInitNumbers(numbers) {
+        this.initNumbers = [...numbers];
+    }
+
+    increasement() {
+        if (!this.initNumbers) {
+            return "-";
+        }
+        const diff = this.numbersHold.map(
+            (num, i) => num - this.initNumbers[i]
+        );
+        const diffWeight = Calculator.weight(...diff);
+        const oneRunWeight = Calculator.weight(...this.materialsPerRun);
+        if (oneRunWeight) {
+            return +BigNumber(diffWeight).dividedBy(oneRunWeight).toFixed(1);
+        } else {
+            return "-";
+        }
+    }
+
     static enemyLevelCoeff = (level) => (level + 12) / 30;
 
     completed() {
@@ -109,21 +129,13 @@ export class Calculator {
         return this.numbers.map((num) => +num.minus(9999).toFixed(1));
     }
 
-    /**
-     * 计算材料毕业进度。
-     * @param {number} low 低阶材料数量
-     * @param {number} medium 中阶材料数量
-     * @param {number} high 高阶材料数量
-     * @param {number} d 小数位数
-     * @returns
-     */
+    static weight = (low, medium, high) => low + medium * 3 + high * 9;
+
     static progress(low, medium, high, d = 2) {
-        const weight = low + medium * 3 + high * 9;
-        const total = 9999 * (1 + 3 + 9);
+        const weight = this.weight(low, medium, high);
+        const total = this.weight(9999, 9999, 9999);
         return +BigNumber(weight).dividedBy(total).multipliedBy(100).toFixed(d);
     }
 
-    static isValidNumber(x) {
-        return Number.isInteger(x) && x >= 0 && x <= 9999;
-    }
+    static isValidNumber = (x) => Number.isInteger(x) && x >= 0 && x <= 9999;
 }

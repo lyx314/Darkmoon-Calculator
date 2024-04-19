@@ -18,6 +18,7 @@ export class Darkmoon {
         this.addEnemyBtn = document.querySelector(".add-enemy-btn");
 
         this.leftRunTimes = document.querySelector(".left-run-times");
+        this.increasedRunTimes = document.querySelector(".increased-run-times");
         this.progressPerRun = document.querySelector(".progress-per-run");
         this.materialsPerRun = document.querySelector(".materials-per-run");
 
@@ -173,7 +174,7 @@ export class Darkmoon {
             ...document.querySelectorAll(".init-number"),
         ].reverse();
         this.unlockBtn.onclick = () => {
-            console.log("lock");
+            console.log("lock", this.dm.currentID);
             this.lockBtn.classList.remove("hidden");
             this.unlockBtn.classList.add("hidden");
             this.dm.lockNumbers();
@@ -181,15 +182,17 @@ export class Darkmoon {
             this.initNumbers.forEach((item, index) => {
                 item.textContent = numbers[index];
             });
+            this.displayStatistics();
         };
         this.lockBtn.onclick = () => {
-            console.log("unlock");
+            console.log("unlock", this.dm.currentID);
             this.lockBtn.classList.add("hidden");
             this.unlockBtn.classList.remove("hidden");
             this.dm.unlockNumbers();
             this.initNumbers.forEach((item) => {
                 item.textContent = "";
             });
+            this.displayStatistics();
         };
 
         // Button: add new enemy row
@@ -488,6 +491,13 @@ export class Darkmoon {
             this.dm.currentMaterial.enemies,
             this.dm.enemiesConfig
         );
+
+        if (this.dm.getLockNumbers()) {
+            calculator.setInitNumbers(this.dm.getLockNumbers());
+            this.increasedRunTimes.textContent = calculator.increasement();
+        } else {
+            this.increasedRunTimes.textContent = "-";
+        }
 
         this.progressPerRun.textContent =
             Calculator.progress(
