@@ -30,6 +30,12 @@ body {
     transform: scale(1.1);
 }
 
+nav {
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
 #color-theme,
 .import-data,
 .clear-data {
@@ -40,9 +46,18 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 10px;
     border: none;
-    margin: 0.5rem;
 }
 
-#color-theme:focus{
+#color-theme:focus {
     outline: none;
+}
+
+.github-url:link,
+.github-url:visited,
+.github-url:hover,
+.github-url:active {
+    font-size: 1rem;
+    margin-left: auto;
+    color: var(--color-9);
+    font-weight: 600;
 }
