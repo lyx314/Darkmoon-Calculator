@@ -549,4 +549,15 @@ export const materials = [
         names: ["羽状鳍翅", "月色鳍翅", "渊光鳍翅"],
         keys: ["FeatheryFin", "LunarFin", "ChasmlightFin"],
     },
+    {
+        id: 33,
+        enemies: [
+            {
+                name: "魔像禁卫",
+                materialsPerEnemy: [5.2526, 1.4006, 0.3502],
+            },
+        ],
+        names: ["残毁的剑柄", "裂断的剑柄", "未熄的剑柄"],
+        keys: ["RuinedHilt", "SplinteredHilt", "StillSmolderingHilt"],
+    },
 ];
