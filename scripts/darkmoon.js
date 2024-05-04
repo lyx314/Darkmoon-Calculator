@@ -96,17 +96,20 @@ export class Darkmoon {
         // Export data to JSON file.
         document.querySelector(".export-data").onclick = () => {
             console.log("Export");
+
             const data = this.dm.data;
             data.format = "DARKMOON";
             const jsonStr = JSON.stringify(data);
+
             const now = new Date();
             const fileName = `darkmoon-calculator-${now.getFullYear()}-${
                 now.getMonth() + 1
             }-${now.getDate()}-${now.getHours()}-${now.getMinutes()}-${now.getSeconds()}.json`;
+
             let element = document.createElement("a");
             element.setAttribute(
                 "href",
-                "data:json;charset=utf-8," + encodeURIComponent(jsonStr)
+                "data:text/json;charset=utf-8," + encodeURIComponent(jsonStr)
             );
             element.setAttribute("download", fileName);
             element.style.display = "none";
