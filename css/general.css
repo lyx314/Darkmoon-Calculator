@@ -38,6 +38,7 @@ nav {
 }
 
 #color-theme,
+.export-data,
 .import-data,
 .clear-data {
     background-color: var(--color-8);

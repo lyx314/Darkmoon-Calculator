@@ -1,6 +1,7 @@
 "use strict";
 
 export const userDefault = {
+    format: "DARKMOON",
     currentID: 1,
     materialsNumbers: [],
     enemiesConfig: [],

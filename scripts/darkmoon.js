@@ -93,8 +93,31 @@ export class Darkmoon {
             }
         };
 
-        // Import data from local file.
+        // Export data to JSON file.
+        document.querySelector(".export-data").onclick = () => {
+            console.log("Export");
+            const data = this.dm.data;
+            data.format = "DARKMOON";
+            const jsonStr = JSON.stringify(data);
+            const now = new Date();
+            const fileName = `darkmoon-calculator-${now.getFullYear()}-${
+                now.getMonth() + 1
+            }-${now.getDate()}-${now.getHours()}-${now.getMinutes()}-${now.getSeconds()}.json`;
+            let element = document.createElement("a");
+            element.setAttribute(
+                "href",
+                "data:text/plain;charset=utf-8," + encodeURIComponent(jsonStr)
+            );
+            element.setAttribute("download", fileName);
+            element.style.display = "none";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        };
+
+        // Import data from JSON file.
         document.querySelector(".import-data").onclick = () => {
+            console.log("Import");
             const input = document.createElement("input");
             input.type = "file";
             input.accept = ".json";
@@ -106,7 +129,12 @@ export class Darkmoon {
                     const importData = JSON.parse(readerEvent.target.result);
                     if (importData.format === "GOOD") {
                         this.dm.import(importData.materials);
-                        this.update();
+                        window.location.reload();
+                    }
+                    if (importData.format === "DARKMOON") {
+                        this.dm.data = importData;
+                        this.dm.saveData();
+                        window.location.reload();
                     }
                 };
             };
