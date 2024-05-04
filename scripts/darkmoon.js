@@ -106,7 +106,7 @@ export class Darkmoon {
             let element = document.createElement("a");
             element.setAttribute(
                 "href",
-                "data:text/plain;charset=utf-8," + encodeURIComponent(jsonStr)
+                "data:json;charset=utf-8," + encodeURIComponent(jsonStr)
             );
             element.setAttribute("download", fileName);
             element.style.display = "none";
