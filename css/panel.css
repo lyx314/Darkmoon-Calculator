@@ -112,6 +112,12 @@
     box-shadow: 0 0 0.2rem var(--color-9);
 }
 
+.material-input::-webkit-outer-spin-button,
+.material-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .add-remove-btns {
     display: flex;
     align-items: center;

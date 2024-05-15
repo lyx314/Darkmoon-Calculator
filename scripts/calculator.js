@@ -33,9 +33,13 @@ export class Calculator {
                 );
             }
         });
-        this.materialsPerRun = this.materialsPerRun.map(
-            (num) => +num.toFixed(4)
-        );
+        this.materialsPerRun = this.materialsPerRun.map((num) => {
+            if (+num >= 0) {
+                return +num.toFixed(4);
+            } else {
+                return 0;
+            }
+        });
     }
 
     setInitNumbers(numbers) {
