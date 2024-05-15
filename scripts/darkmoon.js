@@ -447,10 +447,11 @@ export class Darkmoon {
         selectLevelHTML += `</select>`;
 
         // input: enemy number
-        const number = enemy.number === 0 ? "" : enemy.number;
+        let number = +enemy.number === 0 ? "" : +enemy.number;
+
         let inputNumberHTML = `
             <input
-                type="text"
+                type="number"
                 value="${number}"
                 placeholder="0"
                 class="enemy-row-item enemy-row-${this.enemyCount} input-enemy-number" 
