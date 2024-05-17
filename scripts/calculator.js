@@ -124,8 +124,11 @@ export class Calculator {
 
     overflow(sucrose, dori) {
         this.enemiesData.sort(
-            (a, b) => a.materialsPerEnemy[0] - b.materialsPerEnemy[0]
+            (a, b) => b.materialsPerEnemy[0] - a.materialsPerEnemy[0]
         );
+        // this.enemiesData.sort(
+        //     (a, b) => a.materialsPerEnemy[0] - b.materialsPerEnemy[0]
+        // );
         this.materialsPerRun = this.enemiesData[0].materialsPerEnemy.map(
             (num) => BigNumber(num)
         );
