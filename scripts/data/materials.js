@@ -3,6 +3,7 @@
 export const materials = [
     {
         id: 1,
+        type: "common",
         enemies: [
             {
                 name: "史莱姆",
@@ -18,6 +19,7 @@ export const materials = [
     },
     {
         id: 2,
+        type: "common",
         enemies: [
             {
                 name: "丘丘人",
@@ -49,6 +51,7 @@ export const materials = [
     },
     {
         id: 3,
+        type: "common",
         enemies: [
             {
                 name: "丘丘萨满",
@@ -60,6 +63,7 @@ export const materials = [
     },
     {
         id: 4,
+        type: "common",
         enemies: [
             {
                 name: "丘丘射手",
@@ -71,6 +75,7 @@ export const materials = [
     },
     {
         id: 5,
+        type: "elite",
         enemies: [
             {
                 name: "丘丘暴徒",
@@ -86,6 +91,7 @@ export const materials = [
     },
     {
         id: 6,
+        type: "elite",
         enemies: [
             {
                 name: "深渊法师",
@@ -101,6 +107,7 @@ export const materials = [
     },
     {
         id: 7,
+        type: "elite",
         enemies: [
             {
                 name: "遗迹[守卫/猎者]",
@@ -116,6 +123,7 @@ export const materials = [
     },
     {
         id: 8,
+        type: "elite",
         enemies: [
             {
                 name: "萤术士",
@@ -127,6 +135,7 @@ export const materials = [
     },
     {
         id: 9,
+        type: "elite",
         enemies: [
             {
                 name: "债务处理人",
@@ -142,6 +151,7 @@ export const materials = [
     },
     {
         id: 10,
+        type: "common",
         enemies: [
             {
                 name: "愚人众先遣队",
@@ -165,6 +175,7 @@ export const materials = [
     },
     {
         id: 11,
+        type: "common",
         enemies: [
             {
                 name: "驮兽·盗宝团",
@@ -184,6 +195,7 @@ export const materials = [
     },
     {
         id: 12,
+        type: "common",
         enemies: [
             {
                 name: "骗骗花",
@@ -195,6 +207,7 @@ export const materials = [
     },
     {
         id: 13,
+        type: "elite",
         enemies: [
             {
                 name: "龙蜥",
@@ -214,6 +227,7 @@ export const materials = [
     },
     {
         id: 14,
+        type: "common",
         enemies: [
             {
                 name: "野伏众",
@@ -229,6 +243,7 @@ export const materials = [
     },
     {
         id: 15,
+        type: "elite",
         enemies: [
             {
                 name: "遗迹机兵",
@@ -240,6 +255,7 @@ export const materials = [
     },
     {
         id: 16,
+        type: "elite",
         enemies: [
             {
                 name: "藏镜仕女",
@@ -251,6 +267,7 @@ export const materials = [
     },
     {
         id: 17,
+        type: "common",
         enemies: [
             {
                 name: "飘浮灵",
@@ -262,6 +279,7 @@ export const materials = [
     },
     {
         id: 18,
+        type: "elite",
         enemies: [
             {
                 name: "兽境猎犬",
@@ -277,6 +295,7 @@ export const materials = [
     },
     {
         id: 19,
+        type: "elite",
         enemies: [
             {
                 name: "黑蛇众",
@@ -292,6 +311,7 @@ export const materials = [
     },
     {
         id: 20,
+        type: "common",
         enemies: [
             {
                 name: "蕈兽",
@@ -315,6 +335,7 @@ export const materials = [
     },
     {
         id: 21,
+        type: "elite",
         enemies: [
             {
                 name: "[活化/枯焦]蕈兽",
@@ -334,6 +355,7 @@ export const materials = [
     },
     {
         id: 22,
+        type: "common",
         enemies: [
             {
                 name: "镀金旅团·低级",
@@ -357,6 +379,7 @@ export const materials = [
     },
     {
         id: 23,
+        type: "elite",
         enemies: [
             {
                 name: "遗迹龙兽",
@@ -368,6 +391,7 @@ export const materials = [
     },
     {
         id: 24,
+        type: "elite",
         enemies: [
             {
                 name: "元能构装体",
@@ -379,6 +403,7 @@ export const materials = [
     },
     {
         id: 25,
+        type: "elite",
         enemies: [
             {
                 name: "圣骸兽",
@@ -390,6 +415,7 @@ export const materials = [
     },
     {
         id: 26,
+        type: "elite",
         enemies: [
             {
                 name: "丘丘游侠",
@@ -405,6 +431,7 @@ export const materials = [
     },
     {
         id: 27,
+        type: "common",
         enemies: [
             {
                 name: "小型原海异兽",
@@ -460,6 +487,7 @@ export const materials = [
     },
     {
         id: 28,
+        type: "common",
         enemies: [
             {
                 name: "大型发条机关",
@@ -479,6 +507,7 @@ export const materials = [
     },
     {
         id: 29,
+        type: "elite",
         enemies: [
             {
                 name: "浊水幻灵",
@@ -502,6 +531,7 @@ export const materials = [
     },
     {
         id: 30,
+        type: "elite",
         enemies: [
             {
                 name: "大型隙境原体",
@@ -517,6 +547,7 @@ export const materials = [
     },
     {
         id: 31,
+        type: "elite",
         enemies: [
             {
                 name: "役人",
@@ -540,6 +571,7 @@ export const materials = [
     },
     {
         id: 32,
+        type: "elite",
         enemies: [
             {
                 name: "玄文兽",
@@ -551,6 +583,7 @@ export const materials = [
     },
     {
         id: 33,
+        type: "elite",
         enemies: [
             {
                 name: "魔像禁卫",

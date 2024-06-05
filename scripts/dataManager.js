@@ -162,12 +162,20 @@ export class DataManager {
         this.saveData();
     }
 
-    /**
-     * Sort materials by id.
-     * @param {boolean} desc if true, sort in descending order; if false, sort in ascending order
-     */
     sortMaterialsByID(desc) {
-        this.materials.sort((a, b) => (desc ? b.id - a.id : a.id - b.id));
+        if (desc) {
+            this.materials.sort((a, b) => b.id - a.id);
+            this.materials = this.materials
+                .filter((item) => item.type === "common")
+                .concat(this.materials.filter((item) => item.type === "elite"));
+        } else {
+            this.materials.sort((a, b) => a.id - b.id);
+            this.materials = this.materials
+                .filter((item) => item.type === "elite")
+                .concat(
+                    this.materials.filter((item) => item.type === "common")
+                );
+        }
     }
 
     /**

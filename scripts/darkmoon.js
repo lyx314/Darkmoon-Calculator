@@ -186,15 +186,23 @@ export class Darkmoon {
 
         // Button: switch to the last material.
         document.querySelector(".last-material").onclick = () => {
-            const id = this.dm.currentID;
-            this.dm.currentID = id > 1 ? id - 1 : this.dm.materials.length;
+            this.dm.sortMaterialsByID(false);
+            let index = this.dm.materials.findIndex(
+                (item) => item.id === this.dm.currentID
+            );
+            index = index > 0 ? index - 1 : this.dm.materials.length - 1;
+            this.dm.currentID = this.dm.materials[index].id;
             this.update();
         };
 
         // Button: switch to the next material
         document.querySelector(".next-material").onclick = () => {
-            const id = this.dm.currentID;
-            this.dm.currentID = id < this.dm.materials.length ? id + 1 : 1;
+            this.dm.sortMaterialsByID(false);
+            let index = this.dm.materials.findIndex(
+                (item) => item.id === this.dm.currentID
+            );
+            index = index < this.dm.materials.length - 1 ? index + 1 : 0;
+            this.dm.currentID = this.dm.materials[index].id;
             this.update();
         };
 
