@@ -593,4 +593,76 @@ export const materials = [
         names: ["残毁的剑柄", "裂断的剑柄", "未熄的剑柄"],
         keys: ["RuinedHilt", "SplinteredHilt", "StillSmolderingHilt"],
     },
+    {
+        id: 34,
+        type: "common",
+        enemies: [
+            {
+                name: "纳塔龙众",
+                materialsPerEnemy: [0, 0, 0],
+            },
+        ],
+        names: ["稚嫩的尖齿", "老练的坚齿", "横行霸者的利齿"],
+        keys: ["JuvenileFang", "SeasonedFang", "TyrantsFang"],
+    },
+    {
+        id: 35,
+        type: "common",
+        enemies: [
+            {
+                name: "部族龙形武士",
+                materialsPerEnemy: [0, 0, 0],
+            },
+        ],
+        names: ["卫从的木哨", "战士的铁哨", "龙冠武士的金哨"],
+        keys: [
+            "SentrysWoodenWhistle",
+            "WarriorsMetalWhistle",
+            "SaurianCrownedWarriorsGoldenWhistle",
+        ],
+    },
+    {
+        id: 36,
+        type: "elite",
+        enemies: [
+            {
+                name: "大灵显化身",
+                materialsPerEnemy: [0, 0, 0],
+            },
+        ],
+        names: ["意志破碎的残片", "意志明晰的寄偶", "意志巡游的符像"],
+        keys: [
+            "ShardOfAShatteredWill",
+            "LocusOfAClearWill",
+            "SigilOfAStridingWill",
+        ],
+    },
+    {
+        id: 37,
+        type: "elite",
+        enemies: [
+            {
+                name: "熔岩游像",
+                materialsPerEnemy: [0, 0, 0],
+            },
+        ],
+        names: ["聚燃的石块", "聚燃的命种", "聚燃的游像眼"],
+        keys: ["IgnitedStone", "IgnitedSeedOfLife", "IgnitedSeeingEye"],
+    },
+    {
+        id: 38,
+        type: "elite",
+        enemies: [
+            {
+                name: "秘源机兵·寻捕械",
+                materialsPerEnemy: [0, 0, 0],
+            },
+        ],
+        names: ["秘源轴", "秘源机鞘", "秘源真芯"],
+        keys: [
+            "AxisOfTheSecretSource",
+            "SheathOfTheSecretSource",
+            "HeartOfTheSecretSource",
+        ],
+    },
 ];
