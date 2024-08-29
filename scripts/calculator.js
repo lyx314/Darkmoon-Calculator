@@ -14,7 +14,7 @@ export class Calculator {
         this.craftCount = [0, 0];
     }
 
-    setEnemies(enemiesData, enemiesConfig) {
+    setEnemies(enemiesData, enemiesConfig, isWorldLevel9 = true) {
         this.enemiesData = enemiesData;
         this.materialsPerRun = [0, 0, 0];
         enemiesConfig.forEach((config) => {
@@ -22,7 +22,8 @@ export class Calculator {
                 let materialsPerEnemy = enemiesData.find(
                     (enemy) => enemy.name === config.name
                 ).materialsPerEnemy;
-                const coeff = Calculator.enemyLevelCoeff(config.level);
+                let coeff = Calculator.enemyLevelCoeff(config.level);
+                coeff = isWorldLevel9 ? coeff * 1.5 : coeff;
                 materialsPerEnemy = materialsPerEnemy.map((num) =>
                     BigNumber(num)
                         .multipliedBy(coeff)

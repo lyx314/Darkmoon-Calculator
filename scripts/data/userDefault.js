@@ -18,4 +18,5 @@ export const userDefault = {
         noneBonus: true,
     },
     colorTheme: "cyan",
+    isWorldLevel9: true,
 };

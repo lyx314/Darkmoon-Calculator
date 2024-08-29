@@ -95,7 +95,7 @@ export const materials = [
         enemies: [
             {
                 name: "深渊法师",
-                materialsPerEnemy: [2.2324, 0.5953, 0.1487],
+                materialsPerEnemy: [2.6263, 0.7003, 0.1751],
             },
             {
                 name: "深渊[使徒/咏者]",
@@ -111,11 +111,11 @@ export const materials = [
         enemies: [
             {
                 name: "遗迹[守卫/猎者]",
-                materialsPerEnemy: [2.6263, 0.7003, 0.1751],
+                materialsPerEnemy: [3.9394, 1.0505, 0.2626],
             },
             {
                 name: "遗迹重机",
-                materialsPerEnemy: [5.2526, 1.4006, 0.3502],
+                materialsPerEnemy: [6.5658, 1.7508, 0.4378],
             },
         ],
         names: ["混沌装置", "混沌回路", "混沌炉心"],
@@ -231,11 +231,11 @@ export const materials = [
         enemies: [
             {
                 name: "野伏众",
-                materialsPerEnemy: [0.8404, 0.2241, 0.056],
+                materialsPerEnemy: [1.6808, 0.4482, 0.112],
             },
             {
                 name: "海乱鬼",
-                materialsPerEnemy: [1.6808, 0.4482, 0.112],
+                materialsPerEnemy: [3.3616, 0.8964, 0.224],
             },
         ],
         names: ["破旧的刀镡", "影打刀镡", "名刀镡"],
@@ -271,7 +271,7 @@ export const materials = [
         enemies: [
             {
                 name: "飘浮灵",
-                materialsPerEnemy: [1.2606, 0.3362, 0.084],
+                materialsPerEnemy: [2.101, 0.5602, 0.14],
             },
         ],
         names: ["浮游干核", "浮游幽核", "浮游晶化核"],
@@ -598,8 +598,12 @@ export const materials = [
         type: "common",
         enemies: [
             {
-                name: "纳塔龙众",
-                materialsPerEnemy: [0, 0, 0],
+                name: "幼龙",
+                materialsPerEnemy: [0.9244, 0.2465, 0.0616],
+            },
+            {
+                name: "龙",
+                materialsPerEnemy: [1.8489, 0.493, 0.1232],
             },
         ],
         names: ["稚嫩的尖齿", "老练的坚齿", "横行霸者的利齿"],
@@ -610,8 +614,12 @@ export const materials = [
         type: "common",
         enemies: [
             {
-                name: "部族龙形武士",
-                materialsPerEnemy: [0, 0, 0],
+                name: "勇士",
+                materialsPerEnemy: [1.2606, 0.3362, 0.084],
+            },
+            {
+                name: "龙武士",
+                materialsPerEnemy: [2.5212, 0.6723, 0.168],
             },
         ],
         names: ["卫从的木哨", "战士的铁哨", "龙冠武士的金哨"],
@@ -627,7 +635,7 @@ export const materials = [
         enemies: [
             {
                 name: "大灵显化身",
-                materialsPerEnemy: [0, 0, 0],
+                materialsPerEnemy: [6.5658, 1.7508, 0.4378],
             },
         ],
         names: ["意志破碎的残片", "意志明晰的寄偶", "意志巡游的符像"],
@@ -643,7 +651,7 @@ export const materials = [
         enemies: [
             {
                 name: "熔岩游像",
-                materialsPerEnemy: [0, 0, 0],
+                materialsPerEnemy: [5.2526, 1.4006, 0.3502],
             },
         ],
         names: ["聚燃的石块", "聚燃的命种", "聚燃的游像眼"],
@@ -655,7 +663,7 @@ export const materials = [
         enemies: [
             {
                 name: "秘源机兵·寻捕械",
-                materialsPerEnemy: [0, 0, 0],
+                materialsPerEnemy: [4.596, 1.2255, 0.3064],
             },
         ],
         names: ["秘源轴", "秘源机鞘", "秘源真芯"],

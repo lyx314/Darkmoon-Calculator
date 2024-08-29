@@ -84,6 +84,14 @@ export class Darkmoon {
             console.log(`Switch color theme to ${newColorTheme}.`);
         };
 
+        // Toggle world level 9
+        const worldLevel9 = document.getElementById("world-level-9");
+        worldLevel9.checked = this.dm.isWorldLevel9;
+        worldLevel9.onchange = () => {
+            this.dm.isWorldLevel9 = worldLevel9.checked;
+            this.update();
+        };
+
         // Clear data in local storage.
         document.querySelector(".clear-data").onclick = () => {
             const confirmed = confirm("确定要清除所有数据吗？");
@@ -529,7 +537,8 @@ export class Darkmoon {
         const calculator = new Calculator(this.dm.getNumbers());
         calculator.setEnemies(
             this.dm.currentMaterial.enemies,
-            this.dm.enemiesConfig
+            this.dm.enemiesConfig,
+            this.dm.isWorldLevel9
         );
 
         if (this.dm.getLockNumbers()) {
@@ -585,7 +594,8 @@ export class Darkmoon {
         const calculator = new Calculator(this.dm.getNumbers());
         calculator.setEnemies(
             this.dm.currentMaterial.enemies,
-            this.dm.enemiesConfig
+            this.dm.enemiesConfig,
+            this.dm.isWorldLevel9
         );
 
         calculator.trim(this.sucroseBonus.checked, this.doriBonus.checked);

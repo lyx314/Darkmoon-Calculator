@@ -13,6 +13,15 @@ export class DataManager {
         this.data = cachedData ? JSON.parse(cachedData) : userDefault;
     }
 
+    get isWorldLevel9() {
+        return this.data.isWorldLevel9;
+    }
+
+    set isWorldLevel9(value) {
+        this.data.isWorldLevel9 = Boolean(value);
+        this.saveData();
+    }
+
     get currentID() {
         return this.data.currentID;
     }

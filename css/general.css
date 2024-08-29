@@ -35,6 +35,8 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 #color-theme,
@@ -43,8 +45,6 @@ nav {
 .clear-data {
     background-color: var(--color-8);
     color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 10px;
     border: none;
@@ -54,12 +54,16 @@ nav {
     outline: none;
 }
 
+#world-level-9 {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--color-8);
+}
+
 .github-url:link,
 .github-url:visited,
 .github-url:hover,
 .github-url:active {
-    font-size: 1rem;
     margin-left: auto;
     color: var(--color-9);
-    font-weight: 600;
 }
