@@ -455,7 +455,11 @@ export class Darkmoon {
             <select
                 class="enemy-row-item enemy-row-${this.enemyCount} select-level-range"
             >`;
-        for (let level = 18; level >= 0; level--) {
+        for (
+            let level = this.dm.enemyLevelRanges.length - 1;
+            level >= 0;
+            level--
+        ) {
             const selected = level === enemy.level ? "selected" : "";
             const range = this.dm.enemyLevelRanges[level];
             selectLevelHTML += `<option ${selected}>${range}</option>`;

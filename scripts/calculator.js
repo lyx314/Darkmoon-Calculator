@@ -23,7 +23,10 @@ export class Calculator {
                     (enemy) => enemy.name === config.name
                 ).materialsPerEnemy;
                 let coeff = Calculator.enemyLevelCoeff(config.level);
-                coeff = isWorldLevel9 ? coeff * 1.5 : coeff;
+                if (isWorldLevel9) {
+                    coeff = config.level === 20 ? coeff * 1.5 : coeff * 1.25;
+                }
+                // coeff = isWorldLevel9 ? coeff * 1.5 : coeff;
                 materialsPerEnemy = materialsPerEnemy.map((num) =>
                     BigNumber(num)
                         .multipliedBy(coeff)
@@ -63,7 +66,13 @@ export class Calculator {
         }
     }
 
-    static enemyLevelCoeff = (level) => (level + 12) / 30;
+    static enemyLevelCoeff(level) {
+        if (level >= 18) {
+            return 1;
+        } else {
+            return (level + 12) / 30;
+        }
+    }
 
     completed() {
         return this.numbers.every((num) => +num >= 9999);
