@@ -246,7 +246,7 @@ export class Darkmoon {
         document.querySelector(".add-enemy-btn").onclick = () => {
             const enemy = {
                 name: "",
-                level: 18,
+                level: this.dm.enemyLevelRanges.length,
                 number: 0,
                 activated: true,
             };
