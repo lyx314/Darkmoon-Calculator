@@ -64,11 +64,3 @@ nav {
   height: 1rem;
   accent-color: var(--color-8);
 }
-
-.github-url:link,
-.github-url:visited,
-.github-url:hover,
-.github-url:active {
-  margin-left: auto;
-  color: var(--color-9);
-}

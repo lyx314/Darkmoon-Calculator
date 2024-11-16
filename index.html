@@ -1,309 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Darkmoon Calculator</title>
-        <link rel="icon" href="img/kirara3.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Darkmoon Calculator</title>
+    <link rel="icon" href="img/kirara3.png" />
 
-        <!-- ionicons -->
-        <script
-            type="module"
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-        ></script>
-        <script
-            nomodule
-            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-        ></script>
+    <!-- ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/colorThemes.css" />
-        <link rel="stylesheet" href="css/general.css" />
-        <link rel="stylesheet" href="css/panel.css" />
-        <link rel="stylesheet" href="css/enemy.css" />
-        <link rel="stylesheet" href="css/craft.css" />
-        <link rel="stylesheet" href="css/list.css" />
-        <link rel="stylesheet" href="css/media.css" />
-    </head>
-    <body>
-        <nav>
-            <button class="clear-data btn">清除</button>
-            <button class="export-data btn">导出</button>
-            <button class="import-data btn">导入</button>
-            <select name="color-theme" id="color-theme">
-                <option value="cyan" selected>Cyan</option>
-                <option value="gray">Gray</option>
-                <option value="red">Red</option>
-                <option value="pink">Pink</option>
-                <option value="grape">Grape</option>
-                <option value="violet">Violet</option>
-                <option value="indigo">Indigo</option>
-                <option value="blue">Blue</option>
-                <option value="teal">Teal</option>
-                <option value="green">Green</option>
-                <option value="lime">Lime</option>
-                <option value="yellow">Yellow</option>
-                <option value="orange">Orange</option>
-            </select>
-            <input type="checkbox" id="world-level-9" /><label
-                for="world-level-9"
-                >世界9</label
-            >
-            <a
-                class="github-url"
-                href="https://github.com/lyx314/Darkmoon-Calculator"
-                >项目地址</a
-            >
-        </nav>
-        <main class="app">
-            <div class="title">
-                <h1>DARKMOON CALCULATOR</h1>
-                <img
-                    src="img/kirara1.png"
-                    alt="绮良良超级可爱表情包"
-                    class="kirara"
-                />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/colorThemes.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/panel.css" />
+    <link rel="stylesheet" href="css/enemy.css" />
+    <link rel="stylesheet" href="css/craft.css" />
+    <link rel="stylesheet" href="css/list.css" />
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+  <body>
+    <nav>
+      <button class="clear-data btn">清除</button>
+      <button class="export-data btn">导出</button>
+      <button class="import-data btn">导入</button>
+      <select name="color-theme" id="color-theme">
+        <option value="cyan" selected>Cyan</option>
+        <option value="gray">Gray</option>
+        <option value="red">Red</option>
+        <option value="pink">Pink</option>
+        <option value="grape">Grape</option>
+        <option value="violet">Violet</option>
+        <option value="indigo">Indigo</option>
+        <option value="blue">Blue</option>
+        <option value="teal">Teal</option>
+        <option value="green">Green</option>
+        <option value="lime">Lime</option>
+        <option value="yellow">Yellow</option>
+        <option value="orange">Orange</option>
+      </select>
+      <input type="checkbox" id="world-level-9" /><label for="world-level-9"
+        >世界9</label
+      >
+    </nav>
+    <main class="app">
+      <div class="title">
+        <h1>DARKMOON CALCULATOR</h1>
+        <img src="img/kirara1.png" alt="绮良良超级可爱表情包" class="kirara" />
+      </div>
+      <section class="section-panel">
+        <ion-icon
+          class="unlock-init-numbers btn"
+          name="lock-open-outline"
+        ></ion-icon>
+        <ion-icon
+          class="lock-init-numbers btn hidden"
+          name="lock-closed-outline"
+        ></ion-icon>
+        <ion-icon
+          class="last-material btn"
+          name="chevron-back-outline"
+        ></ion-icon>
+        <ion-icon
+          class="next-material btn"
+          name="chevron-forward-outline"
+        ></ion-icon>
+        <div class="progress-value">0%</div>
+        <div class="progress-container">
+          <div class="progress-bar" style="--progress: 0%"></div>
+        </div>
+        <div class="material-panels">
+          <div class="material-panel">
+            <div class="img-container">
+              <img src="img/1-2.png" alt="" class="material-img" />
             </div>
-            <section class="section-panel">
-                <ion-icon
-                    class="unlock-init-numbers btn"
-                    name="lock-open-outline"
-                ></ion-icon>
-                <ion-icon
-                    class="lock-init-numbers btn hidden"
-                    name="lock-closed-outline"
-                ></ion-icon>
-                <ion-icon
-                    class="last-material btn"
-                    name="chevron-back-outline"
-                ></ion-icon>
-                <ion-icon
-                    class="next-material btn"
-                    name="chevron-forward-outline"
-                ></ion-icon>
-                <div class="progress-value">0%</div>
-                <div class="progress-container">
-                    <div class="progress-bar" style="--progress: 0%"></div>
-                </div>
-                <div class="material-panels">
-                    <div class="material-panel">
-                        <div class="img-container">
-                            <img
-                                src="img/1-2.png"
-                                alt=""
-                                class="material-img"
-                            />
-                        </div>
-                        <span class="material-name">史莱姆原浆</span>
-                        <input
-                            type="number"
-                            placeholder="0"
-                            class="material-input"
-                        />
-                        <div class="add-remove-btns">
-                            <ion-icon
-                                name="remove-circle-outline"
-                                class="minus-btn btn"
-                            ></ion-icon>
-                            <span class="init-number"></span>
-                            <ion-icon
-                                name="add-circle-outline"
-                                class="add-btn btn"
-                            ></ion-icon>
-                        </div>
-                    </div>
-                    <div class="material-panel">
-                        <div class="img-container">
-                            <img
-                                src="img/1-1.png"
-                                alt=""
-                                class="material-img"
-                            />
-                        </div>
-                        <span class="material-name">史莱姆清</span>
-                        <input
-                            type="number"
-                            placeholder="0"
-                            class="material-input"
-                        />
-                        <div class="add-remove-btns">
-                            <ion-icon
-                                name="remove-circle-outline"
-                                class="minus-btn btn"
-                            ></ion-icon>
-                            <span class="init-number"></span>
-                            <ion-icon
-                                name="add-circle-outline"
-                                class="add-btn btn"
-                            ></ion-icon>
-                        </div>
-                    </div>
-                    <div class="material-panel">
-                        <div class="img-container">
-                            <img
-                                src="img/1-0.png"
-                                alt=""
-                                class="material-img"
-                            />
-                        </div>
-                        <span class="material-name">史莱姆凝液</span>
-                        <input
-                            type="number"
-                            placeholder="0"
-                            class="material-input"
-                        />
-                        <div class="add-remove-btns">
-                            <ion-icon
-                                name="remove-circle-outline"
-                                class="minus-btn btn"
-                            ></ion-icon>
-                            <span class="init-number"></span>
-                            <ion-icon
-                                name="add-circle-outline"
-                                class="add-btn btn"
-                            ></ion-icon>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <span class="material-name">史莱姆原浆</span>
+            <input type="number" placeholder="0" class="material-input" />
+            <div class="add-remove-btns">
+              <ion-icon
+                name="remove-circle-outline"
+                class="minus-btn btn"
+              ></ion-icon>
+              <span class="init-number"></span>
+              <ion-icon
+                name="add-circle-outline"
+                class="add-btn btn"
+              ></ion-icon>
+            </div>
+          </div>
+          <div class="material-panel">
+            <div class="img-container">
+              <img src="img/1-1.png" alt="" class="material-img" />
+            </div>
+            <span class="material-name">史莱姆清</span>
+            <input type="number" placeholder="0" class="material-input" />
+            <div class="add-remove-btns">
+              <ion-icon
+                name="remove-circle-outline"
+                class="minus-btn btn"
+              ></ion-icon>
+              <span class="init-number"></span>
+              <ion-icon
+                name="add-circle-outline"
+                class="add-btn btn"
+              ></ion-icon>
+            </div>
+          </div>
+          <div class="material-panel">
+            <div class="img-container">
+              <img src="img/1-0.png" alt="" class="material-img" />
+            </div>
+            <span class="material-name">史莱姆凝液</span>
+            <input type="number" placeholder="0" class="material-input" />
+            <div class="add-remove-btns">
+              <ion-icon
+                name="remove-circle-outline"
+                class="minus-btn btn"
+              ></ion-icon>
+              <span class="init-number"></span>
+              <ion-icon
+                name="add-circle-outline"
+                class="add-btn btn"
+              ></ion-icon>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <section class="enemy-section">
-                <div class="statistics">
-                    <div>剩余车数<span class="left-run-times">-</span></div>
-                    <div>
-                        新增车数<span class="increased-run-times">-</span>
-                    </div>
-                    <div>每车进度<span class="progress-per-run">0%</span></div>
-                    <div class="materials-per-run">
-                        每车材料
-                        <img src="img/1-2.png" />0 <img src="img/1-1.png" />0
-                        <img src="img/1-0.png" />0
-                    </div>
-                </div>
-                <div class="enemy-headers grid-4">
-                    <div></div>
-                    <div>敌 人</div>
-                    <div>等 级</div>
-                    <div>数 量</div>
-                    <div></div>
-                </div>
-                <div class="enemies grid-4">
-                    <input type="checkbox" class="activate-enemy" />
-                    <select class="enemy-row-item"></select>
-                    <select class="enemy-row-item"></select>
-                    <input type="text" class="enemy-row-item" />
-                    <ion-icon
-                        name="close-circle-outline"
-                        class="delete-row btn"
-                    ></ion-icon>
-                </div>
-                <div class="add-enemy">
-                    <ion-icon
-                        name="add-circle-outline"
-                        class="add-enemy-btn btn"
-                    ></ion-icon>
-                </div>
-            </section>
+      <section class="enemy-section">
+        <div class="statistics">
+          <div>剩余车数<span class="left-run-times">-</span></div>
+          <div>新增车数<span class="increased-run-times">-</span></div>
+          <div>每车进度<span class="progress-per-run">0%</span></div>
+          <div class="materials-per-run">
+            每车材料
+            <img src="img/1-2.png" />0 <img src="img/1-1.png" />0
+            <img src="img/1-0.png" />0
+          </div>
+        </div>
+        <div class="enemy-headers grid-4">
+          <div></div>
+          <div>敌 人</div>
+          <div>等 级</div>
+          <div>数 量</div>
+          <div></div>
+        </div>
+        <div class="enemies grid-4">
+          <input type="checkbox" class="activate-enemy" />
+          <select class="enemy-row-item"></select>
+          <select class="enemy-row-item"></select>
+          <input type="text" class="enemy-row-item" />
+          <ion-icon
+            name="close-circle-outline"
+            class="delete-row btn"
+          ></ion-icon>
+        </div>
+        <div class="add-enemy">
+          <ion-icon
+            name="add-circle-outline"
+            class="add-enemy-btn btn"
+          ></ion-icon>
+        </div>
+      </section>
 
-            <section class="craft-section">
-                <div class="craft-options">
-                    <input type="radio" id="sucrose-bonus" name="craft-bonus" />
-                    <label for="sucrose-bonus">砂糖</label>
-                    <input type="radio" id="dori-bonus" name="craft-bonus" />
-                    <label for="dori-bonus">多莉</label>
-                    <input
-                        type="radio"
-                        id="none-bonus"
-                        name="craft-bonus"
-                        checked
-                    />
-                    <label for="none-bonus">无</label>
-                </div>
-                <div class="craft-subsection">
-                    <div class="subsection-title">合 成 高 阶</div>
-                    <div class="craft-items">
-                        毕 业
-                        <span class="craft-high-complete">0</span>
-                        配 平
-                        <span class="craft-high-even">0</span>
-                        溢 出
-                        <span class="craft-high-overflow">0</span>
-                    </div>
-                    <button class="craft-btn craft-high-btn">
-                        <ion-icon name="sync-circle-outline"></ion-icon>合 成
-                    </button>
-                </div>
-                <div class="craft-subsection">
-                    <div class="subsection-title">合 成 中 阶</div>
-                    <div class="craft-items">
-                        毕 业
-                        <span class="craft-medium-complete">0</span>
-                        配 平
-                        <span class="craft-medium-even">0</span>
-                        溢 出
-                        <span class="craft-medium-overflow">0</span>
-                    </div>
-                    <button class="craft-btn craft-medium-btn">
-                        <ion-icon name="sync-circle-outline"></ion-icon> 合 成
-                    </button>
-                </div>
+      <section class="craft-section">
+        <div class="craft-options">
+          <input type="radio" id="sucrose-bonus" name="craft-bonus" />
+          <label for="sucrose-bonus">砂糖</label>
+          <input type="radio" id="dori-bonus" name="craft-bonus" />
+          <label for="dori-bonus">多莉</label>
+          <input type="radio" id="none-bonus" name="craft-bonus" checked />
+          <label for="none-bonus">无</label>
+        </div>
+        <div class="craft-subsection">
+          <div class="subsection-title">合 成 高 阶</div>
+          <div class="craft-items">
+            毕 业
+            <span class="craft-high-complete">0</span>
+            配 平
+            <span class="craft-high-even">0</span>
+            溢 出
+            <span class="craft-high-overflow">0</span>
+          </div>
+          <button class="craft-btn craft-high-btn">
+            <ion-icon name="sync-circle-outline"></ion-icon>合 成
+          </button>
+        </div>
+        <div class="craft-subsection">
+          <div class="subsection-title">合 成 中 阶</div>
+          <div class="craft-items">
+            毕 业
+            <span class="craft-medium-complete">0</span>
+            配 平
+            <span class="craft-medium-even">0</span>
+            溢 出
+            <span class="craft-medium-overflow">0</span>
+          </div>
+          <button class="craft-btn craft-medium-btn">
+            <ion-icon name="sync-circle-outline"></ion-icon> 合 成
+          </button>
+        </div>
 
-                <div class="overflow-attention">
-                    当前材料数量有溢出风险，请谨慎合成！
-                </div>
-            </section>
+        <div class="overflow-attention">
+          当前材料数量有溢出风险，请谨慎合成！
+        </div>
+      </section>
 
-            <section class="list-section">
-                <h2 class="list-title">
-                    材料一览
-                    <img src="img/kirara2.png" class="kirara" />
-                </h2>
-                <div class="list-options">
-                    <input
-                        type="radio"
-                        id="list-sort-id"
-                        name="list-sort"
-                        value="id"
-                        checked
-                    />
-                    <label for="list-sort-id">背包顺序</label>
-                    <input
-                        type="radio"
-                        id="list-sort-progress"
-                        name="list-sort"
-                        value="progress"
-                    />
-                    <label for="list-sort-progress">进度排序</label>
+      <section class="list-section">
+        <h2 class="list-title">
+          材料一览
+          <img src="img/kirara2.png" class="kirara" />
+        </h2>
+        <div class="list-options">
+          <input
+            type="radio"
+            id="list-sort-id"
+            name="list-sort"
+            value="id"
+            checked
+          />
+          <label for="list-sort-id">背包顺序</label>
+          <input
+            type="radio"
+            id="list-sort-progress"
+            name="list-sort"
+            value="progress"
+          />
+          <label for="list-sort-progress">进度排序</label>
 
-                    <input
-                        type="radio"
-                        id="list-order-asecnding"
-                        name="list-order"
-                        value="asecnding"
-                        checked
-                    />
-                    <label for="list-order-asecnding">升序</label>
-                    <input
-                        type="radio"
-                        id="list-order-desecnding"
-                        name="list-order"
-                        value="desecnding"
-                    />
-                    <label for="list-order-desecnding">降序</label>
-                    <input type="checkbox" id="hide-completed" />
-                    <label for="hide-completed">隐藏毕业</label>
-                    <ion-icon
-                        class="save-list-to-img"
-                        name="image-outline"
-                    ></ion-icon>
-                </div>
-                <div class="list"></div>
-            </section>
-        </main>
+          <input
+            type="radio"
+            id="list-order-asecnding"
+            name="list-order"
+            value="asecnding"
+            checked
+          />
+          <label for="list-order-asecnding">升序</label>
+          <input
+            type="radio"
+            id="list-order-desecnding"
+            name="list-order"
+            value="desecnding"
+          />
+          <label for="list-order-desecnding">降序</label>
+          <input type="checkbox" id="hide-completed" />
+          <label for="hide-completed">隐藏毕业</label>
+          <ion-icon class="save-list-to-img" name="image-outline"></ion-icon>
+        </div>
+        <div class="list"></div>
+      </section>
+    </main>
 
-        <!-- JavaScript -->
-        <script src="scripts/dom-to-image.js"></script>
-        <script src="scripts/FileSaver.js"></script>
-        <script src="scripts/main.js" type="module"></script>
-    </body>
+    <!-- JavaScript -->
+    <script src="scripts/dom-to-image.js"></script>
+    <script src="scripts/FileSaver.js"></script>
+    <script src="scripts/main.js" type="module"></script>
+  </body>
 </html>
