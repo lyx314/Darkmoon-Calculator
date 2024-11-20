@@ -1,91 +1,91 @@
 /* LIST */
 
 .list-section {
-    margin: 2rem auto;
+  margin: 2rem auto;
 }
 
 .list-title {
-    font-size: 1.4rem;
-    padding: 0.5rem;
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    border-bottom: 0.2rem solid var(--color-9);
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  border-bottom: 0.2rem solid var(--color-9);
 }
 
 .list-title img {
-    transform: translateY(15%);
+  transform: translateY(15%);
 }
 
 .list-options {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0.5rem;
 }
 
 .list-options h2 {
-    font-size: 1.5rem;
-    margin-right: auto;
+  font-size: 1.5rem;
+  margin-right: auto;
 }
 
 .list-options input {
-    margin-left: 0.8rem;
-    accent-color: var(--color-9);
+  margin-left: 0.8rem;
+  accent-color: var(--color-9);
 }
 
 .list-options label {
-    margin-left: 0.2rem;
-    font-size: 1rem;
+  margin-left: 0.2rem;
+  font-size: 1rem;
 }
 
 .save-list-to-img {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-left: 0.5rem;
-    cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
 }
 
 .list-row {
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    margin-top: 0.2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  margin-top: 0.2rem;
 }
 
 .list-row:hover {
-    background-color: var(--color-0);
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  background-color: var(--color-0);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 .list-row img {
-    width: 4rem;
+  width: 4rem;
 }
 
 .list-row span {
-    font-size: 1rem;
-    width: 3.5rem;
+  font-size: 1rem;
+  width: 3.5rem;
 }
 
 .list-progress-container {
-    width: 8rem;
-    border: 0.1rem solid var(--color-6);
-    border-radius: 100rem;
-    margin-right: 1rem;
-    margin-left: 2rem;
+  width: 8rem;
+  border: 0.1rem solid var(--color-6);
+  border-radius: 100rem;
+  margin-right: 1rem;
+  margin-left: 2rem;
 }
 
 .list-progress-bar {
-    width: var(--progress);
-    background-color: var(--color-6);
-    height: 0.3rem;
-    border-radius: 100rem;
+  width: var(--progress);
+  background-color: var(--color-6);
+  height: 0.3rem;
+  border-radius: 100rem;
 }

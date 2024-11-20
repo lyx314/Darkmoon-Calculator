@@ -1,87 +1,87 @@
 /* CRAFT */
 
 .craft-section {
-    background-color: var(--color-1);
-    margin: 1rem 0;
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
-    row-gap: 1rem;
+  background-color: var(--color-1);
+  margin: 1rem 0;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 1rem;
 }
 
 .craft-options {
-    font-weight: 600;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-column: 1/-1;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1/-1;
 }
 
 .craft-options input {
-    margin-left: 0.8rem;
-    margin-right: 0.2rem;
-    accent-color: var(--color-9);
+  margin-left: 0.8rem;
+  margin-right: 0.2rem;
+  accent-color: var(--color-9);
 }
 
 .craft-subsection {
-    padding-bottom: 0.5rem;
-    background-color: var(--color-0);
-    border-radius: 1rem;
-    box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+  padding-bottom: 0.5rem;
+  background-color: var(--color-0);
+  border-radius: 1rem;
+  box-shadow: inset 0 0 0.2rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .subsection-title {
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 0.8rem;
-    width: 100%;
-    background-color: var(--color-6);
-    color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  width: 100%;
+  background-color: var(--color-6);
+  color: #fff;
 }
 
 .craft-items {
-    font-size: 1rem;
-    font-weight: 600;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 1rem;
-    column-gap: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+  column-gap: 1.5rem;
 }
 
 .craft-btn {
-    padding: 0.4rem 1rem;
-    border-radius: 100rem;
-    cursor: pointer;
-    background-color: var(--color-6);
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    border: none;
-    box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 100rem;
+  cursor: pointer;
+  background-color: var(--color-6);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
 
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .craft-btn ion-icon {
-    width: 1.2rem;
-    height: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .overflow-attention {
-    font-size: 0.8rem;
-    grid-column: 1/-1;
-    text-align: center;
+  font-size: 0.8rem;
+  grid-column: 1/-1;
+  text-align: center;
 }
