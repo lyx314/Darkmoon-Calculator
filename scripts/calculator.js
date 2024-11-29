@@ -15,16 +15,19 @@ export class Calculator {
   }
 
   setEnemies(enemiesData, enemiesConfig, isWorldLevel9 = true) {
+    console.log(enemiesData);
     this.enemiesData = enemiesData;
     this.materialsPerRun = [0, 0, 0];
     enemiesConfig.forEach(config => {
       if (config.activated) {
-        let materialsPerEnemy = enemiesData.find(
-          enemy => enemy.name === config.name,
-        ).materialsPerEnemy;
+        const enemy = enemiesData.find(enemy => enemy.name === config.name);
+        let materialsPerEnemy = enemy.materialsPerEnemy;
         let coeff = Calculator.enemyLevelCoeff(config.level);
         if (isWorldLevel9) {
           coeff = config.level === 20 ? coeff * 1.5 : coeff * 1.25;
+        }
+        if (enemy.temp) {
+          coeff = 1;
         }
         // coeff = isWorldLevel9 ? coeff * 1.5 : coeff;
         materialsPerEnemy = materialsPerEnemy.map(num =>
