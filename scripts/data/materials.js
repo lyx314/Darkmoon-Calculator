@@ -672,7 +672,7 @@ export const materials = [
       {
         temp: true,
         name: "深邃拟覆叶·600 (统计数据)",
-        materialsPerEnemy: [11.85, 3.22, 0.76],
+        materialsPerEnemy: [11.84, 3.19, 0.77],
       },
       {
         temp: true,
