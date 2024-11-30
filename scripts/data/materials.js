@@ -672,12 +672,12 @@ export const materials = [
       {
         temp: true,
         name: "深邃拟覆叶·600 (统计数据)",
-        materialsPerEnemy: [11.84, 3.15, 0.78],
+        materialsPerEnemy: [11.841, 3.1548, 0.7908],
       },
       {
         temp: true,
         name: "深邃拟覆叶·400 (统计数据)",
-        materialsPerEnemy: [7.84, 2.09, 0.49],
+        materialsPerEnemy: [7.8431, 2.0882, 0.4902],
       },
     ],
     names: ["折光的胚芽", "惑光的阔叶", "迷光的蜷叶之心"],
