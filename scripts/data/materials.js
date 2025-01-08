@@ -670,19 +670,16 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        temp: true,
-        name: "深邃拟覆叶·600 (统计数据)",
-        materialsPerEnemy: [11.8369, 3.1534, 0.8],
+        name: "深邃拟覆叶·600",
+        materialsPerEnemy: [7.8789, 2.1009, 0.5253],
       },
       {
-        temp: true,
-        name: "深邃拟覆叶·400 (统计数据)",
-        materialsPerEnemy: [7.8869, 2.1058, 0.4708],
+        name: "深邃拟覆叶·400",
+        materialsPerEnemy: [5.2526, 1.4006, 0.3502],
       },
       {
-        temp: true,
-        name: "深邃拟覆叶·200 (统计数据)",
-        materialsPerEnemy: [6.0202, 1.7172, 0.4141],
+        name: "深邃拟覆叶·200",
+        materialsPerEnemy: [3.9394, 1.0505, 0.2626],
       },
     ],
     names: ["折光的胚芽", "惑光的阔叶", "迷光的蜷叶之心"],

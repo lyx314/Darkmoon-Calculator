@@ -29,7 +29,6 @@ export class Calculator {
         if (enemy.temp) {
           coeff = 1;
         }
-        // coeff = isWorldLevel9 ? coeff * 1.5 : coeff;
         materialsPerEnemy = materialsPerEnemy.map(num =>
           BigNumber(num).multipliedBy(coeff).multipliedBy(config.number),
         );
