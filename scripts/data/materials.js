@@ -683,6 +683,18 @@ export const materials = [
       },
     ],
     names: ["折光的胚芽", "惑光的阔叶", "迷光的蜷叶之心"],
-    keys: ["RefractiveBud", "BewilderingBroadleaf", "Illusory-Leafcoil"],
+    keys: ["RefractiveBud", "BewilderingBroadleaf", "IllusoryLeafcoil"],
+  },
+  {
+    id: 40,
+    type: "elite",
+    enemies: [
+      {
+        name: "数据暂无",
+        materialsPerEnemy: [0, 0, 0],
+      },
+    ],
+    names: ["冷裂壳块", "蕴热的背壳", "明燃的棱状壳"],
+    keys: ["ColdCrackedShellshard", "WarmBackShell", "BlazingPrismshell"],
   },
 ];

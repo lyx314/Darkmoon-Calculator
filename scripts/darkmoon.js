@@ -69,7 +69,7 @@ export class Darkmoon {
     colorThemeSelect.value = colorTheme;
     document.documentElement.dataset.theme = colorTheme;
     console.log(`Set color theme: ${colorTheme}.`);
-    colorThemeSelect.onchange = e => {
+    colorThemeSelect.onchange = (e) => {
       const newColorTheme = e.target.value;
       this.dm.colorTheme = newColorTheme;
       document.documentElement.dataset.theme = newColorTheme;
@@ -109,7 +109,7 @@ export class Darkmoon {
       let element = document.createElement("a");
       element.setAttribute(
         "href",
-        "data:text/json;charset=utf-8," + encodeURIComponent(jsonStr),
+        "data:text/json;charset=utf-8," + encodeURIComponent(jsonStr)
       );
       element.setAttribute("download", fileName);
       element.style.display = "none";
@@ -124,11 +124,11 @@ export class Darkmoon {
       const input = document.createElement("input");
       input.type = "file";
       input.accept = ".json";
-      input.onchange = inputEvent => {
+      input.onchange = (inputEvent) => {
         const file = inputEvent.target.files[0];
         const reader = new FileReader();
         reader.readAsText(file, "UTF-8");
-        reader.onload = readerEvent => {
+        reader.onload = (readerEvent) => {
           const importData = JSON.parse(readerEvent.target.result);
           if (importData.format === "GOOD") {
             this.dm.import(importData.materials);
@@ -148,8 +148,8 @@ export class Darkmoon {
     this.materialNumberInputs = [
       ...document.querySelectorAll(".material-input"),
     ].reverse();
-    this.materialNumberInputs.forEach(input => {
-      input.onchange = e => {
+    this.materialNumberInputs.forEach((input) => {
+      input.onchange = (e) => {
         if (!Calculator.isValidNumber(+e.target.value)) {
           alert("请输入 0 ~ 9999 的整数。");
           input.value = "";
@@ -186,7 +186,7 @@ export class Darkmoon {
     document.querySelector(".last-material").onclick = () => {
       this.dm.sortMaterialsByID(false);
       let index = this.dm.materials.findIndex(
-        item => item.id === this.dm.currentID,
+        (item) => item.id === this.dm.currentID
       );
       index = index > 0 ? index - 1 : this.dm.materials.length - 1;
       this.dm.currentID = this.dm.materials[index].id;
@@ -197,7 +197,7 @@ export class Darkmoon {
     document.querySelector(".next-material").onclick = () => {
       this.dm.sortMaterialsByID(false);
       let index = this.dm.materials.findIndex(
-        item => item.id === this.dm.currentID,
+        (item) => item.id === this.dm.currentID
       );
       index = index < this.dm.materials.length - 1 ? index + 1 : 0;
       this.dm.currentID = this.dm.materials[index].id;
@@ -224,7 +224,7 @@ export class Darkmoon {
       this.lockBtn.classList.add("hidden");
       this.unlockBtn.classList.remove("hidden");
       this.dm.unlockNumbers();
-      this.initNumbers.forEach(item => {
+      this.initNumbers.forEach((item) => {
         item.textContent = "";
       });
       this.displayStatistics();
@@ -244,7 +244,7 @@ export class Darkmoon {
     };
 
     document.querySelector(".save-list-to-img").onclick = () => {
-      domtoimage.toBlob(this.list).then(blob => {
+      domtoimage.toBlob(this.list).then((blob) => {
         saveAs(blob, "list.png");
       });
     };
@@ -255,14 +255,14 @@ export class Darkmoon {
       this.listOrderAscending,
       this.listOrderDescending,
       this.listHideCompleted,
-    ].forEach(input => {
+    ].forEach((input) => {
       input.onchange = () => {
         this.dm.listOptions = this.listOptions;
         this.displayList();
       };
     });
 
-    [this.sucroseBonus, this.doriBonus, this.noneBonus].forEach(input => {
+    [this.sucroseBonus, this.doriBonus, this.noneBonus].forEach((input) => {
       input.onchange = () => {
         this.dm.craftOptions = this.craftOptions;
         this.displayCraft();
@@ -272,7 +272,7 @@ export class Darkmoon {
 
     this.craftMediumBtn.onclick = () => {
       let input = prompt(
-        "请输入合成中阶的数量。如果使用砂糖或多莉合成产生了额外的材料，请用空格分隔。例如：1000 100",
+        "请输入合成中阶的数量。如果使用砂糖或多莉合成产生了额外的材料，请用空格分隔。例如：1000 100"
       );
       input = input.trim().split(/\s+/);
       const numbers = this.dm.getNumbers();
@@ -297,7 +297,7 @@ export class Darkmoon {
 
     this.craftHighBtn.onclick = () => {
       let input = prompt(
-        "请输入合成高阶的数量。如果使用砂糖或多莉合成产生了额外的材料，请用空格分隔。例如：1000 100",
+        "请输入合成高阶的数量。如果使用砂糖或多莉合成产生了额外的材料，请用空格分隔。例如：1000 100"
       );
       input = input.trim().split(/\s+/);
       const numbers = this.dm.getNumbers();
@@ -336,7 +336,7 @@ export class Darkmoon {
   }
 
   inputNumbers() {
-    const numbers = this.materialNumberInputs.map(input => +input.value);
+    const numbers = this.materialNumberInputs.map((input) => +input.value);
     this.dm.setNumbers(numbers);
     this.setProgress(numbers);
     this.displayCraft();
@@ -372,7 +372,7 @@ export class Darkmoon {
     } else {
       this.lockBtn.classList.add("hidden");
       this.unlockBtn.classList.remove("hidden");
-      this.initNumbers.forEach(item => {
+      this.initNumbers.forEach((item) => {
         item.textContent = "";
       });
     }
@@ -381,7 +381,7 @@ export class Darkmoon {
   diaplayEnemies() {
     this.enemyCount = 0;
     this.enemies.innerHTML = "";
-    this.dm.enemiesConfig.forEach(enemy => this.addEnemy(enemy));
+    this.dm.enemiesConfig.forEach((enemy) => this.addEnemy(enemy));
     if (this.enemyCount === 0) {
       this.addEnemy({
         name: "",
@@ -392,14 +392,14 @@ export class Darkmoon {
       this.inputEnemiesConfig();
     }
 
-    document.querySelectorAll(".enemy-row-item").forEach(item => {
+    document.querySelectorAll(".enemy-row-item").forEach((item) => {
       item.onchange = () => {
         this.inputEnemiesConfig();
         this.displayCraft();
       };
     });
 
-    document.querySelectorAll(".activate-enemy").forEach(item => {
+    document.querySelectorAll(".activate-enemy").forEach((item) => {
       item.onchange = () => {
         this.inputEnemiesConfig();
         this.displayCraft();
@@ -428,7 +428,7 @@ export class Darkmoon {
             <select
                 class="enemy-row-item enemy-row-${this.enemyCount} select-enemy-name"
             >`;
-    this.dm.enemyOptions.forEach(name => {
+    this.dm.enemyOptions.forEach((name) => {
       const selected = name === enemy.name ? "selected" : "";
       selectEnemyHTML += `<option ${selected}>${name}</option>`;
     });
@@ -477,7 +477,7 @@ export class Darkmoon {
     const rowItems = document.querySelectorAll(`.enemy-row-${this.enemyCount}`);
     document.getElementById(`delete-enemy-row-${this.enemyCount}`).onclick =
       () => {
-        rowItems.forEach(item => item.remove());
+        rowItems.forEach((item) => item.remove());
         this.inputEnemiesConfig();
       };
   }
@@ -488,16 +488,16 @@ export class Darkmoon {
   inputEnemiesConfig() {
     let config = [];
     const acts = [...document.querySelectorAll(".activate-enemy")].map(
-      item => item.checked,
+      (item) => item.checked
     );
     const names = [...document.querySelectorAll(".select-enemy-name")].map(
-      item => item.value,
+      (item) => item.value
     );
     const levels = [...document.querySelectorAll(".select-level-range")].map(
-      item => this.dm.enemyLevelRanges.indexOf(item.value),
+      (item) => this.dm.enemyLevelRanges.indexOf(item.value)
     );
     const numbers = [...document.querySelectorAll(".input-enemy-number")].map(
-      item => +item.value,
+      (item) => +item.value
     );
     for (let i = 0; i < names.length; i++) {
       const enemy = {
@@ -520,7 +520,7 @@ export class Darkmoon {
     calculator.setEnemies(
       this.dm.currentMaterial.enemies,
       this.dm.enemiesConfig,
-      this.dm.isWorldLevel9,
+      this.dm.isWorldLevel9
     );
 
     if (this.dm.getLockNumbers()) {
@@ -531,7 +531,8 @@ export class Darkmoon {
     }
 
     this.progressPerRun.textContent =
-      Calculator.progress(...calculator.materialsPerRun.map(num => +num)) + "%";
+      Calculator.progress(...calculator.materialsPerRun.map((num) => +num)) +
+      "%";
 
     this.materialsPerRun.innerHTML = `
             <div class="materials-per-run">
@@ -572,7 +573,7 @@ export class Darkmoon {
     calculator.setEnemies(
       this.dm.currentMaterial.enemies,
       this.dm.enemiesConfig,
-      this.dm.isWorldLevel9,
+      this.dm.isWorldLevel9
     );
 
     calculator.trim(this.sucroseBonus.checked, this.doriBonus.checked);
@@ -581,7 +582,7 @@ export class Darkmoon {
 
     const overflow = calculator.overflow(
       this.sucroseBonus.checked,
-      this.doriBonus.checked,
+      this.doriBonus.checked
     );
     this.craftMediumOverflow.textContent = overflow[1];
     this.craftHighOverflow.textContent = overflow[2];
@@ -628,7 +629,7 @@ export class Darkmoon {
     } else {
       this.dm.sortMaterialsByID(this.listOptions.orderDescending);
     }
-    this.dm.materials.forEach(item => this.insertListRow(item));
+    this.dm.materials.forEach((item) => this.insertListRow(item));
   }
 
   /**
