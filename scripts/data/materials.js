@@ -690,8 +690,8 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "数据暂无",
-        materialsPerEnemy: [0, 0, 0],
+        name: "炉壳山鼬",
+        materialsPerEnemy: [6.5658, 1.7508, 0.4378],
       },
     ],
     names: ["冷裂壳块", "蕴热的背壳", "明燃的棱状壳"],
