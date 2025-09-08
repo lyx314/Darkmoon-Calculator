@@ -697,4 +697,64 @@ export const materials = [
     names: ["冷裂壳块", "蕴热的背壳", "明燃的棱状壳"],
     keys: ["ColdCrackedShellshard", "WarmBackShell", "BlazingPrismshell"],
   },
+  {
+    id: 41,
+    type: "common",
+    enemies: [
+      {
+        name: "数据暂无",
+        materialsPerEnemy: [0, 0, 0],
+      },
+    ],
+    names: ["毁损机轴", "加固机轴", "精制机轴"],
+    keys: ["BrokenDriveShaft", "ReinforcedDriveShaft", "PrecisionDriveShaft"],
+  },
+  {
+    id: 42,
+    type: "common",
+    enemies: [
+      {
+        name: "数据暂无",
+        materialsPerEnemy: [0, 0, 0],
+      },
+    ],
+    names: ["磨损的执凭", "精致的执凭", "霜镌的执凭"],
+    keys: ["TatteredWarrant", "ImmaculateWarrant", "FrostEtchedWarrant"],
+  },
+  {
+    id: 43,
+    type: "elite",
+    enemies: [
+      {
+        name: "数据暂无",
+        materialsPerEnemy: [0, 0, 0],
+      },
+    ],
+    names: ["霜夜的残照", "霜夜的柔辉", "霜夜的煌荣"],
+    keys: ["FrostnightsGlimmer", "FrostnightsGlow", "FrostnightsGlory"],
+  },
+  {
+    id: 44,
+    type: "elite",
+    enemies: [
+      {
+        name: "数据暂无",
+        materialsPerEnemy: [0, 0, 0],
+      },
+    ],
+    names: ["失光块骨", "稀光遗骼", "繁光躯外骸"],
+    keys: ["LightlessBone", "GlowingRemains", "RadiantExoskeleton"],
+  },
+  {
+    id: 45,
+    type: "elite",
+    enemies: [
+      {
+        name: "数据暂无",
+        materialsPerEnemy: [0, 0, 0],
+      },
+    ],
+    names: ["幽雾化形", "幽雾片甲", "幽雾兜盔"],
+    keys: ["MistshroudManifestation", "MistshroudPlate", "MistshroudHelmet"],
+  },
 ];

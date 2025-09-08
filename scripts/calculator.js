@@ -9,7 +9,7 @@ export class Calculator {
   }
 
   reset() {
-    this.numbers = this.numbersHold.map(num => BigNumber(num));
+    this.numbers = this.numbersHold.map((num) => BigNumber(num));
     this.leftRunTimes = 0;
     this.craftCount = [0, 0];
   }
@@ -18,9 +18,9 @@ export class Calculator {
     console.log(enemiesData);
     this.enemiesData = enemiesData;
     this.materialsPerRun = [0, 0, 0];
-    enemiesConfig.forEach(config => {
+    enemiesConfig.forEach((config) => {
       if (config.activated) {
-        const enemy = enemiesData.find(enemy => enemy.name === config.name);
+        const enemy = enemiesData.find((enemy) => enemy.name === config.name);
         let materialsPerEnemy = enemy.materialsPerEnemy;
         let coeff = Calculator.enemyLevelCoeff(config.level);
         if (isWorldLevel9) {
@@ -29,15 +29,15 @@ export class Calculator {
         if (enemy.temp) {
           coeff = 1;
         }
-        materialsPerEnemy = materialsPerEnemy.map(num =>
-          BigNumber(num).multipliedBy(coeff).multipliedBy(config.number),
+        materialsPerEnemy = materialsPerEnemy.map((num) =>
+          BigNumber(num).multipliedBy(coeff).multipliedBy(config.number)
         );
         this.materialsPerRun = this.materialsPerRun.map((num, i) =>
-          BigNumber(num).plus(materialsPerEnemy[i]),
+          BigNumber(num).plus(materialsPerEnemy[i])
         );
       }
     });
-    this.materialsPerRun = this.materialsPerRun.map(num => {
+    this.materialsPerRun = this.materialsPerRun.map((num) => {
       if (+num >= 0) {
         return +num.toFixed(4);
       } else {
@@ -73,14 +73,14 @@ export class Calculator {
   }
 
   completed() {
-    return this.numbers.every(num => +num >= 9999);
+    return this.numbers.every((num) => +num >= 9999);
   }
 
   addToNumbers(arr) {
     this.numbers = this.numbers.map((num, i) => num.plus(arr[i]));
   }
 
-  validCraft = index =>
+  validCraft = (index) =>
     +this.numbers[index] > +this.numbers[index + 1] &&
     +this.numbers[index] >= 3 &&
     +this.numbers[index + 1] < 9999;
@@ -132,16 +132,16 @@ export class Calculator {
 
   overflow(sucrose, dori) {
     this.enemiesData.sort(
-      (a, b) => b.materialsPerEnemy[0] - a.materialsPerEnemy[0],
+      (a, b) => b.materialsPerEnemy[0] - a.materialsPerEnemy[0]
     );
     // this.enemiesData.sort(
     //     (a, b) => a.materialsPerEnemy[0] - b.materialsPerEnemy[0]
     // );
-    this.materialsPerRun = this.enemiesData[0].materialsPerEnemy.map(num =>
-      BigNumber(num),
+    this.materialsPerRun = this.enemiesData[0].materialsPerEnemy.map((num) =>
+      BigNumber(num)
     );
     this.calculateRun(sucrose, dori);
-    return this.numbers.map(num => +num.minus(9999).toFixed(1));
+    return this.numbers.map((num) => +num.minus(9999).toFixed(1));
   }
 
   static weight = (low, medium, high) => low + medium * 3 + high * 9;
@@ -152,5 +152,5 @@ export class Calculator {
     return +BigNumber(weight).dividedBy(total).multipliedBy(100).toFixed(d);
   }
 
-  static isValidNumber = x => Number.isInteger(x) && x >= 0 && x <= 9999;
+  static isValidNumber = (x) => Number.isInteger(x) && x >= 0 && x <= 9999;
 }
