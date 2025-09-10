@@ -213,14 +213,6 @@ export const materials = [
         name: "龙蜥",
         materialsPerEnemy: [5.2526, 1.4006, 0.3502],
       },
-      {
-        name: "赤璋寻岳府君·移即",
-        materialsPerEnemy: [10.5052, 2.8012, 0.7004],
-      },
-      {
-        name: "赤璋寻岳府君·天虞",
-        materialsPerEnemy: [10.5052, 2.8012, 0.7004],
-      },
     ],
     names: ["脆弱的骨片", "结实的骨片", "石化的骨片"],
     keys: ["FragileBoneShard", "SturdyBoneShard", "FossilizedBoneShard"],
@@ -358,15 +350,15 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "镀金旅团·低级",
+        name: "镀金旅团·小",
         materialsPerEnemy: [1.0505, 0.2801, 0.07],
       },
       {
-        name: "镀金旅团·中级",
+        name: "镀金旅团·中",
         materialsPerEnemy: [2.101, 0.5602, 0.1401],
       },
       {
-        name: "镀金旅团·高级",
+        name: "镀金旅团·大",
         materialsPerEnemy: [2.9414, 0.7844, 0.196],
       },
       {
@@ -430,48 +422,12 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "小型原海异兽",
+        name: "原海异种·小",
         materialsPerEnemy: [0.8404, 0.2241, 0.056],
       },
       {
-        name: "大型原海异兽",
+        name: "原海异种·大",
         materialsPerEnemy: [1.6808, 0.4482, 0.112],
-      },
-      {
-        name: "海原巡回法官",
-        materialsPerEnemy: [10.0848, 2.6892, 0.672],
-      },
-      {
-        name: "铁皮子爵",
-        materialsPerEnemy: [10.0848, 2.6892, 0.672],
-      },
-      {
-        name: "隐者王·多尔库",
-        materialsPerEnemy: [8.404, 2.241, 0.56],
-      },
-      {
-        name: "渐渐隐去的老兵",
-        materialsPerEnemy: [8.404, 2.241, 0.56],
-      },
-      {
-        name: "深谷之剑",
-        materialsPerEnemy: [18.4888, 4.9302, 1.232],
-      },
-      {
-        name: "双生妖精骑士",
-        materialsPerEnemy: [18.4888, 4.9302, 1.232],
-      },
-      {
-        name: "极彩的露珂菈",
-        materialsPerEnemy: [10.0848, 2.6892, 0.672],
-      },
-      {
-        name: "魔剑柯鲁日",
-        materialsPerEnemy: [8.404, 2.241, 0.56],
-      },
-      {
-        name: "夏萨尼翁",
-        materialsPerEnemy: [8.404, 2.241, 0.56],
       },
     ],
     names: ["异海凝珠", "异海之块", "异色结晶石"],
@@ -482,16 +438,12 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "大型发条机关",
+        name: "发条机关·小",
         materialsPerEnemy: [3.3616, 0.8964, 0.224],
       },
       {
-        name: "小型发条机关",
+        name: "发条机关·大",
         materialsPerEnemy: [1.2606, 0.3362, 0.084],
-      },
-      {
-        name: "自律超算型场力发生装置",
-        materialsPerEnemy: [12.608, 3.362, 0.84],
       },
     ],
     names: ["啮合齿轮", "机关正齿轮", "奇械机芯齿轮"],
@@ -504,14 +456,6 @@ export const materials = [
       {
         name: "浊水幻灵",
         materialsPerEnemy: [5.2526, 1.4006, 0.3502],
-      },
-      {
-        name: "湖畔的尼尼安涅",
-        materialsPerEnemy: [15.7578, 4.2018, 1.0506],
-      },
-      {
-        name: "湖畔的维维安涅",
-        materialsPerEnemy: [15.7578, 4.2018, 1.0506],
       },
     ],
     names: ["浊水的一滴", "浊水的一掬", "初生的浊水幻灵"],
@@ -526,11 +470,11 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "大型隙境原体",
+        name: "隙境原体·大",
         materialsPerEnemy: [6.5658, 1.7508, 0.4378],
       },
       {
-        name: "隙境原体",
+        name: "隙境原体·小",
         materialsPerEnemy: [3.9394, 1.0505, 0.2626],
       },
     ],
@@ -544,14 +488,6 @@ export const materials = [
       {
         name: "役人",
         materialsPerEnemy: [5.2526, 1.4006, 0.3502],
-      },
-      {
-        name: "以索忒",
-        materialsPerEnemy: [15.7578, 4.2018, 1.0506],
-      },
-      {
-        name: "雪奈茨芙娜的蝶安奈拉",
-        materialsPerEnemy: [15.7578, 4.2018, 1.0506],
       },
     ],
     names: ["老旧的役人怀表", "役人的制式怀表", "役人的时时刻刻"],
@@ -590,12 +526,12 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "幼龙",
-        materialsPerEnemy: [0.9244, 0.2465, 0.0616],
+        name: "纳塔龙众·大",
+        materialsPerEnemy: [1.8489, 0.493, 0.1232],
       },
       {
-        name: "龙",
-        materialsPerEnemy: [1.8489, 0.493, 0.1232],
+        name: "纳塔龙众·小",
+        materialsPerEnemy: [0.9244, 0.2465, 0.0616],
       },
     ],
     names: ["稚嫩的尖齿", "老练的坚齿", "横行霸者的利齿"],
@@ -606,12 +542,12 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "勇士",
-        materialsPerEnemy: [1.2606, 0.3362, 0.084],
+        name: "部族龙形武士·大",
+        materialsPerEnemy: [2.5212, 0.6723, 0.168],
       },
       {
-        name: "龙武士",
-        materialsPerEnemy: [2.5212, 0.6723, 0.168],
+        name: "部族龙形武士·小",
+        materialsPerEnemy: [1.2606, 0.3362, 0.084],
       },
     ],
     names: ["卫从的木哨", "战士的铁哨", "龙冠武士的金哨"],
@@ -670,15 +606,15 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "深邃拟覆叶·600",
+        name: "深邃拟覆叶·大",
         materialsPerEnemy: [7.8789, 2.1009, 0.5253],
       },
       {
-        name: "深邃拟覆叶·400",
+        name: "深邃拟覆叶·中",
         materialsPerEnemy: [5.2526, 1.4006, 0.3502],
       },
       {
-        name: "深邃拟覆叶·200",
+        name: "深邃拟覆叶·小",
         materialsPerEnemy: [3.9394, 1.0505, 0.2626],
       },
     ],
@@ -702,8 +638,12 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "数据暂无",
-        materialsPerEnemy: [0, 0, 0],
+        name: "巡陆艇·大【推测】",
+        materialsPerEnemy: [3.3616, 0.8964, 0.224],
+      },
+      {
+        name: "巡陆艇·小【推测】",
+        materialsPerEnemy: [1.6808, 0.4482, 0.112],
       },
     ],
     names: ["毁损机轴", "加固机轴", "精制机轴"],
@@ -714,8 +654,12 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "数据暂无",
-        materialsPerEnemy: [0, 0, 0],
+        name: "愚人众特辖队·大【推测】",
+        materialsPerEnemy: [2.5212, 0.6723, 0.168],
+      },
+      {
+        name: "愚人众特辖队·小【推测】",
+        materialsPerEnemy: [1.2606, 0.3362, 0.084],
       },
     ],
     names: ["磨损的执凭", "精致的执凭", "霜镌的执凭"],
@@ -726,7 +670,7 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "霜夜灵嗣",
+        name: "霜夜灵嗣【推测】",
         materialsPerEnemy: [6.5658, 1.7508, 0.4378],
       },
     ],
@@ -738,7 +682,7 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "蕴光异兽",
+        name: "蕴光异兽【推测】",
         materialsPerEnemy: [6.5658, 1.7508, 0.4378],
       },
     ],
@@ -750,11 +694,11 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "荒野狂狩士",
+        name: "荒野狂狩士【推测】",
         materialsPerEnemy: [5.2526, 1.4006, 0.3502],
       },
       {
-        name: "荒野幽徒",
+        name: "荒野幽徒【推测】",
         materialsPerEnemy: [2.6263, 0.7003, 0.1751],
       },
     ],
