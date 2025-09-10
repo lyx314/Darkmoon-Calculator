@@ -726,8 +726,8 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "数据暂无",
-        materialsPerEnemy: [0, 0, 0],
+        name: "霜夜灵嗣",
+        materialsPerEnemy: [6.5658, 1.7508, 0.4378],
       },
     ],
     names: ["霜夜的残照", "霜夜的柔辉", "霜夜的煌荣"],
@@ -738,8 +738,8 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "数据暂无",
-        materialsPerEnemy: [0, 0, 0],
+        name: "蕴光异兽",
+        materialsPerEnemy: [6.5658, 1.7508, 0.4378],
       },
     ],
     names: ["失光块骨", "稀光遗骼", "繁光躯外骸"],
@@ -750,8 +750,12 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "数据暂无",
-        materialsPerEnemy: [0, 0, 0],
+        name: "荒野狂狩士",
+        materialsPerEnemy: [5.2526, 1.4006, 0.3502],
+      },
+      {
+        name: "荒野幽徒",
+        materialsPerEnemy: [2.6263, 0.7003, 0.1751],
       },
     ],
     names: ["幽雾化形", "幽雾片甲", "幽雾兜盔"],
