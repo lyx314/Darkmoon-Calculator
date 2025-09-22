@@ -438,11 +438,11 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "发条机关·小",
+        name: "发条机关·大",
         materialsPerEnemy: [3.3616, 0.8964, 0.224],
       },
       {
-        name: "发条机关·大",
+        name: "发条机关·小",
         materialsPerEnemy: [1.2606, 0.3362, 0.084],
       },
     ],
