@@ -638,11 +638,11 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "巡陆艇·大【推测】",
+        name: "巡陆艇·大",
         materialsPerEnemy: [3.3616, 0.8964, 0.224],
       },
       {
-        name: "巡陆艇·小【推测】",
+        name: "巡陆艇·小",
         materialsPerEnemy: [1.6808, 0.4482, 0.112],
       },
     ],
@@ -654,11 +654,11 @@ export const materials = [
     type: "common",
     enemies: [
       {
-        name: "愚人众特辖队·大【推测】",
+        name: "愚人众特辖队·大",
         materialsPerEnemy: [2.5212, 0.6723, 0.168],
       },
       {
-        name: "愚人众特辖队·小【推测】",
+        name: "愚人众特辖队·小",
         materialsPerEnemy: [1.2606, 0.3362, 0.084],
       },
     ],
@@ -670,7 +670,7 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "霜夜灵嗣【推测】",
+        name: "霜夜灵嗣",
         materialsPerEnemy: [6.5658, 1.7508, 0.4378],
       },
     ],
@@ -682,7 +682,7 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "蕴光异兽【推测】",
+        name: "蕴光异兽",
         materialsPerEnemy: [6.5658, 1.7508, 0.4378],
       },
     ],
@@ -694,11 +694,11 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "荒野狂狩士【推测】",
+        name: "荒野狂狩士",
         materialsPerEnemy: [5.2526, 1.4006, 0.3502],
       },
       {
-        name: "荒野幽徒【推测】",
+        name: "荒野幽徒",
         materialsPerEnemy: [2.6263, 0.7003, 0.1751],
       },
     ],
