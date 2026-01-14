@@ -705,4 +705,20 @@ export const materials = [
     names: ["幽雾化形", "幽雾片甲", "幽雾兜盔"],
     keys: ["MistshroudManifestation", "MistshroudPlate", "MistshroudHelmet"],
   },
+  {
+    id: 46,
+    type: "elite",
+    enemies: [
+      {
+        name: "深黯钓客",
+        materialsPerEnemy: [2.6263, 0.7003, 0.1751],
+      },
+    ],
+    names: ["深黯的裂眼", "深黯的怪核", "深黯的钩喙"],
+    keys: [
+      "FracturedEyeOfTheDeepShadow",
+      "AberrantCoreOfTheDeepShadow",
+      "HookedBeakOfTheDeepShadow",
+    ],
+  },
 ];
