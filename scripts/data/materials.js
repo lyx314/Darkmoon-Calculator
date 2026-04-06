@@ -721,4 +721,16 @@ export const materials = [
       "HookedBeakOfTheDeepShadow",
     ],
   },
+  {
+    id: 47,
+    type: "elite",
+    enemies: [
+      {
+        name: "数据暂无",
+        materialsPerEnemy: [0, 0, 0],
+      },
+    ],
+    names: ["失色的焰剑", "残失的焰剑", "宝饰的焰剑"],
+    keys: ["FadedFlamingHilt", "FracturedFlamingHilt", "JeweledFlamingHilt"],
+  },
 ];
