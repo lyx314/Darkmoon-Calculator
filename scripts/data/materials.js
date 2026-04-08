@@ -726,8 +726,8 @@ export const materials = [
     type: "elite",
     enemies: [
       {
-        name: "数据暂无",
-        materialsPerEnemy: [0, 0, 0],
+        name: "辖域守护者",
+        materialsPerEnemy: [3.9394, 1.0505, 0.2626],
       },
     ],
     names: ["失色的焰剑", "残失的焰剑", "宝饰的焰剑"],
