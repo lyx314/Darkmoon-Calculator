@@ -733,4 +733,16 @@ export const materials = [
     names: ["失色的焰剑", "残失的焰剑", "宝饰的焰剑"],
     keys: ["FadedFlamingHilt", "FracturedFlamingHilt", "JeweledFlamingHilt"],
   },
+  {
+    id: 48,
+    type: "elite",
+    enemies: [
+      {
+        name: "先驱秘源统辖阵列",
+        materialsPerEnemy: [3.9394, 1.0505, 0.2626],
+      },
+    ],
+    names: ["残损的月铁", "空竭的月铁", "无秽的月铁"],
+    keys: ["FracturedLunarIron", "DepletedLunarIron", "UnblemishedLunarIron"],
+  },
 ];
