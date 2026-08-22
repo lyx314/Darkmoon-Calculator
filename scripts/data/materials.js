@@ -745,4 +745,76 @@ export const materials = [
     names: ["残损的月铁", "空竭的月铁", "无秽的月铁"],
     keys: ["FracturedLunarIron", "DepletedLunarIron", "UnblemishedLunarIron"],
   },
+  {
+    id: 49,
+    type: "common",
+    enemies: [
+      {
+        name: "肌生晶石的妖精·大",
+        materialsPerEnemy: [3.3616, 0.8964, 0.224],
+      },
+      {
+        name: "肌生晶石的妖精·小",
+        materialsPerEnemy: [1.2606, 0.3362, 0.084],
+      },
+      {
+        name: "精英(随便写的)",
+        materialsPerEnemy: [0.5253, 0.1401, 0.035],
+      },
+    ],
+    names: ["幻造萤屑", "幻造裂晶", "幻造晶鳞石"],
+    keys: [
+      "EtherealGlimmershard",
+      "EtherealCrystal",
+      "EtherealCrystalscaleStone",
+    ],
+  },
+  {
+    id: 50,
+    type: "common",
+    enemies: [
+      {
+        name: "异种合成魔兽·大",
+        materialsPerEnemy: [3.3616, 0.8964, 0.224],
+      },
+      {
+        name: "异种合成魔兽·小",
+        materialsPerEnemy: [1.2606, 0.3362, 0.084],
+      },
+    ],
+    names: ["嵌合种", "并生嵌合胞", "源生嵌合体"],
+    keys: ["ChimericCore", "SymbioticChimericNucleus", "PrimeChimericNexus"],
+  },
+  {
+    id: 51,
+    type: "elite",
+    enemies: [
+      {
+        name: "兽怪暴徒·大",
+        materialsPerEnemy: [3.9394, 1.0505, 0.2626],
+      },
+      {
+        name: "兽怪暴徒·小",
+        materialsPerEnemy: [2.101, 0.5602, 0.1401],
+      },
+    ],
+    names: ["沉积残片", "沉积结块", "沉积增生物"],
+    keys: ["AccretedFragment", "AccretedMass", "AccretedGrowth"],
+  },
+  {
+    id: 52,
+    type: "elite",
+    enemies: [
+      {
+        name: "荒野树妖·大",
+        materialsPerEnemy: [5.2526, 1.4006, 0.3502],
+      },
+      {
+        name: "荒野树妖·小",
+        materialsPerEnemy: [2.6263, 0.7003, 0.1751],
+      },
+    ],
+    names: ["灵生空根", "灵生分蘖节", "灵生盘枝心"],
+    keys: ["HollowRootOfLife", "SproutNodeOfLife", "CoiledCoreOfLife"],
+  },
 ];
